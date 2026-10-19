@@ -1,17 +1,13 @@
-# Dayerize 0.2.0 — redesigned testing build
+# Dayerize 0.2.1 — refined testing build
 
-[Download APK directly — ARM64, 78 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.2.0-arm64.apk)
+Whole-app visual refinement with consistent typography, subtle bordered panels, larger asset artwork, selected navigation states, a compact list layout and prioritized everyday icons.
 
-Open the APK on a modern ARM64 Android phone to install. No ZIP extraction is needed. Version code 2 uses the same application ID and debug signing certificate as the previous testing build; back up your local data before updating.
+The editor keeps Save and validation feedback at the bottom, including with large text. Currency handling, four languages, offline data and the previous signing identity are preserved.
 
-- Screenshot-inspired dark design with rounded bordered cards, lime accents and floating navigation.
-- Wishlist with purchase conversion; wishes do not inflate owned totals.
-- Grouped editor, wheel date picker, category sheets and 2,568 offline 3D/2D icon choices.
-- Redesigned detail, analytics and settings; four languages and multiple currencies retained.
-- Corrections for retirement/resale calculations, unsafe restore preferences and edit-mode regressions.
+[Download testing APK directly — ARM64, approximately 78 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.2.1-arm64.apk)
 
-Verified: 30 automated tests passed, Android lint has no errors (16 warnings), APK signature checked, native host-rendered screen comparison including Chinese at 200% text size. These are host tests, not a completed physical-device test campaign. Camera uses thumbnail capture; use gallery import for high-resolution photos. On-device cutout quality and full backup interruption recovery still need device validation. No authentication or historical snapshot recorder is included.
+30 automated host tests passed; Android lint has 0 errors and 16 warnings. Native host renders checked across core screens, light/dark styles and Chinese at 200% text size. Physical-device testing remains outstanding. Camera thumbnail capture, on-device cutout quality and interrupted restore recovery limitations remain as documented in 0.2.0.
 
-The application source is retained in the development workspace; this delivery repository commit is not a reproducible source snapshot.
+This remains an early testing build. Back up local data before updating. Source changes are retained in the development workspace; this delivery commit contains the testing APK and notes, not a reproducible source snapshot.
 
-APK SHA-256: `62210bd10fe4e0b45df886f3eff1ae32a52c9c39041b243cf38e2bc994d51d4f`
+APK SHA-256: `3e073088fa2794624e1c1820e86867a731515cc9e3d1fbab1598666ad6fd8190`
