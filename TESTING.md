@@ -1,9 +1,11 @@
-Early Android testing build, version 0.1.0.
+# Dayerize 0.1.0 early testing build
 
-Download Dayerize-0.1.0-debug.apk below and open it on your Android phone to install. This is a debug-signed build.
+[Download APK directly](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.1.0-debug.apk)
+
+Open the APK on Android to install. No ZIP extraction is needed. This debug-signed universal APK uses compressed native libraries.
 
 Use sample data only. Known accounting and backup-restore defects remain; device tests did not complete successfully. Photo import currently requires Android 13 or later.
 
 The APK was built from the development workspace; the release tag is not a reproducible source snapshot of that workspace.
 
-SHA-256: `db48bdf737493ab1b2d716b69d715b1c4842bb235c8c040116cc3460d4f40b28`
+APK SHA-256: `816173114c0f099dd19e1941785b06d2b8f5b504ffd059bc6a8d4005c3928ea2`
