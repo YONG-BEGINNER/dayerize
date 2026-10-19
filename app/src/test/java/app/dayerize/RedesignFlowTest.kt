@@ -18,7 +18,7 @@ class RedesignFlowTest {
         ui.onNodeWithText("Legacy camera").performClick()
         ui.onNodeWithContentDescription("Edit").performClick()
         ui.onNodeWithTag("asset-name").performTextReplacement("Legacy camera edited")
-        ui.onNodeWithText("Save asset").performScrollTo().performClick()
+        ui.onNodeWithText("Save asset").assertIsDisplayed().performClick()
         ui.waitUntil(10000){vm.state.value.assets.any{it.name=="Legacy camera edited"}}
         org.junit.Assert.assertTrue(vm.state.value.assets.single{it.id=="legacy"}.useMode)
     }
@@ -32,7 +32,7 @@ class RedesignFlowTest {
         ui.onNodeWithText("Daily camera").performClick()
         ui.onNodeWithContentDescription("Edit").performClick()
         ui.onNodeWithTag("asset-name").performTextReplacement("Daily camera edited")
-        ui.onNodeWithText("Save asset").performScrollTo().performClick()
+        ui.onNodeWithText("Save asset").assertIsDisplayed().performClick()
         ui.waitUntil(10000){vm.state.value.assets.any{it.name=="Daily camera edited"}}
         org.junit.Assert.assertEquals(334,vm.state.value.assets.single{it.id=="daily"}.targetDays)
     }
@@ -42,10 +42,10 @@ class RedesignFlowTest {
         ui.onNodeWithContentDescription("Add asset").performClick()
         ui.onNodeWithTag("asset-name").performTextInput("Wish camera")
         ui.onNodeWithTag("asset-price").performTextInput("123.45")
-        ui.onNodeWithText("Save asset").performScrollTo().performClick()
+        ui.onNodeWithText("Save asset").assertIsDisplayed().performClick()
         ui.waitUntil(10000) { ui.onAllNodesWithText("Mark as purchased").fetchSemanticsNodes().isNotEmpty() }
         ui.onNodeWithText("Mark as purchased").performClick()
-        ui.onNodeWithText("Save asset").performScrollTo().performClick()
+        ui.onNodeWithText("Save asset").assertIsDisplayed().performClick()
         val vm=androidx.lifecycle.ViewModelProvider(ui.activity)[AppViewModel::class.java]
         ui.waitUntil(10000) { vm.state.value.assets.any { it.name=="Wish camera" && !it.wishlist } }
         org.junit.Assert.assertEquals(12345L,vm.state.value.assets.single{it.name=="Wish camera"}.purchase.minor)

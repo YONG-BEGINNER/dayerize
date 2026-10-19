@@ -71,12 +71,12 @@ import java.time.LocalDate
                 Surface(Modifier.weight(1f),shape=RoundedCornerShape(40.dp),color=MaterialTheme.colorScheme.surface,border=BorderStroke(1.dp,MaterialTheme.colorScheme.outlineVariant),shadowElevation=8.dp) {
                     Row(Modifier.padding(horizontal=8.dp,vertical=8.dp),horizontalArrangement=Arrangement.SpaceEvenly) {
                         listOf(R.string.collection to Icons.Outlined.Home,R.string.wishlist to Icons.Outlined.FavoriteBorder,R.string.analytics to Icons.Outlined.PieChart,R.string.settings to Icons.Outlined.Settings).forEachIndexed { i,(label,icon)->
-                            IconButton(onClick={tab=i}) { Icon(icon,stringResource(label),tint=if(tab==i)MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha=.55f)) }
+                            IconButton(onClick={tab=i},modifier=Modifier.clip(RoundedCornerShape(18.dp)).background(if(tab==i)MaterialTheme.colorScheme.surfaceVariant else androidx.compose.ui.graphics.Color.Transparent)) { Icon(icon,stringResource(label),tint=if(tab==i)MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha=.55f)) }
                         }
                     }
                 }
-                Surface(onClick={selected=null;acquiring=false;editing=true},shape=RoundedCornerShape(50),color=MaterialTheme.colorScheme.surface,border=BorderStroke(1.dp,MaterialTheme.colorScheme.outlineVariant)) {
-                    Box(Modifier.size(64.dp),contentAlignment=Alignment.Center) { Icon(Icons.Outlined.Add,stringResource(R.string.add_asset),Modifier.size(30.dp)) }
+                Surface(onClick={selected=null;acquiring=false;editing=true},shape=RoundedCornerShape(50),color=MaterialTheme.colorScheme.primaryContainer,contentColor=MaterialTheme.colorScheme.onPrimaryContainer,border=BorderStroke(1.dp,MaterialTheme.colorScheme.outlineVariant)) {
+                    Box(Modifier.size(64.dp),contentAlignment=Alignment.Center) { Icon(Icons.Outlined.Add,stringResource(R.string.add_asset),Modifier.size(30.dp),tint=androidx.compose.ui.graphics.Color.Black) }
                 }
             }
         } }

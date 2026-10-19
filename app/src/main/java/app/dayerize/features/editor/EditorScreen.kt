@@ -76,7 +76,8 @@ import app.dayerize.images.CutoutProcessor
         busy=true;try { photo=withContext(Dispatchers.IO){val f=File(vm.store.photos,UUID.randomUUID().toString()+".png");f.outputStream().use { require(bitmap.compress(Bitmap.CompressFormat.PNG,100,it)) };f.name};originalPhoto=photo;processedPhoto=null }catch(e:Exception){vm.message.value=R.string.processing_failed}finally{busy=false}
     } }
     BackHandler { discard=true }
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).imePadding().padding(horizontal=16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+    Column(Modifier.fillMaxSize().imePadding()) {
+    Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(horizontal=16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         Box(Modifier.fillMaxWidth().padding(top=8.dp)) {
             IconButton(onClick={discard=true},modifier=Modifier.align(Alignment.CenterStart)){Icon(Icons.Outlined.Close,stringResource(R.string.back))}
             Row(Modifier.align(Alignment.Center),horizontalArrangement=Arrangement.spacedBy(24.dp)) {
@@ -89,14 +90,14 @@ import app.dayerize.images.CutoutProcessor
             }
         }
         val preview=Asset("preview","preview",name.ifBlank { "Asset" },Money(0,currency),date,icon=icon,photo=photo)
-        Box(Modifier.fillMaxWidth().padding(top=18.dp),contentAlignment=Alignment.Center) {
+        Box(Modifier.fillMaxWidth().padding(top=8.dp),contentAlignment=Alignment.Center) {
             Box(Modifier.size(112.dp)) {
                 AssetArt(preview,Modifier.fillMaxSize().padding(6.dp))
                 FilledIconButton(onClick={sheet="image"},modifier=Modifier.align(Alignment.BottomEnd).size(36.dp)){Icon(Icons.Outlined.Edit,stringResource(R.string.choose_image),Modifier.size(18.dp))}
             }
         }
         TextField(name,{name=it},placeholder={Text(stringResource(R.string.item_name),Modifier.fillMaxWidth(),textAlign=TextAlign.Center)},textStyle=LocalTextStyle.current.copy(textAlign=TextAlign.Center,fontWeight=FontWeight.Bold,fontSize=20.sp),modifier=Modifier.fillMaxWidth().testTag("asset-name"),singleLine=true,colors=TextFieldDefaults.colors(focusedContainerColor=MaterialTheme.colorScheme.background,unfocusedContainerColor=MaterialTheme.colorScheme.background,focusedIndicatorColor=MaterialTheme.colorScheme.background,unfocusedIndicatorColor=MaterialTheme.colorScheme.background))
-        Spacer(Modifier.height(8.dp))
+        Spacer(Modifier.height(2.dp))
         Panel {
             Row(verticalAlignment=Alignment.CenterVertically) {
                 Icon(Icons.Outlined.Paid,null,Modifier.size(19.dp));Text(stringResource(if(wish)R.string.budget else R.string.price),Modifier.weight(1f).padding(start=8.dp),fontSize=14.sp)
@@ -133,7 +134,11 @@ import app.dayerize.images.CutoutProcessor
                 Field(channel,{channel=it},R.string.channel);Field(warranty,{warranty=it},R.string.warranty);Field(serial,{serial=it},R.string.serial)
             }
         }
-        if(error)Text(stringResource(R.string.check_fields),color=MaterialTheme.colorScheme.error)
+        Spacer(Modifier.height(12.dp))
+    }
+    Surface(shadowElevation=8.dp,color=MaterialTheme.colorScheme.background) {
+        Column {
+        if(error)Text(stringResource(R.string.check_fields),Modifier.padding(horizontal=24.dp,vertical=4.dp),color=MaterialTheme.colorScheme.error)
         if(busy)LinearProgressIndicator(Modifier.fillMaxWidth())
         Button(onClick={
             try {
@@ -142,8 +147,9 @@ import app.dayerize.images.CutoutProcessor
                 val a=(existing ?: Asset(UUID.randomUUID().toString(),vm.state.value.config.getValue("workspace"),name,purchase,date)).copy(name=name.trim(),purchase=purchase,purchaseDate=if(wish)vm.today().toString()else date,targetDays=target,category=category.trim(),tags=tags.split(',').map(String::trim).filter(String::isNotEmpty),notes=notes,serial=serial,channel=channel,warranty=warranty,icon=icon,photo=photo,useMode=!wish&&targetMode=="custom"&&useMode,valuation=valuation,manualValue=if(valuation=="manual")Money.parse(value,currency).minor else null,residual=if(valuation=="linear")Money.parse(residual,currency).minor else 0,originalPhoto=originalPhoto,wishlist=wish,targetMode=targetMode)
                 a.validate(vm.today());busy=true;vm.save(a,onError={busy=false;error=true}){busy=false;onDone(a.id)}
             }catch(e:Exception){error=true;busy=false}
-        },enabled=!busy,modifier=Modifier.fillMaxWidth().heightIn(min=54.dp)){Text(stringResource(R.string.save_asset),fontWeight=FontWeight.Bold)}
-        Spacer(Modifier.height(16.dp))
+        },enabled=!busy,modifier=Modifier.fillMaxWidth().padding(horizontal=24.dp,vertical=12.dp).heightIn(min=54.dp)){Text(stringResource(R.string.save_asset),fontWeight=FontWeight.Bold)}
+    }
+    }
     }
     if(picker)IconPicker(onSelect={icon=it;photo=null;originalPhoto=null;processedPhoto=null;picker=false},onDismiss={picker=false})
     if(sheet.isNotBlank())ModalBottomSheet(onDismissRequest={sheet=""},containerColor=MaterialTheme.colorScheme.surface) {

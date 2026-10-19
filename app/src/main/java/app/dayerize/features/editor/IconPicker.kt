@@ -24,7 +24,8 @@ import app.dayerize.ui.*
     val ctx=LocalContext.current
     val catalog=remember { val a=JSONArray(ctx.assets.open("icons.json").bufferedReader().use { it.readText() }); (0 until a.length()).map { a.getJSONObject(it).let { o->o.getString("id") to o.getString("name") } } }
     var query by rememberSaveable { mutableStateOf("") };var style by rememberSaveable { mutableStateOf("3d") }
-    val visible=remember(query){catalog.filter { it.second.contains(query,true) }}
+    val preferred=remember { listOf("mobile_phone","laptop","headphone","camera","video_camera","desktop_computer","watch","television","battery","electric_plug","automobile","bicycle","motor_scooter","handbag","backpack","running_shoe","ring","gem_stone","couch_and_lamp","chair","bed","refrigerator","package") }
+    val visible=remember(query){catalog.filter { it.second.contains(query,true) }.sortedBy { preferred.indexOf(it.first).let { rank->if(rank<0)Int.MAX_VALUE else rank } }}
     Dialog(onDismissRequest=onDismiss,properties=DialogProperties(usePlatformDefaultWidth=false)) {
         Surface(Modifier.fillMaxSize(),color=MaterialTheme.colorScheme.background) { Column(Modifier.systemBarsPadding().padding(16.dp)) {
             Row(verticalAlignment=Alignment.CenterVertically) {
@@ -40,8 +41,8 @@ import app.dayerize.ui.*
             if(visible.isEmpty())Text(stringResource(R.string.no_results))
             LazyVerticalGrid(columns=GridCells.Adaptive(56.dp),modifier=Modifier.weight(1f),horizontalArrangement=Arrangement.spacedBy(10.dp),verticalArrangement=Arrangement.spacedBy(10.dp)) {
                 items(visible,key={it.first}) { (id,name)->
-                    Surface(onClick={onSelect("$id:$style")},shape=RoundedCornerShape(16.dp),color=MaterialTheme.colorScheme.surface) {
-                        AsyncImage(model="file:///android_asset/icons/${id}_${style}.${if(style=="3d")"png" else "webp"}",contentDescription=name,modifier=Modifier.aspectRatio(1f).padding(8.dp))
+                    Surface(onClick={onSelect("$id:$style")},shape=RoundedCornerShape(18.dp),border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant),color=MaterialTheme.colorScheme.surface) {
+                        AsyncImage(model="file:///android_asset/icons/${id}_${style}.${if(style=="3d")"png" else "webp"}",contentDescription=name,modifier=Modifier.aspectRatio(1f).padding(7.dp))
                     }
                 }
             }

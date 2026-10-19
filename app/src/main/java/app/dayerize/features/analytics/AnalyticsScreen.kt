@@ -25,7 +25,7 @@ import java.time.*
     }
     val groups=owned.filter { it.sale==null }.groupBy { it.category }.mapValues { (_,assets)->runCatching{summarize(assets,state.config["currency"]?:"MYR",vm.fxRates(),today)}.getOrNull() }
     val shades=listOf(Lime,Color(0xFF969B88),Color(0xFF687052),Color(0xFF45493D))
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=110.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=110.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         ScreenHeading(stringResource(R.string.analytics))
         Panel(Modifier.fillMaxWidth()) {
             Label(R.string.estimated_value);Text(summary?.let { displayMoney(it.total) } ?: "—",fontSize=34.sp,fontWeight=FontWeight.Bold)
