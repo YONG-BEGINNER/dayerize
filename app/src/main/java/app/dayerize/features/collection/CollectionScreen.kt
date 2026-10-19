@@ -43,7 +43,7 @@ import java.math.RoundingMode
             total+=cost*rate
         };total
     }.getOrNull() }
-    LazyVerticalGrid(columns=GridCells.Fixed(if(list || wishes)1 else 2),contentPadding=PaddingValues(start=16.dp,end=16.dp,top=4.dp,bottom=110.dp),horizontalArrangement=Arrangement.spacedBy(12.dp),verticalArrangement=Arrangement.spacedBy(14.dp)) {
+    LazyVerticalGrid(columns=GridCells.Fixed(if(list || wishes)1 else 2),contentPadding=PaddingValues(start=16.dp,end=16.dp,top=4.dp,bottom=110.dp),horizontalArrangement=Arrangement.spacedBy(12.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         item(span={GridItemSpan(maxLineSpan)}) { ScreenHeading(if(wishes)stringResource(R.string.wishlist) else "Dayerize") { IconButton(onClick={showSearch=!showSearch}){Icon(Icons.Outlined.Search,stringResource(R.string.search))} } }
         if(showSearch)item(span={GridItemSpan(maxLineSpan)}) { OutlinedTextField(search,{search=it},placeholder={Text(stringResource(R.string.search))},modifier=Modifier.fillMaxWidth(),singleLine=true,shape=RoundedCornerShape(24.dp),leadingIcon={Icon(Icons.Outlined.Search,null)}) }
         item(span={GridItemSpan(maxLineSpan)}) { Panel(Modifier.fillMaxWidth()) {
@@ -99,16 +99,26 @@ import java.math.RoundingMode
                         OutlinedButton(onClick={onPurchase(a)}){Text(stringResource(R.string.purchase_wish),fontSize=12.sp)}
                     }
                 }
+            } else if(list)Surface(shape=RoundedCornerShape(22.dp),color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
+                Row(Modifier.fillMaxWidth().combinedClickable(onClick={onOpen(a)},onLongClick={menu=a}).padding(14.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(14.dp)) {
+                    AssetArt(a,Modifier.size(64.dp))
+                    Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(5.dp)) {
+                        Text(a.name,fontWeight=FontWeight.SemiBold,fontSize=15.sp,maxLines=1,overflow=TextOverflow.Ellipsis)
+                        Text(displayMoney(a.purchase)+" · ${cost?.days ?: 0} "+stringResource(R.string.days),fontSize=11.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(formatCost(cost?.net ?: cost?.current,a.purchase.currency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),fontSize=16.sp,fontWeight=FontWeight.Bold)
+                    }
+                    Icon(Icons.Outlined.ChevronRight,null,Modifier.size(18.dp),tint=MaterialTheme.colorScheme.onSurfaceVariant)
+                }
             } else
-            Surface(shape=RoundedCornerShape(24.dp),color=MaterialTheme.colorScheme.surface,border=BorderStroke(1.dp,MaterialTheme.colorScheme.outlineVariant)) {
+            Surface(shape=RoundedCornerShape(24.dp),color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
                 Column(Modifier.combinedClickable(onClick={onOpen(a)},onLongClick={menu=a}).padding(14.dp),verticalArrangement=Arrangement.spacedBy(6.dp)) {
-                    Box(Modifier.fillMaxWidth().height(if(list)64.dp else 72.dp)) {
-                        AssetArt(a,Modifier.size(if(list)60.dp else 70.dp).align(Alignment.CenterStart))
+                    Box(Modifier.fillMaxWidth().height(if(list)64.dp else 124.dp)) {
+                        AssetArt(a,Modifier.size(if(list)60.dp else 90.dp).align(Alignment.BottomCenter))
                         if(!wishes)Box(Modifier.align(Alignment.TopEnd)){StatusBadge(a.status)}
                     }
-                    Text(a.name,fontWeight=FontWeight.Medium,fontSize=15.sp,maxLines=1,overflow=TextOverflow.Ellipsis)
+                    Text(a.name,fontWeight=FontWeight.SemiBold,fontSize=15.sp,maxLines=1,overflow=TextOverflow.Ellipsis)
                     Text(displayMoney(a.purchase)+(if(!wishes)" · ${cost?.days ?: 0} "+stringResource(R.string.days) else ""),fontSize=11.sp,color=MaterialTheme.colorScheme.onSurfaceVariant,maxLines=1,overflow=TextOverflow.Ellipsis)
-                    Text(if(wishes)stringResource(R.string.view) else formatCost(cost?.net ?: cost?.current,a.purchase.currency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),Modifier.padding(top=14.dp),fontWeight=FontWeight.Bold,fontSize=15.sp)
+                    Text(if(wishes)stringResource(R.string.view) else formatCost(cost?.net ?: cost?.current,a.purchase.currency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),Modifier.padding(top=10.dp),fontWeight=FontWeight.Bold,fontSize=17.sp)
                 }
             }
         }

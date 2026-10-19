@@ -21,7 +21,7 @@ import java.math.BigDecimal
 
 @Composable fun SettingsScreen(state:AppState,vm:AppViewModel,onExport:()->Unit,onRestore:()->Unit) {
     var rates by remember { mutableStateOf(false) };var categories by remember { mutableStateOf(false) };var licenses by remember { mutableStateOf(false) };var tagDialog by remember { mutableStateOf(false) }
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=110.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=110.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         ScreenHeading(stringResource(R.string.settings))
         Panel(Modifier.fillMaxWidth()) {
             Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {

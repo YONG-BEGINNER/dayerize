@@ -31,7 +31,7 @@ import java.time.LocalDate
         }
         AssetArt(a,Modifier.fillMaxWidth().height(180.dp))
         Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
-            Text(a.name,Modifier.weight(1f),fontSize=24.sp,fontWeight=FontWeight.Bold)
+            Text(a.name,Modifier.weight(1f),fontSize=23.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.4).sp)
             if(!a.wishlist)StatusBadge(a.status)
         }
         if(a.wishlist) {
@@ -41,7 +41,7 @@ import java.time.LocalDate
         } else {
             Panel(Modifier.fillMaxWidth()) {
                 Label(if(a.sale!=null)R.string.net_cost else R.string.daily_total)
-                Text(formatCost(if(a.sale!=null)cost.net else cost.current,a.purchase.currency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),fontSize=30.sp,fontWeight=FontWeight.Bold)
+                Text(formatCost(if(a.sale!=null)cost.net else cost.current,a.purchase.currency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),fontSize=32.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.8).sp)
                 if(a.sale!=null){Label(R.string.daily_cost);Text(formatCost(cost.current,a.purchase.currency)+stringResource(if(a.useMode)R.string.per_use else R.string.per_day))}
                 Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween) {
                     Column{Text("${cost.days}",fontSize=20.sp,fontWeight=FontWeight.Bold);Label(R.string.held_days)}
@@ -67,9 +67,9 @@ import java.time.LocalDate
         }
         Button(onClick=onEdit,modifier=Modifier.fillMaxWidth().heightIn(min=52.dp)){Text(stringResource(R.string.edit))}
         if(!a.wishlist)Row(horizontalArrangement=Arrangement.spacedBy(10.dp)) {
-            if(a.status==Status.ACTIVE)OutlinedButton(onClick={action="retire"},modifier=Modifier.weight(1f)){Text(stringResource(R.string.retire))}
+            if(a.status==Status.ACTIVE)OutlinedButton(onClick={action="retire"},modifier=Modifier.weight(1f).heightIn(min=48.dp)){Text(stringResource(R.string.retire))}
             if(a.status==Status.RETIRED)OutlinedButton(onClick={action="reactivate"},modifier=Modifier.weight(1f)){Text(stringResource(R.string.reactivate))}
-            if(a.sale==null)OutlinedButton(onClick={action="sell"},modifier=Modifier.weight(1f)){Text(stringResource(R.string.resell))}
+            if(a.sale==null)OutlinedButton(onClick={action="sell"},modifier=Modifier.weight(1f).heightIn(min=48.dp)){Text(stringResource(R.string.resell))}
         }
         TextButton(onClick={action="delete"},modifier=Modifier.align(Alignment.CenterHorizontally)){Text(stringResource(R.string.delete),color=MaterialTheme.colorScheme.error)}
     }

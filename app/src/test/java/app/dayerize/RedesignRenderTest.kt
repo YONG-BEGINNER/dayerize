@@ -70,5 +70,13 @@ class RedesignRenderTest {
         shot("05-analytics")
         ui.onNodeWithContentDescription("Settings").performClick()
         shot("06-settings")
+        ui.onNodeWithText("Language").performScrollTo()
+        shot("12-settings-appearance")
+        ui.onNodeWithText("Light").performScrollTo().performClick()
+        ui.waitUntil(10000){vm.state.value.config["theme"]=="light"}
+        ui.onNodeWithContentDescription("Collection").performClick()
+        shot("13-light-collection")
+        ui.onNodeWithContentDescription("Grid / list").performClick()
+        shot("14-list")
     }
 }

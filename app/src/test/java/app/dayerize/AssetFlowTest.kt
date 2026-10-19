@@ -13,7 +13,7 @@ class AssetFlowTest {
         ui.onNodeWithContentDescription("Add asset").performClick()
         ui.onNodeWithTag("asset-name").performTextInput("Test camera")
         ui.onNodeWithTag("asset-price").performTextInput("123.45")
-        ui.onNodeWithText("Save asset").performScrollTo().performClick()
+        ui.onNodeWithText("Save asset").assertIsDisplayed().performClick()
         ui.waitUntil(10000) { ui.onAllNodesWithText("Test camera").fetchSemanticsNodes().isNotEmpty() }
         ui.onNodeWithText("Test camera").assertExists()
     }

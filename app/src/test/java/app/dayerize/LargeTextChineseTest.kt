@@ -39,7 +39,7 @@ class LargeTextChineseTest {
         shot("09-zh-large-editor")
         ui.onNodeWithTag("asset-name").performTextInput("测试相机")
         ui.onNodeWithTag("asset-price").performScrollTo().performTextInput("123.45")
-        ui.onNodeWithText("保存资产").performScrollTo().performClick()
+        ui.onNodeWithText("保存资产").assertIsDisplayed().performClick()
         ui.waitUntil(10000){vm.state.value.assets.any{it.name=="测试相机"}}
         org.junit.Assert.assertEquals(12345L,vm.state.value.assets.single{it.name=="测试相机"}.purchase.minor)
     }
