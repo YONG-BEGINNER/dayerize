@@ -1,13 +1,13 @@
-# Dayerize 0.2.1 — refined testing build
+# Dayerize 0.3.0 — Alloy testing build
 
-Whole-app visual refinement with consistent typography, subtle bordered panels, larger asset artwork, selected navigation states, a compact list layout and prioritized everyday icons.
+[Download the ARM64 APK directly — 103 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.3.0-arm64.apk)
 
-The editor keeps Save and validation feedback at the bottom, including with large text. Currency handling, four languages, offline data and the previous signing identity are preserved.
+Graphite/amber Alloy interface, labeled navigation, compact asset cards, collection filtering/sorting, photo preview/outline controls, sale preview and backup status. Includes 12 original identities in realistic 3D and cute 2D (24 icons), with proportional rendering. Multi-currency accounting and four languages remain supported.
 
-[Download testing APK directly — ARM64, approximately 78 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.2.1-arm64.apk)
+44 host tests pass; lint has 0 errors and 18 warnings. Physical-device testing remains outstanding. This is an early testing build: back up local data before updating. The larger model-specific catalog and Google login/sync are separate future milestones.
 
-30 automated host tests passed; Android lint has 0 errors and 16 warnings. Native host renders checked across core screens, light/dark styles and Chinese at 200% text size. Physical-device testing remains outstanding. Camera thumbnail capture, on-device cutout quality and interrupted restore recovery limitations remain as documented in 0.2.0.
+Known minor issues: filtering a category literally named “All” collides with the all-categories option; the photo preview may briefly show an error while loading. See [review and execution notes](ALLOY-REVIEW.md).
 
-This remains an early testing build. Back up local data before updating. Source changes are retained in the development workspace; this delivery commit contains the testing APK and notes, not a reproducible source snapshot.
+Android 8.0+; ARM64; version code 4. The signing certificate is unchanged. This delivery repository contains the APK and notes; source changes remain in the development workspace.
 
-APK SHA-256: `3e073088fa2794624e1c1820e86867a731515cc9e3d1fbab1598666ad6fd8190`
+APK SHA-256: `c397ac46f9845495fe98347ff55a8ffd17fa6253f77e21bb4a6dfb22b617e362`
