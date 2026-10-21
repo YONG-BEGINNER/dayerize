@@ -5,8 +5,15 @@ import org.junit.Rule
 import org.junit.Test
 @org.junit.runner.RunWith(org.robolectric.RobolectricTestRunner::class)
 @org.robolectric.annotation.Config(sdk=[35],qualifiers="en-rUS-w411dp-h891dp-xhdpi")
+@org.robolectric.annotation.GraphicsMode(org.robolectric.annotation.GraphicsMode.Mode.NATIVE)
 class RedesignFlowTest {
     @get:Rule val ui=createAndroidComposeRule<MainActivity>()
+    @org.junit.Before fun clearFixture() {
+        val vm=androidx.lifecycle.ViewModelProvider(ui.activity)[AppViewModel::class.java]
+        ui.waitUntil(15000){vm.state.value.loaded}
+        kotlinx.coroutines.runBlocking{vm.store.dao.clear()}
+        ui.waitUntil(10000){vm.state.value.assets.isEmpty()}
+    }
     @Test fun editingLegacyUseAssetPreservesUsageMode() {
         ui.waitUntil(15000) { ui.onAllNodesWithContentDescription("Collection").fetchSemanticsNodes().isNotEmpty() }
         val vm=androidx.lifecycle.ViewModelProvider(ui.activity)[AppViewModel::class.java]

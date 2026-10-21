@@ -35,14 +35,16 @@ class RedesignRenderTest {
         val vm=ViewModelProvider(ui.activity)[AppViewModel::class.java]
         val today=vm.today()
         runBlocking {
+            vm.store.dao.clear()
+            vm.store.preference("theme","dark")
             val workspace=vm.store.settings().getValue("workspace")
-            vm.store.save(Asset("sample-one",workspace,"Edifier Comfo Bass",Money(10985,"MYR"),today.minusDays(55).toString(),category="Tech",icon="headphone:3d"))
-            vm.store.save(Asset("sample-two",workspace,"Anker Soundcore",Money(21675,"MYR"),today.minusDays(192).toString(),category="Tech",icon="headphone:3d"))
-            vm.store.save(Asset("wish-one",workspace,"Studio headphones",Money(249900,"MYR"),today.toString(),icon="headphone:3d",wishlist=true))
-            vm.store.save(Asset("sample-three",workspace,"Canon EOS RP",Money(442211,"MYR"),today.minusDays(226).toString(),category="Camera",icon="camera:3d"))
+            vm.store.save(Asset("sample-one",workspace,"Edifier Comfo Bass",Money(10985,"MYR"),today.minusDays(55).toString(),category="Tech",icon="original/headphones:3d"))
+            vm.store.save(Asset("sample-two",workspace,"Anker Soundcore",Money(21675,"MYR"),today.minusDays(192).toString(),category="Tech",icon="original/headphones:3d"))
+            vm.store.save(Asset("wish-one",workspace,"Studio headphones",Money(249900,"MYR"),today.toString(),icon="original/headphones:3d",wishlist=true))
+            vm.store.save(Asset("sample-three",workspace,"Canon EOS RP",Money(442211,"MYR"),today.minusDays(226).toString(),category="Camera",icon="original/camera:cute2d"))
         }
         ui.waitUntil(10000){ui.onAllNodesWithText("Edifier Comfo Bass").fetchSemanticsNodes().isNotEmpty()}
-        Thread.sleep(1200)
+        repeat(40) { Thread.sleep(100); ui.waitForIdle() }
         shot("01-collection")
         ui.onNodeWithText("Edifier Comfo Bass").performClick()
         shot("04-detail")
@@ -61,8 +63,11 @@ class RedesignRenderTest {
         ui.onNodeWithText("Tech").performClick()
         ui.onNodeWithContentDescription("Change image").performClick()
         ui.onNodeWithText("Choose an icon").performClick()
-        Thread.sleep(1200)
+        repeat(40) { Thread.sleep(100); ui.waitForIdle() }
         shot("07-icon-picker")
+        ui.onNodeWithText("Cute 2D").performClick()
+        repeat(40) { Thread.sleep(100); ui.waitForIdle() }
+        shot("15-cute-icon-picker")
         ui.onNodeWithContentDescription("Cancel").performClick()
         ui.onNodeWithContentDescription("Back").performClick()
         ui.onNodeWithText("Confirm").performClick()

@@ -1,0 +1,19 @@
+<resources>
+    <string name="cute_2d">Cute 2D</string>
+    <string name="apply">Apply</string>
+    <string name="art_tech">Tech</string>
+    <string name="art_vehicles">Vehicles</string>
+    <string name="art_wearables">Wearables</string>
+    <string name="art_home">Home</string>
+    <string name="art_hobbies">Hobbies</string>
+    <string name="default_artwork">Default artwork</string>
+<string name="sort_by">Sort by</string>
+<string name="ascending">Ascending</string>
+<string name="reset">Reset</string>
+<string name="sort_unavailable">Items without a comparable daily cost appear last.</string>
+<string name="photo_workspace">Photo workspace</string>
+<string name="photo_fit">Fit · original proportions</string>
+<string name="photo_outline">White outline</string>
+<string name="last_export">Last successful export</string>
+<string name="never_exported">No backup exported yet</string>
+</resources>

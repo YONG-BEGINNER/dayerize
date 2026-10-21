@@ -15,3 +15,7 @@ final result: passed (native host-rendered scope)
 Rechecked the approved board and actual updated renders: consistent fine-bordered panels, typography and icon bounds throughout all six primary pages and selectors; pinned Save visible at standard and Chinese 200% scale; selected dock background and lime add action; icon catalog starts with everyday assets; compact list is genuinely horizontal. Light theme and the scrolled settings controls were also exercised. Save regression tests assert visibility without scrolling and verify persisted values. Press feedback remains native with no added custom motion.
 
 The floating dock overlays scrolling content as in the reference; bottom content padding allows all rows to scroll clear of it. Longer localization strings and large financial values may wrap. Device keyboard behavior and physical-device visual verification remain outstanding.
+
+## Alloy implementation
+
+Graphite/amber panels, compact summary, labeled navigation and original 3D/cute 2D artwork are implemented. See [delivery review](alloy-0.3.0-delivery.md) for scope, independent review, execution rulings and deferred minors. Host capture image loads are allowed to settle between frames before inspection.

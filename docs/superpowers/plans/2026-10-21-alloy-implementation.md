@@ -126,3 +126,7 @@ Milestone A (this plan): installable Alloy offline app with an explicitly counte
 ## Self-review
 
 Coverage: Boards A–D map to Tasks 1–7. Artwork breadth is carried explicitly to the separate catalog plan. Cloud/profile/birthday fields are carried explicitly to the separate readiness plan; they are not silently dropped or faked. Historical recording and decorative crop modes are excluded consistently with the approved design notes. Every Review Focus condition has a task/test owner. No product source has been changed while preparing this plan.
+
+## Execution record — 0.3.0 testing milestone
+
+Tasks 1–7 are integrated in the first testing build; Task 8 host verification and independent review are complete. The full suite passes 44 tests and lint reports no errors. Checklist items requiring device validation, cutout interruption or complete end-to-end restore interruption coverage remain outstanding and are not represented as completed by this milestone. See [delivery evidence, execution rulings and deferred minors](../../redesign/alloy-0.3.0-delivery.md). Full catalog and cloud synchronization remain separate plans.

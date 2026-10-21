@@ -11,6 +11,11 @@ import java.util.UUID
 import java.time.ZoneId
 
 class FileBackup(private val store:AssetStore) {
+    suspend fun exportAndRecord(output:OutputStream?) {
+        if(output==null)return
+        output.use{export(it)}
+        store.preference("lastExport",java.time.Instant.now().toString())
+    }
     suspend fun export(output:OutputStream)=store.mutex.withLock {
         val config=store.settings()
         val assets=store.dao.all().map { store.json.decodeFromString<Asset>(it.payload) }
@@ -28,6 +33,7 @@ class FileBackup(private val store:AssetStore) {
         require(prefs["language"] in listOf(null,"system","en","zh-CN","zh-TW","ms"))
         require(prefs["theme"] in listOf(null,"system","light","dark"))
         require(prefs["decimals"] in listOf(null,"0","1","2","3"))
+        require(prefs["artworkStyle"] in listOf(null,"3d","cute2d"))
         require(prefs["grouping"] in listOf(null,"true","false"))
         val staged=mutableListOf<File>()
         try {
@@ -52,5 +58,5 @@ class FileBackup(private val store:AssetStore) {
             // a crash after it leaves all new photos present. Orphans can be cleaned separately.
         }catch(e:Exception){staged.forEach { it.delete() };throw e}
     }
-    companion object { val safeSettings=setOf("currency","timezone","language","theme","reduceMotion","decimals","grouping") }
+    companion object { val safeSettings=setOf("currency","timezone","language","theme","reduceMotion","decimals","grouping","artworkStyle") }
 }

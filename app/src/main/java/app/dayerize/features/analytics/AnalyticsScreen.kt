@@ -24,11 +24,11 @@ import java.time.*
         a.sale?.let { if(YearMonth.from(LocalDate.parse(it.date))==YearMonth.from(today))flow[it.proceeds.currency]=Math.addExact(flow[it.proceeds.currency] ?: 0,it.proceeds.minor) }
     }
     val groups=owned.filter { it.sale==null }.groupBy { it.category }.mapValues { (_,assets)->runCatching{summarize(assets,state.config["currency"]?:"MYR",vm.fxRates(),today)}.getOrNull() }
-    val shades=listOf(Lime,Color(0xFF969B88),Color(0xFF687052),Color(0xFF45493D))
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=110.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+    val shades=listOf(Lime,Color(0xFFB7C0C5),Color(0xFF788B98),Color(0xFF596066))
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=150.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         ScreenHeading(stringResource(R.string.analytics))
         Panel(Modifier.fillMaxWidth()) {
-            Label(R.string.estimated_value);Text(summary?.let { displayMoney(it.total) } ?: "—",fontSize=34.sp,fontWeight=FontWeight.Bold)
+            Label(R.string.estimated_value);Text(summary?.let { displayMoney(it.total) } ?: "—",fontSize=28.sp,fontWeight=FontWeight.Bold)
             Text((state.config["currency"]?:"MYR")+" · "+stringResource(R.string.rates),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
             if(summary?.missing?.isNotEmpty()==true)Text(stringResource(R.string.incomplete_total)+": "+summary.missing.joinToString(),fontSize=12.sp)
         }

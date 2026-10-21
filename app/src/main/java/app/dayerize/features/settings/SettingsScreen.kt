@@ -21,7 +21,7 @@ import java.math.BigDecimal
 
 @Composable fun SettingsScreen(state:AppState,vm:AppViewModel,onExport:()->Unit,onRestore:()->Unit) {
     var rates by remember { mutableStateOf(false) };var categories by remember { mutableStateOf(false) };var licenses by remember { mutableStateOf(false) };var tagDialog by remember { mutableStateOf(false) }
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=110.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=150.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         ScreenHeading(stringResource(R.string.settings))
         Panel(Modifier.fillMaxWidth()) {
             Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
@@ -40,8 +40,7 @@ import java.math.BigDecimal
         Panel(Modifier.fillMaxWidth()) {
             SettingRow(stringResource(R.string.category_manage),icon=Icons.Outlined.Category,onClick={categories=true})
             SettingRow(stringResource(R.string.tag_manage),icon=Icons.Outlined.Sell,onClick={tagDialog=true})
-            SettingRow(stringResource(R.string.export),icon=Icons.Outlined.Upload,onClick=onExport)
-            SettingRow(stringResource(R.string.restore),icon=Icons.Outlined.Restore,onClick=onRestore)
+            SettingRow(stringResource(R.string.backup),icon=Icons.Outlined.Backup,onClick=onExport)
         }
         Text(stringResource(R.string.backup_note),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
         Label(R.string.appearance)
@@ -49,6 +48,8 @@ import java.math.BigDecimal
             Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(6.dp)){listOf("system" to R.string.system,"light" to R.string.light,"dark" to R.string.dark).forEach { (k,label)->
                 SelectPill(stringResource(label),(state.config["theme"] ?: "dark")==k){vm.setting("theme",k)}
             } }
+            val styles=mapOf("3d" to stringResource(R.string.style_3d),"cute2d" to stringResource(R.string.cute_2d))
+            Choice(styles[state.config["artworkStyle"] ?: "3d"]!!,styles.values.toList(),R.string.default_artwork){name->vm.setting("artworkStyle",styles.entries.first{it.value==name}.key)}
             SettingRow(stringResource(R.string.reduce_motion),trailing={Switch(state.config["reduceMotion"]!="false",{vm.setting("reduceMotion",it.toString())})})
         }
         Label(R.string.general)
@@ -78,5 +79,5 @@ import java.math.BigDecimal
         var from by remember { mutableStateOf(state.assets.flatMap{it.tags}.firstOrNull() ?: "") };var to by remember { mutableStateOf("") }
         AlertDialog(onDismissRequest={tagDialog=false},title={Text(stringResource(R.string.rename_tag))},text={Column{Choice(from,state.assets.flatMap{it.tags}.distinct(),R.string.tag_title){from=it};Field(to,{to=it},R.string.new_name)}},confirmButton={TextButton(onClick={if(from.isNotBlank()&&to.isNotBlank()){vm.launch{vm.store.renameTag(from,to.trim())};tagDialog=false}}){Text(stringResource(R.string.confirm))}},dismissButton={TextButton(onClick={tagDialog=false}){Text(stringResource(R.string.cancel))}})
     }
-    if(licenses)AlertDialog(onDismissRequest={licenses=false},title={Text("Microsoft Fluent Emoji")},text={Text("1,284 3D + 1,284 Flat icons\nMIT License · © Microsoft Corporation\nU²-Net · Apache-2.0\nFull licenses are included in the application assets.")},confirmButton={TextButton(onClick={licenses=false}){Text(stringResource(R.string.confirm))}})
+    if(licenses)AlertDialog(onDismissRequest={licenses=false},title={Text("Dayerize artwork & licenses")},text={Text("Original Dayerize artwork: generated for this project.\nLegacy artwork retained for saved items:\n1,284 3D + 1,284 Flat icons\nMIT License · © Microsoft Corporation\nU²-Net · Apache-2.0\nFull licenses are included in the application assets.")},confirmButton={TextButton(onClick={licenses=false}){Text(stringResource(R.string.confirm))}})
 }

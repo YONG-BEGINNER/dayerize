@@ -23,3 +23,7 @@ Version code 2, version name 0.2.0, app ID app.dayerize. ARM64 testing APK built
 ## Limits
 
 Physical-device testing, camera behavior on the user's device, and on-device segmentation quality still require testing. Native host renders do not validate OEM navigation/IME behavior. Robolectric emitted image-decode interruption/CloseGuard messages during teardown; assertions and process exited successfully. No account service, premium membership, cloud sync, attachments between assets, custom valuation checkpoints, or historical snapshot recorder is introduced by this redesign. The existing historical-series gap is explicitly shown as unavailable, not fabricated. This remains an early testing build; preserve a backup before upgrading.
+
+## Alloy 0.3.0
+
+See [Alloy delivery evidence and limitations](alloy-0.3.0-delivery.md). The final functional suite has 44 passing host tests; lint has no errors and 18 warnings. Artwork is now original, with 12 identities in two styles. Physical-device validation remains outstanding.
