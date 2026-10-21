@@ -12,7 +12,7 @@ This is a taxonomy-grounded coverage plan. Priority is our product judgment, bas
 
 ## Revised target: 600 identities, up to 1,200 style exports
 
-The 600 identities include distinct product forms and reference-verified model families; colour swaps do not inflate the count. Both styles are planned. The user selected Illustrated Sticker and then requested a cute revision; the revised sample is awaiting visual feedback. This supersedes the earlier 192-identity target, not the model-reference/proportion requirements.
+The 600 identities include distinct product forms and reference-verified model families; colour swaps do not inflate the count. Both styles are planned. The user selected Illustrated Sticker and then requested a cute revision; the user approved the cute revision. This supersedes the earlier 192-identity target, not the model-reference/proportion requirements.
 
 | Category | Target identities | Coverage examples |
 |---|---:|---|
@@ -73,4 +73,7 @@ The user pointed out that the promised cute sample had not been shown and that c
 
 This implements a sample batch from the category roadmap rather than increasing its target again. The 600-identity/1,200-style-export figures remain planned coverage, not finished output. The 3D sheet visibly has a shared backdrop despite a transparent-background generation request; individual production exports require background removal or regeneration. Both sheets require per-object bounds, padding, alpha-edge and optical-size checks. Neither sheet is a production-ready atlas or installed APK catalog.
 
-Outstanding tasks are explicit: obtain feedback on the cute revision; produce normalized individual exports and integrate the selected original catalog; validate accurate model variants against source photos; continue the remaining category batches. Optional Google login/sync is a separate unfinished workstream with no current-cost guarantee and no cloud provisioning. Do not imply that generating artwork completes sync or the app redesign.
+Outstanding tasks are explicit: produce normalized individual exports and integrate the selected original catalog; validate accurate model variants against source photos; continue the remaining category batches. Optional Google login/sync is a separate unfinished workstream with no current-cost guarantee and no cloud provisioning. Do not imply that generating artwork completes sync or the app redesign.
+
+
+The user subsequently confirmed that all shown designs meet their requirements and requested the full design presentation. Cute 2D and the realistic 3D direction are approved. See `../../redesign/alloy-full-design.md` for the twelve-screen visual set.
