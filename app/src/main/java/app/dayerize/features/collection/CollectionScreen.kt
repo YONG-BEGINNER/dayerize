@@ -44,7 +44,7 @@ import java.math.RoundingMode
         };total
     }.getOrNull() }
     LazyVerticalGrid(columns=GridCells.Fixed(if(list || wishes)1 else 2),contentPadding=PaddingValues(start=16.dp,end=16.dp,top=4.dp,bottom=110.dp),horizontalArrangement=Arrangement.spacedBy(12.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
-        item(span={GridItemSpan(maxLineSpan)}) { ScreenHeading(if(wishes)stringResource(R.string.wishlist) else "Dayerize") { IconButton(onClick={showSearch=!showSearch}){Icon(Icons.Outlined.Search,stringResource(R.string.search))} } }
+        item(span={GridItemSpan(maxLineSpan)}) { ScreenHeading(if(wishes)stringResource(R.string.wishlist) else "Dayerize") { IconButton(onClick={showSearch=!showSearch}){Icon(Icons.Outlined.Search,stringResource(R.string.search))}; FilledIconButton(onClick=onAdd,shape=RoundedCornerShape(12.dp)){Icon(Icons.Outlined.Add,stringResource(R.string.add_asset))} } }
         if(showSearch)item(span={GridItemSpan(maxLineSpan)}) { OutlinedTextField(search,{search=it},placeholder={Text(stringResource(R.string.search))},modifier=Modifier.fillMaxWidth(),singleLine=true,shape=RoundedCornerShape(24.dp),leadingIcon={Icon(Icons.Outlined.Search,null)}) }
         item(span={GridItemSpan(maxLineSpan)}) { Panel(Modifier.fillMaxWidth()) {
             Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(10.dp)) {
