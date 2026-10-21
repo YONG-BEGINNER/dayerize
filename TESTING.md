@@ -1,13 +1,15 @@
-# Dayerize 0.3.0 — Alloy testing build
+# Dayerize 0.3.1 — everyday icons and fixes
 
-[Download the ARM64 APK directly — 103 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.3.0-arm64.apk)
+[Download the ARM64 testing APK directly — 93 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.3.1-arm64.apk)
 
-Graphite/amber Alloy interface, labeled navigation, compact asset cards, collection filtering/sorting, photo preview/outline controls, sale preview and backup status. Includes 12 original identities in realistic 3D and cute 2D (24 icons), with proportional rendering. Multi-currency accounting and four languages remain supported.
+Fixed the category named “All” filter issue and the false error shown while a photo preview loads. Preview changes now have regression coverage to ensure Apply uses the newest result.
 
-44 host tests pass; lint has 0 errors and 18 warnings. Physical-device testing remains outstanding. This is an early testing build: back up local data before updating. The larger model-specific catalog and Google login/sync are separate future milestones.
+Added **48 original icons**, bringing the catalog to **36 item types / 72 icons** in realistic 3D and cute 2D. New items include tablets, earbuds, smartwatches, monitors, keyboards, mice, speakers, game consoles, power banks, camera lenses, drones, televisions, air conditioners, refrigerators, washing machines, vacuum cleaners, air fryers, rice cookers, desks, office chairs, suitcases, handbags, sunglasses and motorcycles. All are bundled for offline selection with localized search and proportional rendering.
 
-Known minor issues: filtering a category literally named “All” collides with the all-categories option; the photo preview may briefly show an error while loading. See [review and execution notes](ALLOY-REVIEW.md).
+[Preview all 3D icons](previews/0.3.1-3d.png) · [Preview all cute 2D icons](previews/0.3.1-cute2d.png)
 
-Android 8.0+; ARM64; version code 4. The signing certificate is unchanged. This delivery repository contains the APK and notes; source changes remain in the development workspace.
+52 host tests pass; Android lint reports 0 errors and 18 warnings. Independent code review found no critical or important issues, and its suggested additional preview test was added and passed. Physical-device testing remains outstanding. [Review and verification notes](ALLOY-0.3.1-REVIEW.md).
 
-APK SHA-256: `c397ac46f9845495fe98347ff55a8ffd17fa6253f77e21bb4a6dfb22b617e362`
+Android 8.0+; ARM64; version code 5. Same signing identity as the previous testing builds. Back up local data before updating. These are generic item illustrations; the larger model-specific catalog and Google login/sync remain separate milestones. Source changes are retained in the development workspace; this delivery repository contains the APK, previews and notes.
+
+APK SHA-256: `3c98dd704452b4565e96855972d6f287538a996b99dbfb7f86eaa6d4e7d3600c`
