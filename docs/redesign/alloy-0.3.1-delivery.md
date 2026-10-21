@@ -44,3 +44,5 @@ Version 0.3.1 / code 5; application ID `app.dayerize`; ARM64; Android 8.0+. Fres
 APK SHA-256: `3c98dd704452b4565e96855972d6f287538a996b99dbfb7f86eaa6d4e7d3600c`.
 
 Signing certificate SHA-256: `8912651d3133725e41bf8fe0d34cd94b4b24c92fa58edc128915efcbffa06962`, unchanged from the previous testing builds. Source branch remains in the development workspace; APK delivery uses the previously authorized public repository route.
+
+Public delivery verified: a fresh [HTTPS APK download](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.3.1-arm64.apk) matched the SHA-256 above. [Testing release](https://github.com/YONG-BEGINNER/dayerize/releases/tag/v0.3.1-testing). Source implementation commit: `07f13b6`; public APK/preview delivery commit: `8161625`. Source branch and workspace are preserved. No outstanding findings from this change's independent code review; physical-device testing remains outstanding.
