@@ -57,3 +57,6 @@ All four returned proxy HTTP 403. Current pricing, quota numbers and OAuth polic
 4. Introduce an optional sync adapter only after project configuration and cost checks are complete. Test denial/cancellation, offline retry, repeated delivery, simultaneous edits, delete-versus-edit conflicts, photo interruption, account switch/logout, revoked consent and full storage. Never describe backup-only functionality as multi-device sync.
 
 No application code or cloud settings were changed in this design task.
+
+
+Update: the user subsequently requested broader coverage. The 600-identity roadmap in `2026-10-21-catalog-research-and-2d-directions.md` supersedes this document's count; model verification and technical constraints remain applicable.
