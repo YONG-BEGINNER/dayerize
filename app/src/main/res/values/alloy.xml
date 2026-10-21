@@ -16,4 +16,6 @@
 <string name="photo_outline">White outline</string>
 <string name="last_export">Last successful export</string>
 <string name="never_exported">No backup exported yet</string>
+    <string name="all_categories">All categories</string>
+    <string name="loading_preview">Loading preview…</string>
 </resources>

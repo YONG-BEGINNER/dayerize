@@ -214,5 +214,467 @@
       "cute2d": "artwork/bicycle_cute2d.png"
     },
     "opticalScale": 0.832
+  },
+  {
+    "id": "tablet",
+    "category": "Tech",
+    "names": {
+      "en": "Tablet",
+      "zh-CN": "平板电脑",
+      "zh-TW": "平板電腦",
+      "ms": "Tablet"
+    },
+    "aliases": [
+      "tablet computer",
+      "slate"
+    ],
+    "files": {
+      "cute2d": "artwork/tablet_cute2d.png",
+      "3d": "artwork/tablet_3d.png"
+    },
+    "opticalScale": 0.859
+  },
+  {
+    "id": "earbuds",
+    "category": "Tech",
+    "names": {
+      "en": "Wireless earbuds",
+      "zh-CN": "无线耳机",
+      "zh-TW": "無線耳機",
+      "ms": "Fon telinga tanpa wayar"
+    },
+    "aliases": [
+      "wireless earphones",
+      "in ear",
+      "headset"
+    ],
+    "files": {
+      "3d": "artwork/earbuds_3d.png",
+      "cute2d": "artwork/earbuds_cute2d.png"
+    },
+    "opticalScale": 0.987
+  },
+  {
+    "id": "smartwatch",
+    "category": "Wearables",
+    "names": {
+      "en": "Smartwatch",
+      "zh-CN": "智能手表",
+      "zh-TW": "智慧手錶",
+      "ms": "Jam pintar"
+    },
+    "aliases": [
+      "fitness watch",
+      "wearable"
+    ],
+    "files": {
+      "cute2d": "artwork/smartwatch_cute2d.png",
+      "3d": "artwork/smartwatch_3d.png"
+    },
+    "opticalScale": 0.903
+  },
+  {
+    "id": "monitor",
+    "category": "Tech",
+    "names": {
+      "en": "Monitor",
+      "zh-CN": "显示器",
+      "zh-TW": "顯示器",
+      "ms": "Monitor"
+    },
+    "aliases": [
+      "desktop display",
+      "computer screen"
+    ],
+    "files": {
+      "3d": "artwork/monitor_3d.png",
+      "cute2d": "artwork/monitor_cute2d.png"
+    },
+    "opticalScale": 0.906
+  },
+  {
+    "id": "keyboard",
+    "category": "Tech",
+    "names": {
+      "en": "Keyboard",
+      "zh-CN": "键盘",
+      "zh-TW": "鍵盤",
+      "ms": "Papan kekunci"
+    },
+    "aliases": [
+      "mechanical keyboard",
+      "computer"
+    ],
+    "files": {
+      "3d": "artwork/keyboard_3d.png",
+      "cute2d": "artwork/keyboard_cute2d.png"
+    },
+    "opticalScale": 0.805
+  },
+  {
+    "id": "mouse",
+    "category": "Tech",
+    "names": {
+      "en": "Mouse",
+      "zh-CN": "鼠标",
+      "zh-TW": "滑鼠",
+      "ms": "Tetikus"
+    },
+    "aliases": [
+      "computer mouse",
+      "wireless mouse"
+    ],
+    "files": {
+      "3d": "artwork/mouse_3d.png",
+      "cute2d": "artwork/mouse_cute2d.png"
+    },
+    "opticalScale": 0.856
+  },
+  {
+    "id": "speaker",
+    "category": "Tech",
+    "names": {
+      "en": "Speaker",
+      "zh-CN": "音箱",
+      "zh-TW": "喇叭",
+      "ms": "Pembesar suara"
+    },
+    "aliases": [
+      "bluetooth speaker",
+      "portable audio"
+    ],
+    "files": {
+      "3d": "artwork/speaker_3d.png",
+      "cute2d": "artwork/speaker_cute2d.png"
+    },
+    "opticalScale": 0.994
+  },
+  {
+    "id": "game_console",
+    "category": "Tech",
+    "names": {
+      "en": "Game console",
+      "zh-CN": "游戏机",
+      "zh-TW": "遊戲機",
+      "ms": "Konsol permainan"
+    },
+    "aliases": [
+      "handheld",
+      "gaming console",
+      "video games"
+    ],
+    "files": {
+      "3d": "artwork/game_console_3d.png",
+      "cute2d": "artwork/game_console_cute2d.png"
+    },
+    "opticalScale": 0.814
+  },
+  {
+    "id": "power_bank",
+    "category": "Tech",
+    "names": {
+      "en": "Power bank",
+      "zh-CN": "充电宝",
+      "zh-TW": "行動電源",
+      "ms": "Bank kuasa"
+    },
+    "aliases": [
+      "portable charger",
+      "battery pack"
+    ],
+    "files": {
+      "3d": "artwork/power_bank_3d.png",
+      "cute2d": "artwork/power_bank_cute2d.png"
+    },
+    "opticalScale": 0.86
+  },
+  {
+    "id": "camera_lens",
+    "category": "Tech",
+    "names": {
+      "en": "Camera lens",
+      "zh-CN": "相机镜头",
+      "zh-TW": "相機鏡頭",
+      "ms": "Lensa kamera"
+    },
+    "aliases": [
+      "zoom lens",
+      "photography",
+      "optics"
+    ],
+    "files": {
+      "3d": "artwork/camera_lens_3d.png",
+      "cute2d": "artwork/camera_lens_cute2d.png"
+    },
+    "opticalScale": 0.863
+  },
+  {
+    "id": "drone",
+    "category": "Tech",
+    "names": {
+      "en": "Drone",
+      "zh-CN": "无人机",
+      "zh-TW": "無人機",
+      "ms": "Dron"
+    },
+    "aliases": [
+      "quadcopter",
+      "aerial camera"
+    ],
+    "files": {
+      "3d": "artwork/drone_3d.png",
+      "cute2d": "artwork/drone_cute2d.png"
+    },
+    "opticalScale": 0.825
+  },
+  {
+    "id": "television",
+    "category": "Home",
+    "names": {
+      "en": "Television",
+      "zh-CN": "电视",
+      "zh-TW": "電視",
+      "ms": "Televisyen"
+    },
+    "aliases": [
+      "tv",
+      "smart tv"
+    ],
+    "files": {
+      "cute2d": "artwork/television_cute2d.png",
+      "3d": "artwork/television_3d.png"
+    },
+    "opticalScale": 0.912
+  },
+  {
+    "id": "air_conditioner",
+    "category": "Home",
+    "names": {
+      "en": "Air conditioner",
+      "zh-CN": "空调",
+      "zh-TW": "冷氣機",
+      "ms": "Penyaman udara"
+    },
+    "aliases": [
+      "aircon",
+      "ac",
+      "cooling"
+    ],
+    "files": {
+      "3d": "artwork/air_conditioner_3d.png",
+      "cute2d": "artwork/air_conditioner_cute2d.png"
+    },
+    "opticalScale": 0.845
+  },
+  {
+    "id": "refrigerator",
+    "category": "Home",
+    "names": {
+      "en": "Refrigerator",
+      "zh-CN": "冰箱",
+      "zh-TW": "冰箱",
+      "ms": "Peti sejuk"
+    },
+    "aliases": [
+      "fridge",
+      "freezer"
+    ],
+    "files": {
+      "3d": "artwork/refrigerator_3d.png",
+      "cute2d": "artwork/refrigerator_cute2d.png"
+    },
+    "opticalScale": 0.881
+  },
+  {
+    "id": "washing_machine",
+    "category": "Home",
+    "names": {
+      "en": "Washing machine",
+      "zh-CN": "洗衣机",
+      "zh-TW": "洗衣機",
+      "ms": "Mesin basuh"
+    },
+    "aliases": [
+      "washer",
+      "laundry"
+    ],
+    "files": {
+      "3d": "artwork/washing_machine_3d.png",
+      "cute2d": "artwork/washing_machine_cute2d.png"
+    },
+    "opticalScale": 0.907
+  },
+  {
+    "id": "vacuum",
+    "category": "Home",
+    "names": {
+      "en": "Vacuum cleaner",
+      "zh-CN": "吸尘器",
+      "zh-TW": "吸塵器",
+      "ms": "Pembersih vakum"
+    },
+    "aliases": [
+      "stick vacuum",
+      "cleaner"
+    ],
+    "files": {
+      "3d": "artwork/vacuum_3d.png",
+      "cute2d": "artwork/vacuum_cute2d.png"
+    },
+    "opticalScale": 0.839
+  },
+  {
+    "id": "air_fryer",
+    "category": "Home",
+    "names": {
+      "en": "Air fryer",
+      "zh-CN": "空气炸锅",
+      "zh-TW": "氣炸鍋",
+      "ms": "Penggoreng udara"
+    },
+    "aliases": [
+      "airfryer",
+      "kitchen"
+    ],
+    "files": {
+      "3d": "artwork/air_fryer_3d.png",
+      "cute2d": "artwork/air_fryer_cute2d.png"
+    },
+    "opticalScale": 0.934
+  },
+  {
+    "id": "rice_cooker",
+    "category": "Home",
+    "names": {
+      "en": "Rice cooker",
+      "zh-CN": "电饭煲",
+      "zh-TW": "電鍋",
+      "ms": "Periuk nasi"
+    },
+    "aliases": [
+      "kitchen",
+      "cooker"
+    ],
+    "files": {
+      "3d": "artwork/rice_cooker_3d.png",
+      "cute2d": "artwork/rice_cooker_cute2d.png"
+    },
+    "opticalScale": 0.89
+  },
+  {
+    "id": "desk",
+    "category": "Home",
+    "names": {
+      "en": "Desk",
+      "zh-CN": "书桌",
+      "zh-TW": "書桌",
+      "ms": "Meja"
+    },
+    "aliases": [
+      "work table",
+      "furniture"
+    ],
+    "files": {
+      "3d": "artwork/desk_3d.png",
+      "cute2d": "artwork/desk_cute2d.png"
+    },
+    "opticalScale": 0.892
+  },
+  {
+    "id": "chair",
+    "category": "Home",
+    "names": {
+      "en": "Office chair",
+      "zh-CN": "办公椅",
+      "zh-TW": "辦公椅",
+      "ms": "Kerusi pejabat"
+    },
+    "aliases": [
+      "office chair",
+      "furniture"
+    ],
+    "files": {
+      "3d": "artwork/chair_3d.png",
+      "cute2d": "artwork/chair_cute2d.png"
+    },
+    "opticalScale": 0.846
+  },
+  {
+    "id": "suitcase",
+    "category": "Wearables",
+    "names": {
+      "en": "Suitcase",
+      "zh-CN": "行李箱",
+      "zh-TW": "行李箱",
+      "ms": "Beg pakaian"
+    },
+    "aliases": [
+      "luggage",
+      "travel",
+      "carry on"
+    ],
+    "files": {
+      "3d": "artwork/suitcase_3d.png",
+      "cute2d": "artwork/suitcase_cute2d.png"
+    },
+    "opticalScale": 0.864
+  },
+  {
+    "id": "handbag",
+    "category": "Wearables",
+    "names": {
+      "en": "Handbag",
+      "zh-CN": "手提包",
+      "zh-TW": "手提包",
+      "ms": "Beg tangan"
+    },
+    "aliases": [
+      "purse",
+      "bag"
+    ],
+    "files": {
+      "3d": "artwork/handbag_3d.png",
+      "cute2d": "artwork/handbag_cute2d.png"
+    },
+    "opticalScale": 0.905
+  },
+  {
+    "id": "sunglasses",
+    "category": "Wearables",
+    "names": {
+      "en": "Sunglasses",
+      "zh-CN": "太阳眼镜",
+      "zh-TW": "太陽眼鏡",
+      "ms": "Cermin mata hitam"
+    },
+    "aliases": [
+      "shades",
+      "eyewear"
+    ],
+    "files": {
+      "3d": "artwork/sunglasses_3d.png",
+      "cute2d": "artwork/sunglasses_cute2d.png"
+    },
+    "opticalScale": 0.843
+  },
+  {
+    "id": "motorcycle",
+    "category": "Vehicles",
+    "names": {
+      "en": "Motorcycle",
+      "zh-CN": "摩托车",
+      "zh-TW": "機車",
+      "ms": "Motosikal"
+    },
+    "aliases": [
+      "motorbike",
+      "scooter",
+      "transport"
+    ],
+    "files": {
+      "3d": "artwork/motorcycle_3d.png",
+      "cute2d": "artwork/motorcycle_cute2d.png"
+    },
+    "opticalScale": 0.834
   }
 ]

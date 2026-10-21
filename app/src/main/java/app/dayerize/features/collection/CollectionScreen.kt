@@ -127,7 +127,7 @@ import java.math.RoundingMode
         }
     }
     if(filters) {
-        val allLabel=stringResource(R.string.all)
+        val allCategoriesLabel=stringResource(R.string.all_categories)
         var draftTag by remember{mutableStateOf(tag)}
         var draftCategory by remember{mutableStateOf(category)}
         var draftStatus by remember{mutableStateOf(status)}
@@ -136,7 +136,7 @@ import java.math.RoundingMode
         ModalBottomSheet(onDismissRequest={filters=false},containerColor=MaterialTheme.colorScheme.surface) {
             Column(Modifier.padding(16.dp).navigationBarsPadding().verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)) {
                 Text(stringResource(R.string.filter),style=MaterialTheme.typography.titleLarge)
-                Choice(draftCategory ?: stringResource(R.string.all),listOf(stringResource(R.string.all))+source.map{it.category}.distinct(),R.string.category){draftCategory=if(it==allLabel)null else it}
+                ValueChoice(draftCategory,listOf<String?>(null)+source.map{it.category}.distinct(),R.string.category,{it ?: allCategoriesLabel}){draftCategory=it}
                 Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)){
                     (listOf<Status?>(null)+Status.entries).forEach { value->SelectPill(stringResource(value?.let(::statusLabel) ?: R.string.all),draftStatus==value){draftStatus=value} }
                 }

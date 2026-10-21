@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import app.dayerize.R
 import app.dayerize.ui.*
 import app.dayerize.images.*
@@ -24,7 +25,7 @@ import java.io.File
 import java.util.UUID
 
 data class PhotoEditResult(val originalName:String,val renderedName:String)
-@Composable fun PhotoEditorSheet(originalName:String,directory:File,onApply:(PhotoEditResult)->Unit,onDismiss:()->Unit) {
+@Composable fun PhotoEditorSheet(originalName:String,directory:File,onApply:(PhotoEditResult)->Unit,onDismiss:()->Unit,loadPreview:suspend(File,Int)->Bitmap?=::loadPhotoPreview) {
     val context=LocalContext.current;val scope=rememberCoroutineScope()
     var cutout by remember{mutableStateOf<File?>(null)}
     var useCutout by remember{mutableStateOf(false)}
@@ -37,15 +38,7 @@ data class PhotoEditResult(val originalName:String,val renderedName:String)
     var preview by remember{mutableStateOf<Bitmap?>(null)}
     LaunchedEffect(source,width) {
         previewKey=null
-        preview=withContext(Dispatchers.Default) {
-            runCatching {
-                val options=BitmapFactory.Options().apply{inJustDecodeBounds=true}
-                BitmapFactory.decodeFile(source.path,options)
-                require(options.outWidth in 1..4000 && options.outHeight in 1..4000)
-                val image=requireNotNull(BitmapFactory.decodeFile(source.path))
-                try{PhotoOutline.render(image,width.toInt())}finally{image.recycle()}
-            }.getOrNull()
-        }
+        preview=loadPreview(source,width.toInt())
         previewKey=source.path to width.toInt()
     }
     Dialog(onDismissRequest=onDismiss,properties=DialogProperties(usePlatformDefaultWidth=false)) {
@@ -69,8 +62,11 @@ data class PhotoEditResult(val originalName:String,val renderedName:String)
                     Text(stringResource(R.string.photo_fit))
                     SettingRow(stringResource(R.string.photo_outline),"${width.toInt()} px")
                     Slider(width,{width=it},valueRange=0f..4f,steps=3,enabled=!busy)
-                    if(busy)LinearProgressIndicator(Modifier.fillMaxWidth())
-                    if(error || preview==null)Text(stringResource(R.string.processing_failed),color=MaterialTheme.colorScheme.error)
+                    if(previewKey!=(source.path to width.toInt())) {
+                        LinearProgressIndicator(Modifier.fillMaxWidth().testTag("photo-preview-loading"))
+                        Text(stringResource(R.string.loading_preview))
+                    } else if(busy)LinearProgressIndicator(Modifier.fillMaxWidth())
+                    if(error || (previewKey==(source.path to width.toInt()) && preview==null))Text(stringResource(R.string.processing_failed),color=MaterialTheme.colorScheme.error)
                 }
                 Row(horizontalArrangement=Arrangement.spacedBy(12.dp)) {
                     OutlinedButton(onClick=onDismiss,modifier=Modifier.weight(1f)){Text(stringResource(R.string.cancel))}
@@ -88,4 +84,14 @@ data class PhotoEditResult(val originalName:String,val renderedName:String)
             }
         }
     }
+}
+
+internal suspend fun loadPhotoPreview(source:File,width:Int):Bitmap?=withContext(Dispatchers.Default) {
+    runCatching {
+        val options=BitmapFactory.Options().apply{inJustDecodeBounds=true}
+        BitmapFactory.decodeFile(source.path,options)
+        require(options.outWidth in 1..4000 && options.outHeight in 1..4000)
+        val image=requireNotNull(BitmapFactory.decodeFile(source.path))
+        try{PhotoOutline.render(image,width)}finally{image.recycle()}
+    }.getOrNull()
 }

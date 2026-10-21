@@ -63,11 +63,18 @@ class RedesignRenderTest {
         ui.onNodeWithText("Tech").performClick()
         ui.onNodeWithContentDescription("Change image").performClick()
         ui.onNodeWithText("Choose an icon").performClick()
+        ui.onNodeWithText("3D icons").performClick()
         repeat(40) { Thread.sleep(100); ui.waitForIdle() }
         shot("07-icon-picker")
         ui.onNodeWithText("Cute 2D").performClick()
         repeat(40) { Thread.sleep(100); ui.waitForIdle() }
         shot("15-cute-icon-picker")
+        ui.onNodeWithText("Home").performScrollTo().performClick()
+        repeat(40) { Thread.sleep(100); ui.waitForIdle() }
+        shot("17-home-cute-icons")
+        ui.onNodeWithText("3D icons").performClick()
+        repeat(40) { Thread.sleep(100); ui.waitForIdle() }
+        shot("16-home-3d-icons")
         ui.onNodeWithContentDescription("Cancel").performClick()
         ui.onNodeWithContentDescription("Back").performClick()
         ui.onNodeWithText("Confirm").performClick()

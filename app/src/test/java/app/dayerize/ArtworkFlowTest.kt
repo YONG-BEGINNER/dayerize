@@ -30,16 +30,24 @@ class ArtworkFlowTest {
         ui.onNodeWithText("Cute 2D").performClick()
         ui.onNodeWithText("Apply").performClick()
         assertEquals("original/camera:cute2d",selected)
+        ui.onNode(hasSetTextAction()).performTextInput("rice cooker")
+        ui.onNodeWithContentDescription("Rice cooker").performClick()
+        assertEquals("original/camera:cute2d",selected)
+        ui.onNodeWithText("Apply").performClick()
+        assertEquals("original/rice_cooker:cute2d",selected)
+        ui.onNodeWithText("3D icons").performClick()
+        ui.onNodeWithText("Apply").performClick()
+        assertEquals("original/rice_cooker:3d",selected)
         runBlocking {
             vm.store.dao.clear()
             val workspace=vm.store.settings().getValue("workspace")
-            listOf("original/camera:3d","original/camera:cute2d","camera:3d").forEachIndexed{i,icon->vm.store.save(Asset("art-$i",workspace,"Camera $i",Money(10000,"MYR"),vm.today().toString(),icon=icon))}
+            listOf("original/camera:3d","original/camera:cute2d","camera:3d","original/rice_cooker:3d","original/rice_cooker:cute2d").forEachIndexed{i,icon->vm.store.save(Asset("art-$i",workspace,"Camera $i",Money(10000,"MYR"),vm.today().toString(),icon=icon))}
             vm.store.preference("artworkStyle","cute2d")
             val bytes=ByteArrayOutputStream();FileBackup(vm.store).export(bytes)
             val archive=ArchiveCodec.read(bytes.toByteArray().inputStream(),vm.today())
             FileBackup(vm.store).restore(archive)
             val restored=vm.store.dao.all().map{vm.store.json.decodeFromString<Asset>(it.payload)}
-            assertEquals(setOf("original/camera:3d","original/camera:cute2d","camera:3d"),restored.map{it.icon}.toSet())
+            assertEquals(setOf("original/camera:3d","original/camera:cute2d","camera:3d","original/rice_cooker:3d","original/rice_cooker:cute2d"),restored.map{it.icon}.toSet())
             assertEquals("cute2d",vm.store.settings()["artworkStyle"])
         }
     }

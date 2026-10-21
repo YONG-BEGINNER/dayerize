@@ -59,3 +59,7 @@
 - [ ] Measure source/export/APK sizes. Optimize via appropriate export settings while preserving alpha and inspected readability. Keep legacy compatibility files; do not delete them just to improve size.
 - [ ] Run manifest validator, artwork tests and final APK build. If full bundled distribution cannot stay within the chosen delivery host's limits, design a versioned optional-pack distribution before shipping; do not silently add a network dependency.
 - [ ] Deliver a final catalog report of 600 identities/1,200 exports only when those counts are verified; report partial batches honestly beforehand.
+
+## 0.3.1 everyday batch
+
+The user-requested follow-up adds 24 everyday identities in both styles, bringing the verified runtime catalog to 36 identities / 72 exports. All were checked at 48/64/96px on light/dark backgrounds; generic provenance, individual prompts and master/export hashes are recorded in `design/artwork/`. Runtime derivatives are 512×512 with unchanged source masters and no crop/stretch. This is a partial catalog milestone, not completion of the 600-identity target. See `docs/redesign/alloy-0.3.1-delivery.md` for tests and delivery evidence.
