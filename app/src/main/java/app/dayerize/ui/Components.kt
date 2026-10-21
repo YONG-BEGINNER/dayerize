@@ -25,17 +25,17 @@ import java.text.NumberFormat
 import java.util.*
 import java.io.File
 
-val Lime=Color(0xFFBBFA26)
+val Lime=AlloyTokens.Amber
 data class DisplayOptions(val decimals:Int?=null,val grouping:Boolean=true)
 val LocalDisplayOptions=staticCompositionLocalOf { DisplayOptions() }
 @Composable fun DayerizeTheme(dark:Boolean,content:@Composable ()->Unit) {
-    val colors=if(dark) darkColorScheme(primary=Color.White,onPrimary=Color(0xFF111111),primaryContainer=Lime,onPrimaryContainer=Color.Black,secondary=Lime,onSecondary=Color.Black,background=Color(0xFF111111),onBackground=Color(0xFFF5F5F5),surface=Color(0xFF1E1F1D),onSurface=Color(0xFFF5F5F5),surfaceVariant=Color(0xFF292B27),onSurfaceVariant=Color(0xFFA6A6A6),outlineVariant=Color(0xFF32352E),outline=Color(0xFF666666))
-    else lightColorScheme(primary=Color(0xFF151515),onPrimary=Color.White,primaryContainer=Lime,onPrimaryContainer=Color.Black,secondary=Color(0xFF527300),background=Color(0xFFF4F4F2),surface=Color.White,surfaceVariant=Color(0xFFECECE8),onSurface=Color(0xFF151515),onBackground=Color(0xFF151515),onSurfaceVariant=Color(0xFF64645F),outlineVariant=Color(0xFFE2E2DD))
+    val colors=if(dark) darkColorScheme(primary=AlloyTokens.Amber,onPrimary=Color(0xFF171A1C),primaryContainer=Lime,onPrimaryContainer=Color.Black,secondary=Lime,onSecondary=Color.Black,background=AlloyTokens.Background,onBackground=Color(0xFFF5F5F5),surface=AlloyTokens.Surface,onSurface=Color(0xFFF5F5F5),surfaceVariant=Color(0xFF2D3337),onSurfaceVariant=Color(0xFFA6A6A6),outlineVariant=AlloyTokens.Outline,outline=Color(0xFF666666))
+    else lightColorScheme(primary=Color(0xFF151515),onPrimary=Color.White,primaryContainer=Lime,onPrimaryContainer=Color.Black,secondary=Color(0xFF895000),background=Color(0xFFF4F4F2),surface=Color.White,surfaceVariant=Color(0xFFECECE8),onSurface=Color(0xFF151515),onBackground=Color(0xFF151515),onSurfaceVariant=Color(0xFF64645F),outlineVariant=Color(0xFFE2E2DD))
     MaterialTheme(colorScheme=colors,typography=Typography(bodyLarge=androidx.compose.ui.text.TextStyle(fontSize=15.sp,lineHeight=23.sp),bodyMedium=androidx.compose.ui.text.TextStyle(fontSize=14.sp,lineHeight=21.sp),labelLarge=androidx.compose.ui.text.TextStyle(fontSize=13.sp,fontWeight=FontWeight.Medium,letterSpacing=0.1.sp)),content=content)
 }
 @Composable fun Panel(modifier:Modifier=Modifier,content:@Composable ColumnScope.()->Unit) {
-    Surface(modifier,shape=RoundedCornerShape(24.dp),border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant),color=MaterialTheme.colorScheme.surface) {
-        Column(Modifier.padding(18.dp),verticalArrangement=Arrangement.spacedBy(10.dp),content=content)
+    Surface(modifier,shape=AlloyPanelShape,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant),color=MaterialTheme.colorScheme.surface) {
+        Column(Modifier.padding(14.dp),verticalArrangement=Arrangement.spacedBy(10.dp),content=content)
     }
 }
 @Composable fun Label(id:Int) { Text(stringResource(id),style=MaterialTheme.typography.labelLarge,color=MaterialTheme.colorScheme.onSurfaceVariant) }
@@ -65,7 +65,7 @@ fun statusLabel(status:Status)=when(status){Status.ACTIVE->R.string.active;Statu
 }
 @Composable fun ScreenHeading(title:String,action:(@Composable ()->Unit)?=null) {
     Row(Modifier.fillMaxWidth().padding(top=12.dp,bottom=4.dp),verticalAlignment=Alignment.CenterVertically) {
-        Text(title,Modifier.weight(1f),fontSize=25.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.6).sp)
+        Text(title,Modifier.weight(1f),fontSize=22.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.6).sp)
         action?.invoke()
     }
 }
@@ -78,8 +78,8 @@ fun statusLabel(status:Status)=when(status){Status.ACTIVE->R.string.active;Statu
     }
 }
 @Composable fun SelectPill(text:String,selected:Boolean,onClick:()->Unit) {
-    Surface(onClick=onClick,shape=RoundedCornerShape(50),color=if(selected)MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant,contentColor=if(selected)MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant) {
-        Box(Modifier.heightIn(min=40.dp).padding(horizontal=14.dp,vertical=10.dp),contentAlignment=Alignment.Center) { Text(text,fontSize=13.sp,fontWeight=if(selected)FontWeight.Bold else FontWeight.Normal) }
+    Surface(onClick=onClick,shape=RoundedCornerShape(12.dp),color=if(selected)MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant,contentColor=if(selected)MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant) {
+        Box(Modifier.heightIn(min=48.dp).padding(horizontal=14.dp,vertical=10.dp),contentAlignment=Alignment.Center) { Text(text,fontSize=13.sp,fontWeight=if(selected)FontWeight.Bold else FontWeight.Normal) }
     }
 }
 @OptIn(ExperimentalMaterial3Api::class)

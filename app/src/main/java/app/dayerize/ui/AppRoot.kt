@@ -15,6 +15,8 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
@@ -67,16 +69,14 @@ import java.time.LocalDate
                 tab==2->AnalyticsScreen(state.copy(assets=state.assets.filterNot { it.wishlist }),vm,today)
                 else->SettingsScreen(state,vm,onExport={export.launch("dayerize-${LocalDate.now()}.zip")},onRestore={import.launch(arrayOf("application/zip","application/octet-stream"))})
             }
-            if(!editing && selected==null && state.loaded) Row(Modifier.align(Alignment.BottomCenter).fillMaxWidth().padding(horizontal=24.dp,vertical=12.dp),horizontalArrangement=Arrangement.spacedBy(12.dp),verticalAlignment=Alignment.CenterVertically) {
-                Surface(Modifier.weight(1f),shape=RoundedCornerShape(40.dp),color=MaterialTheme.colorScheme.surface,border=BorderStroke(1.dp,MaterialTheme.colorScheme.outlineVariant),shadowElevation=8.dp) {
-                    Row(Modifier.padding(horizontal=8.dp,vertical=8.dp),horizontalArrangement=Arrangement.SpaceEvenly) {
-                        listOf(R.string.collection to Icons.Outlined.Home,R.string.wishlist to Icons.Outlined.FavoriteBorder,R.string.analytics to Icons.Outlined.PieChart,R.string.settings to Icons.Outlined.Settings).forEachIndexed { i,(label,icon)->
-                            IconButton(onClick={tab=i},modifier=Modifier.clip(RoundedCornerShape(18.dp)).background(if(tab==i)MaterialTheme.colorScheme.surfaceVariant else androidx.compose.ui.graphics.Color.Transparent)) { Icon(icon,stringResource(label),tint=if(tab==i)MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha=.55f)) }
+            if(!editing && selected==null && state.loaded) Surface(Modifier.align(Alignment.BottomCenter).fillMaxWidth(),color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
+                Row(Modifier.fillMaxWidth().padding(vertical=6.dp),horizontalArrangement=Arrangement.SpaceEvenly) {
+                    listOf(R.string.collection to Icons.Outlined.GridView,R.string.wishlist to Icons.Outlined.FavoriteBorder,R.string.analytics to Icons.Outlined.BarChart,R.string.settings to Icons.Outlined.Settings).forEachIndexed { i,(label,icon)->
+                        Column(Modifier.weight(1f).selectable(selected=tab==i,onClick={tab=i},role=androidx.compose.ui.semantics.Role.Tab).heightIn(min=56.dp).padding(vertical=6.dp),horizontalAlignment=Alignment.CenterHorizontally,verticalArrangement=Arrangement.spacedBy(4.dp)) {
+                            Icon(icon,stringResource(label),Modifier.size(22.dp),tint=if(tab==i)MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onSurfaceVariant)
+                            Text(stringResource(label),fontSize=12.sp,color=if(tab==i)MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onSurfaceVariant,textAlign=androidx.compose.ui.text.style.TextAlign.Center)
                         }
                     }
-                }
-                Surface(onClick={selected=null;acquiring=false;editing=true},shape=RoundedCornerShape(50),color=MaterialTheme.colorScheme.primaryContainer,contentColor=MaterialTheme.colorScheme.onPrimaryContainer,border=BorderStroke(1.dp,MaterialTheme.colorScheme.outlineVariant)) {
-                    Box(Modifier.size(64.dp),contentAlignment=Alignment.Center) { Icon(Icons.Outlined.Add,stringResource(R.string.add_asset),Modifier.size(30.dp),tint=androidx.compose.ui.graphics.Color.Black) }
                 }
             }
         } }
