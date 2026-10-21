@@ -53,3 +53,6 @@ Review actual output dimensions and alpha instead of trusting prompt compliance.
 ## Delivery sequence
 
 Produce and validate small themed batches, beginning with model-family cameras, computers and vehicles requested by the user. Expand the catalog without blocking the core app on completion of all 384 exports. The 192-identity target is independent of login/sync work and does not change the pending verification of cloud costs. Artwork is bundled offline; no per-selection AI call. Development generation may consume the user's existing tool allowance and is not represented as universally free.
+
+
+Update: the user subsequently requested broader coverage. The 600-identity roadmap in `2026-10-21-catalog-research-and-2d-directions.md` supersedes this document's count; model verification and technical constraints remain applicable.
