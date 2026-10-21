@@ -16,4 +16,6 @@
 <string name="photo_outline">Garis putih</string>
 <string name="last_export">Eksport terakhir berjaya</string>
 <string name="never_exported">Belum mengeksport sandaran</string>
+    <string name="all_categories">Semua kategori</string>
+    <string name="loading_preview">Memuatkan pratonton…</string>
 </resources>

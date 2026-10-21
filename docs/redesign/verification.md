@@ -27,3 +27,7 @@ Physical-device testing, camera behavior on the user's device, and on-device seg
 ## Alloy 0.3.0
 
 See [Alloy delivery evidence and limitations](alloy-0.3.0-delivery.md). The final functional suite has 44 passing host tests; lint has no errors and 18 warnings. Artwork is now original, with 12 identities in two styles. Physical-device validation remains outstanding.
+
+## Alloy 0.3.1
+
+52 host tests pass; lint reports no errors and 18 warnings. Both prior deferred UI issues are fixed and covered in all supported locales, with delayed-success/failure and superseded-preview checks. Catalog coverage is 36 identities / 72 original icons. See [0.3.1 delivery evidence](alloy-0.3.1-delivery.md).

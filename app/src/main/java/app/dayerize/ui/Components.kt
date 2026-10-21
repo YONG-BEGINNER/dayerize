@@ -86,15 +86,20 @@ fun statusLabel(status:Status)=when(status){Status.ACTIVE->R.string.active;Statu
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable fun Choice(value:String,choices:List<String>,label:Int,onSelect:(String)->Unit) {
+    ValueChoice(value,choices,label,{it},onSelect)
+}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable fun <T> ValueChoice(value:T,choices:List<T>,label:Int,display:(T)->String,onSelect:(T)->Unit) {
     var expanded by remember { mutableStateOf(false) };var query by remember { mutableStateOf("") }
-    SettingRow(stringResource(label),value,onClick={expanded=true})
+    SettingRow(stringResource(label),display(value),onClick={expanded=true})
     if(expanded)ModalBottomSheet(onDismissRequest={expanded=false},containerColor=MaterialTheme.colorScheme.surface) {
         Column(Modifier.fillMaxWidth().padding(20.dp).navigationBarsPadding()) {
             Text(stringResource(label),fontSize=22.sp,fontWeight=FontWeight.Bold)
             OutlinedTextField(query,{query=it},modifier=Modifier.fillMaxWidth().padding(vertical=12.dp),shape=RoundedCornerShape(18.dp),singleLine=true,leadingIcon={Icon(Icons.Outlined.Search,null)})
+            val filtered=choices.filter { display(it).contains(query,true) }
             androidx.compose.foundation.lazy.LazyColumn(Modifier.heightIn(max=420.dp)) {
-                items(choices.filter { it.contains(query,true) }.size) { i->val c=choices.filter { it.contains(query,true) }[i]
-                    Surface(shape=RoundedCornerShape(14.dp),color=if(c==value)MaterialTheme.colorScheme.surfaceVariant else MaterialTheme.colorScheme.surface){SettingRow(c,onClick={onSelect(c);expanded=false;query=""},trailing={if(c==value)Icon(Icons.Outlined.Check,null,tint=MaterialTheme.colorScheme.secondary)})}
+                items(filtered.size) { i->val c=filtered[i]
+                    Surface(shape=RoundedCornerShape(14.dp),color=if(c==value)MaterialTheme.colorScheme.surfaceVariant else MaterialTheme.colorScheme.surface){SettingRow(display(c),onClick={onSelect(c);expanded=false;query=""},trailing={if(c==value)Icon(Icons.Outlined.Check,null,tint=MaterialTheme.colorScheme.secondary)})}
                 }
             }
         }

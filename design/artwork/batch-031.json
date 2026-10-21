@@ -1,0 +1,606 @@
+{
+  "items": [
+    [
+      "tablet",
+      "Tech",
+      "Tablet",
+      "平板电脑",
+      "平板電腦",
+      "Tablet",
+      "a slim tablet computer with a graphite casing, large glass display, and a separate stylus resting alongside it"
+    ],
+    [
+      "earbuds",
+      "Tech",
+      "Wireless earbuds",
+      "无线耳机",
+      "無線耳機",
+      "Fon telinga tanpa wayar",
+      "a pair of small wireless in-ear earbuds sitting in their open oval charging case"
+    ],
+    [
+      "smartwatch",
+      "Wearables",
+      "Smartwatch",
+      "智能手表",
+      "智慧手錶",
+      "Jam pintar",
+      "a smartwatch with rounded rectangular face and soft silicone strap, clearly different from a round analog watch"
+    ],
+    [
+      "monitor",
+      "Tech",
+      "Monitor",
+      "显示器",
+      "顯示器",
+      "Monitor",
+      "a widescreen desktop monitor on a compact metal pedestal"
+    ],
+    [
+      "keyboard",
+      "Tech",
+      "Keyboard",
+      "键盘",
+      "鍵盤",
+      "Papan kekunci",
+      "a compact mechanical computer keyboard with distinct raised keycaps and no legible key labels"
+    ],
+    [
+      "mouse",
+      "Tech",
+      "Mouse",
+      "鼠标",
+      "滑鼠",
+      "Tetikus",
+      "an ergonomic computer mouse with scroll wheel and separated left and right buttons"
+    ],
+    [
+      "speaker",
+      "Tech",
+      "Speaker",
+      "音箱",
+      "喇叭",
+      "Pembesar suara",
+      "a small portable cylindrical speaker with fabric grille and carrying loop"
+    ],
+    [
+      "game_console",
+      "Tech",
+      "Game console",
+      "游戏机",
+      "遊戲機",
+      "Konsol permainan",
+      "a handheld game console with wide central screen, grip controls on both sides, generic unbranded industrial design"
+    ],
+    [
+      "power_bank",
+      "Tech",
+      "Power bank",
+      "充电宝",
+      "行動電源",
+      "Bank kuasa",
+      "a compact rectangular portable power bank with short attached charging cable, four tiny battery indicator lights"
+    ],
+    [
+      "camera_lens",
+      "Tech",
+      "Camera lens",
+      "相机镜头",
+      "相機鏡頭",
+      "Lensa kamera",
+      "a separate interchangeable camera zoom lens, black barrel, ribbed focus rings, large glass front element"
+    ],
+    [
+      "drone",
+      "Tech",
+      "Drone",
+      "无人机",
+      "無人機",
+      "Dron",
+      "a compact four-arm quadcopter drone with four complete propellers and a small front gimbal camera"
+    ],
+    [
+      "television",
+      "Home",
+      "Television",
+      "电视",
+      "電視",
+      "Televisyen",
+      "a thin widescreen television with two small widely spaced feet, dark glass screen"
+    ],
+    [
+      "air_conditioner",
+      "Home",
+      "Air conditioner",
+      "空调",
+      "冷氣機",
+      "Penyaman udara",
+      "a wall-mounted split air conditioner indoor unit with open lower vent and subtle airflow hint"
+    ],
+    [
+      "refrigerator",
+      "Home",
+      "Refrigerator",
+      "冰箱",
+      "冰箱",
+      "Peti sejuk",
+      "a tall two-door refrigerator with separate upper freezer and lower fridge, visible handles"
+    ],
+    [
+      "washing_machine",
+      "Home",
+      "Washing machine",
+      "洗衣机",
+      "洗衣機",
+      "Mesin basuh",
+      "a front loading washing machine with circular glass drum door and simple top control panel"
+    ],
+    [
+      "vacuum",
+      "Home",
+      "Vacuum cleaner",
+      "吸尘器",
+      "吸塵器",
+      "Pembersih vakum",
+      "a cordless stick vacuum cleaner, complete upright body, dust canister, long tube and floor cleaning head"
+    ],
+    [
+      "air_fryer",
+      "Home",
+      "Air fryer",
+      "空气炸锅",
+      "氣炸鍋",
+      "Penggoreng udara",
+      "a compact countertop air fryer with rounded square body and pull-out basket handle"
+    ],
+    [
+      "rice_cooker",
+      "Home",
+      "Rice cooker",
+      "电饭煲",
+      "電鍋",
+      "Periuk nasi",
+      "an electric rice cooker with domed hinged lid, front latch, small carry handle and simple front controls"
+    ],
+    [
+      "desk",
+      "Home",
+      "Desk",
+      "书桌",
+      "書桌",
+      "Meja",
+      "a minimalist work desk with warm wooden rectangular top, four metal legs and one shallow drawer"
+    ],
+    [
+      "chair",
+      "Home",
+      "Office chair",
+      "办公椅",
+      "辦公椅",
+      "Kerusi pejabat",
+      "an ergonomic office chair with mesh back, padded seat, armrests, gas lift and five-star wheeled base"
+    ],
+    [
+      "suitcase",
+      "Wearables",
+      "Suitcase",
+      "行李箱",
+      "行李箱",
+      "Beg pakaian",
+      "an upright ribbed hard-shell carry-on suitcase with extended telescopic handle and four caster wheels"
+    ],
+    [
+      "handbag",
+      "Wearables",
+      "Handbag",
+      "手提包",
+      "手提包",
+      "Beg tangan",
+      "a structured leather handbag with two short handles, simple clasp and no monogram"
+    ],
+    [
+      "sunglasses",
+      "Wearables",
+      "Sunglasses",
+      "太阳眼镜",
+      "太陽眼鏡",
+      "Cermin mata hitam",
+      "a pair of stylish sunglasses with two dark lenses, rounded rectangular frames and folded temples"
+    ],
+    [
+      "motorcycle",
+      "Vehicles",
+      "Motorcycle",
+      "摩托车",
+      "機車",
+      "Motosikal",
+      "a complete compact street motorcycle with two wheels, fuel tank, seat, headlight, handlebars and visible engine"
+    ]
+  ],
+  "generated": [
+    {
+      "id": "tablet",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-9b371c43-a9be-48b7-931d-a48827ff574c.png"
+      ],
+      "prompt": "ONE isolated cute 2D icon of a TABLET COMPUTER: a slim tablet computer with a graphite casing, large glass display, and a separate stylus resting alongside it. The tablet must have a large rounded rectangular screen with a bezel and a slim stylus next to it. Original cute flat sticker style, pastel mint casing, peach buttons, lavender screen, a small smiling face on the screen, dark chocolate outlines and a thin cream sticker border. Very minimal flat cel shading, no photorealism. Center complete object within 78% of square transparent canvas, no cropping. No text, logos, scenery, crystal ball, or unrelated objects."
+    },
+    {
+      "id": "tablet",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-9a57b3cf-834a-491b-9f25-ea6042fe37c2.png"
+      ],
+      "prompt": "Create ONE original app item icon: TABLET. Specifically depict a slim tablet computer with a graphite casing, large glass display, and a separate stylus resting alongside it. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Tablet, nothing else."
+    },
+    {
+      "id": "earbuds",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-8324835d-f5be-43de-80c0-6d5e8f40d70e.png"
+      ],
+      "prompt": "Create ONE original app item icon: WIRELESS EARBUDS. Specifically depict a pair of small wireless in-ear earbuds sitting in their open oval charging case. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Wireless earbuds, nothing else."
+    },
+    {
+      "id": "earbuds",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-d33ff890-e2fe-43f0-a936-0ffb03621907.png"
+      ],
+      "prompt": "Create ONE original app item icon: WIRELESS EARBUDS. Specifically depict a pair of small wireless in-ear earbuds sitting in their open oval charging case. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Wireless earbuds, nothing else."
+    },
+    {
+      "id": "smartwatch",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-2dc08e42-1d41-4699-bcb8-1640fb84ee16.png"
+      ],
+      "prompt": "Create ONE original app item icon: SMARTWATCH. Specifically depict a smartwatch with rounded rectangular face and soft silicone strap, clearly different from a round analog watch. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Smartwatch, nothing else."
+    },
+    {
+      "id": "smartwatch",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-7b21a925-cb15-4239-8b31-ead95aef1bac.png"
+      ],
+      "prompt": "Create ONE original app item icon: SMARTWATCH. Specifically depict a smartwatch with rounded rectangular face and soft silicone strap, clearly different from a round analog watch. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Smartwatch, nothing else."
+    },
+    {
+      "id": "monitor",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-df333f42-3879-4e23-9ad5-a7f936b7cd87.png"
+      ],
+      "prompt": "Create ONE original app item icon: MONITOR. Specifically depict a widescreen desktop monitor on a compact metal pedestal. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Monitor, nothing else."
+    },
+    {
+      "id": "keyboard",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-d78e3377-f29e-461f-996d-6f04c1f370c4.png"
+      ],
+      "prompt": "Create ONE original app item icon: KEYBOARD. Specifically depict a compact mechanical computer keyboard with distinct raised keycaps and no legible key labels. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Keyboard, nothing else."
+    },
+    {
+      "id": "mouse",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-079eaffa-59d5-4e21-bc9d-48020fc8127d.png"
+      ],
+      "prompt": "Create ONE original app item icon: MOUSE. Specifically depict an ergonomic computer mouse with scroll wheel and separated left and right buttons. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Mouse, nothing else."
+    },
+    {
+      "id": "monitor",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-e725f5da-10fa-41e9-9e4b-9914ad80d8ab.png"
+      ],
+      "prompt": "Create ONE original app item icon: MONITOR. Specifically depict a widescreen desktop monitor on a compact metal pedestal. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Monitor, nothing else."
+    },
+    {
+      "id": "keyboard",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-0403930b-f7c8-4786-98e6-4c76fda34ce1.png"
+      ],
+      "prompt": "Create ONE original app item icon: KEYBOARD. Specifically depict a compact mechanical computer keyboard with distinct raised keycaps and no legible key labels. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Keyboard, nothing else."
+    },
+    {
+      "id": "mouse",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-6cca61a0-b5c6-4ad0-b59e-a64fbcf6d24d.png"
+      ],
+      "prompt": "Create ONE original app item icon: MOUSE. Specifically depict an ergonomic computer mouse with scroll wheel and separated left and right buttons. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Mouse, nothing else."
+    },
+    {
+      "id": "game_console",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-3e3988d8-22bd-4181-ba39-985c39a22c2b.png"
+      ],
+      "prompt": "Create ONE original app item icon: GAME CONSOLE. Specifically depict a handheld game console with wide central screen, grip controls on both sides, generic unbranded industrial design. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Game console, nothing else."
+    },
+    {
+      "id": "speaker",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-05223bed-745d-4f01-b205-50ef50f71487.png"
+      ],
+      "prompt": "Create ONE original app item icon: SPEAKER. Specifically depict a small portable cylindrical speaker with fabric grille and carrying loop. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Speaker, nothing else."
+    },
+    {
+      "id": "game_console",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-85251b26-8775-4871-9468-e9cfde22837f.png"
+      ],
+      "prompt": "Create ONE original app item icon: GAME CONSOLE. Specifically depict a handheld game console with wide central screen, grip controls on both sides, generic unbranded industrial design. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Game console, nothing else."
+    },
+    {
+      "id": "speaker",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-657f652b-b5ec-4b6f-ac1b-b036837962f2.png"
+      ],
+      "prompt": "Create ONE original app item icon: SPEAKER. Specifically depict a small portable cylindrical speaker with fabric grille and carrying loop. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Speaker, nothing else."
+    },
+    {
+      "id": "power_bank",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-19f221f4-c0b3-41b7-9d8c-02d7ab706257.png"
+      ],
+      "prompt": "Create ONE original app item icon: POWER BANK. Specifically depict a compact rectangular portable power bank with short attached charging cable, four tiny battery indicator lights. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Power bank, nothing else."
+    },
+    {
+      "id": "power_bank",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-34a7ea7d-e408-42a5-9cb3-bd5e668417e7.png"
+      ],
+      "prompt": "Create ONE original app item icon: POWER BANK. Specifically depict a compact rectangular portable power bank with short attached charging cable, four tiny battery indicator lights. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Power bank, nothing else."
+    },
+    {
+      "id": "camera_lens",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-a7be6245-a218-47fa-a206-4394bb44ba1a.png"
+      ],
+      "prompt": "Create ONE original app item icon: CAMERA LENS. Specifically depict a separate interchangeable camera zoom lens, black barrel, ribbed focus rings, large glass front element. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Camera lens, nothing else."
+    },
+    {
+      "id": "camera_lens",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-20b56a14-b1e1-4dee-80a0-525ab9229c89.png"
+      ],
+      "prompt": "Create ONE original app item icon: CAMERA LENS. Specifically depict a separate interchangeable camera zoom lens, black barrel, ribbed focus rings, large glass front element. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Camera lens, nothing else."
+    },
+    {
+      "id": "drone",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-e6fb9f3f-e646-40e3-be5c-44aaf345ef48.png"
+      ],
+      "prompt": "Create ONE original app item icon: DRONE. Specifically depict a compact four-arm quadcopter drone with four complete propellers and a small front gimbal camera. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Drone, nothing else."
+    },
+    {
+      "id": "drone",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-027c9cf5-fa3c-467c-89ce-ecb90367070f.png"
+      ],
+      "prompt": "Create ONE original app item icon: DRONE. Specifically depict a compact four-arm quadcopter drone with four complete propellers and a small front gimbal camera. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Drone, nothing else."
+    },
+    {
+      "id": "television",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-f074aca7-c630-4885-a920-c88e71b5f2ba.png"
+      ],
+      "prompt": "Create ONE original app item icon: TELEVISION. Specifically depict a thin widescreen television with two small widely spaced feet, dark glass screen. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Television, nothing else."
+    },
+    {
+      "id": "television",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-0f61284c-b31c-4a74-873b-97f040c01067.png"
+      ],
+      "prompt": "Create ONE original app item icon: TELEVISION. Specifically depict a thin widescreen television with two small widely spaced feet, dark glass screen. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Television, nothing else."
+    },
+    {
+      "id": "air_conditioner",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-37fcdcb9-a422-42fc-84c7-656086211ba6.png"
+      ],
+      "prompt": "Create ONE original app item icon: AIR CONDITIONER. Specifically depict a wall-mounted split air conditioner indoor unit with open lower vent and subtle airflow hint. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Air conditioner, nothing else."
+    },
+    {
+      "id": "air_conditioner",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-edf3367a-0d10-4057-9367-5cdc43408af6.png"
+      ],
+      "prompt": "Create ONE original app item icon: AIR CONDITIONER. Specifically depict a wall-mounted split air conditioner indoor unit with open lower vent and subtle airflow hint. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Air conditioner, nothing else."
+    },
+    {
+      "id": "refrigerator",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-6157bfac-11dd-4326-9332-a68fb73d1cfc.png"
+      ],
+      "prompt": "Create ONE original app item icon: REFRIGERATOR. Specifically depict a tall two-door refrigerator with separate upper freezer and lower fridge, visible handles. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Refrigerator, nothing else."
+    },
+    {
+      "id": "refrigerator",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-7e74bf49-d9aa-4f4b-8e1a-8475714b2d59.png"
+      ],
+      "prompt": "Create ONE original app item icon: REFRIGERATOR. Specifically depict a tall two-door refrigerator with separate upper freezer and lower fridge, visible handles. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Refrigerator, nothing else."
+    },
+    {
+      "id": "washing_machine",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-991478f2-1fc5-49cb-bb95-dc1848adee90.png"
+      ],
+      "prompt": "Create ONE original app item icon: WASHING MACHINE. Specifically depict a front loading washing machine with circular glass drum door and simple top control panel. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Washing machine, nothing else."
+    },
+    {
+      "id": "washing_machine",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-81dc2c3a-27be-41e8-8cad-e38eb2195d9d.png"
+      ],
+      "prompt": "Create ONE original app item icon: WASHING MACHINE. Specifically depict a front loading washing machine with circular glass drum door and simple top control panel. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Washing machine, nothing else."
+    },
+    {
+      "id": "vacuum",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-19c7d8a5-7bb5-4710-9035-7ad9fc3b9b70.png"
+      ],
+      "prompt": "Create ONE original app item icon: VACUUM CLEANER. Specifically depict a cordless stick vacuum cleaner, complete upright body, dust canister, long tube and floor cleaning head. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Vacuum cleaner, nothing else."
+    },
+    {
+      "id": "vacuum",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-f435e924-8812-4649-98b5-3a9eeea38b28.png"
+      ],
+      "prompt": "Create ONE original app item icon: VACUUM CLEANER. Specifically depict a cordless stick vacuum cleaner, complete upright body, dust canister, long tube and floor cleaning head. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Vacuum cleaner, nothing else."
+    },
+    {
+      "id": "rice_cooker",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-8ca22f0f-1459-498e-9ad1-62c687496099.png"
+      ],
+      "prompt": "Create ONE original app item icon: RICE COOKER. Specifically depict an electric rice cooker with domed hinged lid, front latch, small carry handle and simple front controls. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Rice cooker, nothing else."
+    },
+    {
+      "id": "air_fryer",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-c8c636ce-ea65-42e5-8677-32e6d2ddc2e1.png"
+      ],
+      "prompt": "Create ONE original app item icon: AIR FRYER. Specifically depict a compact countertop air fryer with rounded square body and pull-out basket handle. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Air fryer, nothing else."
+    },
+    {
+      "id": "rice_cooker",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-abfa5429-36c3-4bf4-b3fe-27ccc6f439ea.png"
+      ],
+      "prompt": "Create ONE original app item icon: RICE COOKER. Specifically depict an electric rice cooker with domed hinged lid, front latch, small carry handle and simple front controls. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Rice cooker, nothing else."
+    },
+    {
+      "id": "desk",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-ee4ca795-b43c-4033-84d7-e51194388251.png"
+      ],
+      "prompt": "Create ONE original app item icon: DESK. Specifically depict a minimalist work desk with warm wooden rectangular top, four metal legs and one shallow drawer. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Desk, nothing else."
+    },
+    {
+      "id": "air_fryer",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-aacb9ca4-4df1-47ca-8da9-392c4424faec.png"
+      ],
+      "prompt": "Create ONE original app item icon: AIR FRYER. Specifically depict a compact countertop air fryer with rounded square body and pull-out basket handle. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Air fryer, nothing else."
+    },
+    {
+      "id": "desk",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-2a6ce1b6-2636-4c18-ad4f-fa6e586cb946.png"
+      ],
+      "prompt": "Create ONE original app item icon: DESK. Specifically depict a minimalist work desk with warm wooden rectangular top, four metal legs and one shallow drawer. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Desk, nothing else."
+    },
+    {
+      "id": "chair",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-5f3e7928-03bf-4d85-892c-3c9953b965c9.png"
+      ],
+      "prompt": "Create ONE original app item icon: OFFICE CHAIR. Specifically depict an ergonomic office chair with mesh back, padded seat, armrests, gas lift and five-star wheeled base. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Office chair, nothing else."
+    },
+    {
+      "id": "chair",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-bd6018b6-556e-43fc-916b-a2fd44d4c9e7.png"
+      ],
+      "prompt": "Create ONE original app item icon: OFFICE CHAIR. Specifically depict an ergonomic office chair with mesh back, padded seat, armrests, gas lift and five-star wheeled base. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Office chair, nothing else."
+    },
+    {
+      "id": "suitcase",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-36749d28-8d76-4134-984c-ea262f26d507.png"
+      ],
+      "prompt": "Create ONE original app item icon: SUITCASE. Specifically depict an upright ribbed hard-shell carry-on suitcase with extended telescopic handle and four caster wheels. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Suitcase, nothing else."
+    },
+    {
+      "id": "suitcase",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-63484e76-7de7-4008-9f92-d52d691bdcc9.png"
+      ],
+      "prompt": "Create ONE original app item icon: SUITCASE. Specifically depict an upright ribbed hard-shell carry-on suitcase with extended telescopic handle and four caster wheels. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Suitcase, nothing else."
+    },
+    {
+      "id": "handbag",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-e475dbba-1192-4253-9c57-7fe293907de8.png"
+      ],
+      "prompt": "Create ONE original app item icon: HANDBAG. Specifically depict a structured leather handbag with two short handles, simple clasp and no monogram. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Handbag, nothing else."
+    },
+    {
+      "id": "sunglasses",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-6138e81c-96de-4a9b-a138-5eda424d4024.png"
+      ],
+      "prompt": "Create ONE original app item icon: SUNGLASSES. Specifically depict a pair of stylish sunglasses with two dark lenses, rounded rectangular frames and folded temples. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Sunglasses, nothing else."
+    },
+    {
+      "id": "sunglasses",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-ba1b1ba9-3da0-413f-98aa-4d0dee883c95.png"
+      ],
+      "prompt": "Create ONE original app item icon: SUNGLASSES. Specifically depict a pair of stylish sunglasses with two dark lenses, rounded rectangular frames and folded temples. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Sunglasses, nothing else."
+    },
+    {
+      "id": "handbag",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-fb9c56c0-ed68-413e-9664-c4291dac96a6.png"
+      ],
+      "prompt": "Create ONE original app item icon: HANDBAG. Specifically depict a structured leather handbag with two short handles, simple clasp and no monogram. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Handbag, nothing else."
+    },
+    {
+      "id": "motorcycle",
+      "style": "3d",
+      "paths": [
+        "/workspace/generated_images/exec-551b4137-960e-4a64-aa24-2d91f475b71d.png"
+      ],
+      "prompt": "Create ONE original app item icon: MOTORCYCLE. Specifically depict a complete compact street motorcycle with two wheels, fuel tank, seat, headlight, handlebars and visible engine. Premium realistic 3D miniature product icon. Graphite, brushed silver and restrained amber accents with physically plausible materials. Warm wood or leather where appropriate. Clean studio lighting, crisp geometry, three-quarter view. No face or sticker border. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Motorcycle, nothing else."
+    },
+    {
+      "id": "motorcycle",
+      "style": "cute2d",
+      "paths": [
+        "/workspace/generated_images/exec-c0a63ca1-d6ed-4bd3-94ad-ffa2da9cdb37.png"
+      ],
+      "prompt": "Create ONE original app item icon: MOTORCYCLE. Specifically depict a complete compact street motorcycle with two wheels, fuel tank, seat, headlight, handlebars and visible engine. Cute flat 2D sticker illustration, rounded recognizable proportions, thick consistent dark chocolate outline, thin cream sticker border, pastel mint peach butter-yellow lavender palette, tiny smiling face with blush on an appropriate part. Minimal cel shading, no realistic or 3D rendering. Transparent square canvas, fit entire complete object within 78% of canvas with generous margin, natural proportions, legible at 48dp. No logo, text, watermark, background, floor, unrelated object or icon sheet. This is an icon of Motorcycle, nothing else."
+    }
+  ]
+}

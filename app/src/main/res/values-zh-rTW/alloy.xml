@@ -16,4 +16,6 @@
 <string name="photo_outline">白色描邊</string>
 <string name="last_export">上次成功匯出</string>
 <string name="never_exported">尚未匯出備份</string>
+    <string name="all_categories">所有類別</string>
+    <string name="loading_preview">正在載入預覽…</string>
 </resources>

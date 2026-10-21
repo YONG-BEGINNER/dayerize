@@ -1,7 +1,7 @@
 {
   "targetIdentities": 600,
-  "currentIdentities": 12,
-  "currentStyleExports": 24,
+  "currentIdentities": 36,
+  "currentStyleExports": 72,
   "fallback": "artwork/fallback_3d.png",
   "entries": [
     {
@@ -19,8 +19,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-978ddca6-565a-48d0-a507-7f85c5c4b392.png",
@@ -30,7 +30,23 @@
         "3d": "artwork/camera_3d.png",
         "cute2d": "artwork/camera_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "209a6857666f6a79ce66d748a12df9b0f8f322075610451fba37782a23cc9d36",
+          "exportSha256": "7393a60a2558bd09dea47eddb50e005f22ab551d7eb4c366b6793a0a88891a1e",
+          "bytes": 269538
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "92b87fdf2485b9f5767a9a60a69be091f3ce1e29442909ae6e641c5a781d5709",
+          "exportSha256": "625707a9c30e8e0f479359684d6b4f32b8366f77a3085e17dd5fbeba2802ba9e",
+          "bytes": 196992
+        }
+      }
     },
     {
       "id": "laptop",
@@ -47,8 +63,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-4e2f11a6-bec3-472e-b2a3-57c9ba289069.png",
@@ -58,7 +74,23 @@
         "3d": "artwork/laptop_3d.png",
         "cute2d": "artwork/laptop_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "d7cc5907f2953f02c4fde9d93ad719c7d6f32eeb26242a85f75eb68b736223bb",
+          "exportSha256": "d8f3bbd6cd27731a0ac2c2bc943863d18d0431843e748857a1938d0fc8b145af",
+          "bytes": 125357
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "79f0d9121679bbdb03269e2d19a57d1d4191f7592fbf1f16965898ae1f1c4241",
+          "exportSha256": "12f66c79e135be8683d121b5f7751b1426a3be80cc85b20e23aaa9288920fafc",
+          "bytes": 156854
+        }
+      }
     },
     {
       "id": "sedan",
@@ -75,8 +107,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-6f9e146c-1b9b-40f8-b691-5b86439ac52d.png",
@@ -86,7 +118,23 @@
         "3d": "artwork/sedan_3d.png",
         "cute2d": "artwork/sedan_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "f1c308318163917e03fb2bc692d274d37f31c88fcfe14eb998a102e53c331e20",
+          "exportSha256": "4730083df7fac454a275db8a32513bfd922270f78bc6b5fdb7296bda47870e6b",
+          "bytes": 198193
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "d5ec224ab4cb996ce346bacd3d556f1f95392298ee22f4dac3dbb86b8e43ee89",
+          "exportSha256": "ea05b2de04066ed4420f484e037a5d907f22c5dbb1cdc22d4d2fcd53fd7f21e8",
+          "bytes": 192046
+        }
+      }
     },
     {
       "id": "headphones",
@@ -103,8 +151,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-f147511d-8190-4aee-8332-ea1e1ba90d33.png",
@@ -114,7 +162,23 @@
         "3d": "artwork/headphones_3d.png",
         "cute2d": "artwork/headphones_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "4d6bace69c959f7d2ccad376a3ccaad433883ccdb20e2ff33358a9639a26d283",
+          "exportSha256": "782528f664a1c62eaae00342f916a5609f1d3e6921d5207c14691c9a348c3087",
+          "bytes": 224511
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "5f04afc5f3be68d052473745843b537fc83d060dc2b269d92d0e9fb1b8df2f14",
+          "exportSha256": "285f1864907ad79343c4b41b1dbb1c027bfd7514e6dbffd9cb66f4a53e588a6b",
+          "bytes": 215213
+        }
+      }
     },
     {
       "id": "watch",
@@ -131,8 +195,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-38bdfe5a-b0fa-4fd3-82c5-4bbe2348ac3a.png",
@@ -142,7 +206,23 @@
         "3d": "artwork/watch_3d.png",
         "cute2d": "artwork/watch_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "04468328f07aac1d1eb3a306d145333ffc016836dffbe279eb08185c86c85ab7",
+          "exportSha256": "b403ad2b7c235de03c85fde8b23f5610127c39586773b1b6d18e5f84e34b9e5f",
+          "bytes": 252114
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "1d2cea164a8786fa3a50cbec48786236cc17394804b83a9c04088acd8b34be85",
+          "exportSha256": "1b466a3f31742e04e2c5997a4a3bcd89afdd0ad57c3c152ed8dd2e255a612640",
+          "bytes": 181435
+        }
+      }
     },
     {
       "id": "backpack",
@@ -159,8 +239,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-1878d540-40d3-4c90-b18a-e27ed6de35ba.png",
@@ -170,7 +250,23 @@
         "3d": "artwork/backpack_3d.png",
         "cute2d": "artwork/backpack_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "4a90537a8ded968f39dc79c4b791424a6184a591e90457b0991007a920949b12",
+          "exportSha256": "02c2d1d8b1accc6040994e60301ed5f9adda623f68b1f54a67605390546bf87d",
+          "bytes": 265581
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "1d51bdb3611c324c0ee88d336018a53d034d08e5a8b93e774458ebef89b4c6e8",
+          "exportSha256": "8cd938639308e4cc5fe2ccd8a3b150595f110ff740d31f7782f6d34272a0ee4b",
+          "bytes": 199092
+        }
+      }
     },
     {
       "id": "shoe",
@@ -187,8 +283,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-e042cf23-e7a4-46f9-aeb8-2c588d6e8aa3.png",
@@ -198,7 +294,23 @@
         "3d": "artwork/shoe_3d.png",
         "cute2d": "artwork/shoe_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "18ffcd15df33f9f52a031c7195e77941ff8a1014a0349d1481174a6b44a0ee26",
+          "exportSha256": "851421e1519e7197ce772cd5cfbfa6a2348b44af5943cc00af185c639dd9de92",
+          "bytes": 249882
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "5eac84ed8c7c7e243bdbc9012384b99cdf36f30e094ae49f1cb922295606b454",
+          "exportSha256": "d1a547d33b7b723b40ae1ced4bc3c68b34754d5b0eca5e3db27a530c63aeeb33",
+          "bytes": 196902
+        }
+      }
     },
     {
       "id": "phone",
@@ -215,8 +327,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-9fe768d8-6dab-4848-87e9-6de72d36105e.png",
@@ -226,7 +338,23 @@
         "3d": "artwork/phone_3d.png",
         "cute2d": "artwork/phone_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "c9444fd72b6442e3ee884e28de1d61e662ce7af059417dcc4d0ce51645691ac0",
+          "exportSha256": "e0a7babdf3b2a99bc3502c8c6da5dbc3c484130c452b368a21e6930339f3d6ea",
+          "bytes": 125662
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "433c07b3a0f60f0d9cc1c7c81b1d748bec18701833bbf80deb61f66d1b56ad26",
+          "exportSha256": "574b6be216f9c4259ee0cbd45d12c11d9472535505634e2bd6d747bd0d31e7d0",
+          "bytes": 148807
+        }
+      }
     },
     {
       "id": "coffee",
@@ -243,8 +371,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-8dcd9626-4b18-46bb-aa32-e0829cfa4328.png",
@@ -254,7 +382,23 @@
         "3d": "artwork/coffee_3d.png",
         "cute2d": "artwork/coffee_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "1f6de5d505df3f4f1e6cba3c47010d8780c58394f274121fda930df6c796a4ac",
+          "exportSha256": "00ff6a56314681825ee091a52b2065a1bdc318552a538ac74f39fc8580b07514",
+          "bytes": 249364
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "7a674f9b2e9d78c13c2e2d02c8126e9728889152117d621c284c26e9ec015f40",
+          "exportSha256": "f225a40a4e189e6620d9f95b449b78731cab651c4dd3ad9f3b05e61f134a88ee",
+          "bytes": 214996
+        }
+      }
     },
     {
       "id": "drill",
@@ -271,8 +415,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-50c6ba04-e4a0-416f-b976-9724a324cc0e.png",
@@ -282,7 +426,23 @@
         "3d": "artwork/drill_3d.png",
         "cute2d": "artwork/drill_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "3d92aa2b8ba1f0e2c97622ecad6bece9f7489813634c2e915b8e95f0e168bc9b",
+          "exportSha256": "3a031abaca6b0319b4271155fb8597fef6a6cb2f2568d465a9810580b586227e",
+          "bytes": 214445
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "58528e231de272daba6f8f76ce03c7d293d988a4f44f390eacf0aee8d5d3cc38",
+          "exportSha256": "bcfc3fa397855c66cc39bf6ded0afd03f9a401449e6376868e929e13a07de511",
+          "bytes": 170318
+        }
+      }
     },
     {
       "id": "guitar",
@@ -299,8 +459,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-b8d3a629-b714-4922-a80e-18ddbfc3277c.png",
@@ -310,7 +470,23 @@
         "3d": "artwork/guitar_3d.png",
         "cute2d": "artwork/guitar_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "fd469e12e1060cf8332137c4013c375ed114d99acfafea687864df51ec4ca22e",
+          "exportSha256": "245c4c4a30622dc893f094c247769857d0cf4e54174dc55f27cf5caaf053d3bd",
+          "bytes": 177270
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "12aabb616182905f2d5326129b52ef241529fb395867fee4623e9eff69178e99",
+          "exportSha256": "88281d36cc23fd5deb6d40928ef8deb9cf731f86dd7e5b5d8c8906e28cc2555b",
+          "bytes": 148816
+        }
+      }
     },
     {
       "id": "bicycle",
@@ -327,8 +503,8 @@
         "approved original 3D and cute 2D boards"
       ],
       "styleStatuses": {
-        "3d": "shipped-0.3.0",
-        "cute2d": "shipped-0.3.0"
+        "3d": "exported",
+        "cute2d": "exported"
       },
       "masterPaths": {
         "3d": "/workspace/generated_images/exec-a4c182e1-9eaa-441c-b455-1896d6ce5293.png",
@@ -338,7 +514,1103 @@
         "3d": "artwork/bicycle_3d.png",
         "cute2d": "artwork/bicycle_cute2d.png"
       },
-      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "16210cd520cf2f63e8f2ff6a6cdcd760682f316fffa21fc82df7cf7b7eb261d0",
+          "exportSha256": "77eb1e59e9bcba98de57f4970bf9b07bca520284d8f3e8aa092b8884711254e7",
+          "bytes": 293825
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "539d0eea669620abe3f32528f582e847baebc67477eb8a06c85b70ed14fda68b",
+          "exportSha256": "4c2f38787a6feebda8a9c923744391d705aa4eb7720c0ab3068f8c77ebe3b472",
+          "bytes": 220811
+        }
+      }
+    },
+    {
+      "id": "tablet",
+      "category": "Tech",
+      "names": {
+        "en": "Tablet",
+        "zh-CN": "平板电脑",
+        "zh-TW": "平板電腦",
+        "ms": "Tablet"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "cute2d": "exported",
+        "3d": "exported"
+      },
+      "masterPaths": {
+        "cute2d": "/workspace/generated_images/exec-9b371c43-a9be-48b7-931d-a48827ff574c.png",
+        "3d": "/workspace/generated_images/exec-9a57b3cf-834a-491b-9f25-ea6042fe37c2.png"
+      },
+      "exportPaths": {
+        "cute2d": "artwork/tablet_cute2d.png",
+        "3d": "artwork/tablet_3d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "e23995b10a4194273b7d6ff4fc658bd121f0b65aade44c510313a53c521d9b89",
+          "exportSha256": "db4fadf5ece44aa2abcf8f000fd978e0baef6e1a63ce19d815ba9fd247ed7588",
+          "bytes": 206880
+        },
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "637ff87b068511beffb5068485b6513175392404953ca7d340936007f2b3d07d",
+          "exportSha256": "940206c40ba9d11d1c27407350d1ba24231bd965610de084d03d56b783c69f99",
+          "bytes": 166939
+        }
+      }
+    },
+    {
+      "id": "earbuds",
+      "category": "Tech",
+      "names": {
+        "en": "Wireless earbuds",
+        "zh-CN": "无线耳机",
+        "zh-TW": "無線耳機",
+        "ms": "Fon telinga tanpa wayar"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-8324835d-f5be-43de-80c0-6d5e8f40d70e.png",
+        "cute2d": "/workspace/generated_images/exec-d33ff890-e2fe-43f0-a936-0ffb03621907.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/earbuds_3d.png",
+        "cute2d": "artwork/earbuds_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "ceee4119d34d8a4032463deaf582f9a2bb1e9612cd0a7f3cc52d1059a8c1a12d",
+          "exportSha256": "223ded470f918b8746d55e0b9a61bfc2ef5d7e6e77de5194f4b1092f4ff0ee80",
+          "bytes": 233263
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "c2c3ac583448bf6b356257d7ec0f2631ee3f5f0bd8496d37941c7866b738e863",
+          "exportSha256": "f6aa255452e81e3b42eddff81412755a329e209218cc05ae39cde6850eaf35fb",
+          "bytes": 195116
+        }
+      }
+    },
+    {
+      "id": "smartwatch",
+      "category": "Wearables",
+      "names": {
+        "en": "Smartwatch",
+        "zh-CN": "智能手表",
+        "zh-TW": "智慧手錶",
+        "ms": "Jam pintar"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "cute2d": "exported",
+        "3d": "exported"
+      },
+      "masterPaths": {
+        "cute2d": "/workspace/generated_images/exec-2dc08e42-1d41-4699-bcb8-1640fb84ee16.png",
+        "3d": "/workspace/generated_images/exec-7b21a925-cb15-4239-8b31-ead95aef1bac.png"
+      },
+      "exportPaths": {
+        "cute2d": "artwork/smartwatch_cute2d.png",
+        "3d": "artwork/smartwatch_3d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "461ef34a67628f54ec784bce38674284fe819d699b497bd52606ee716230963e",
+          "exportSha256": "fe9b391448b825fd91f702ef6574b181aaa767a391d553eb60f995d3e27acf1d",
+          "bytes": 219531
+        },
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "52dfba8a5fd5a9199f367daa422419fccfadfea045145beab7b319911ac389e3",
+          "exportSha256": "bd0bbe532d7427ebced56d98cd29d5d78d4896e4d934a99c88913be0dcefc582",
+          "bytes": 202683
+        }
+      }
+    },
+    {
+      "id": "monitor",
+      "category": "Tech",
+      "names": {
+        "en": "Monitor",
+        "zh-CN": "显示器",
+        "zh-TW": "顯示器",
+        "ms": "Monitor"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-df333f42-3879-4e23-9ad5-a7f936b7cd87.png",
+        "cute2d": "/workspace/generated_images/exec-e725f5da-10fa-41e9-9e4b-9914ad80d8ab.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/monitor_3d.png",
+        "cute2d": "artwork/monitor_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "91197cd5d1445f155ca13b95a05ce6958e02b11ca9d6c3f9d57d5da4c0db64e6",
+          "exportSha256": "1c402c2fcc3f8bfba55aa109e3de29b22a3c8484a77db422effae029c37f47d5",
+          "bytes": 177545
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "a7b11b467dfdad87dda175f67ea774af2d9e9cde0c4052ffd7492caa9684e45d",
+          "exportSha256": "9f7bc1ed7e34c909e1f0733b50567a27aba78089c442f2cc6b8a2eaba91b0bf6",
+          "bytes": 145062
+        }
+      }
+    },
+    {
+      "id": "keyboard",
+      "category": "Tech",
+      "names": {
+        "en": "Keyboard",
+        "zh-CN": "键盘",
+        "zh-TW": "鍵盤",
+        "ms": "Papan kekunci"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-d78e3377-f29e-461f-996d-6f04c1f370c4.png",
+        "cute2d": "/workspace/generated_images/exec-0403930b-f7c8-4786-98e6-4c76fda34ce1.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/keyboard_3d.png",
+        "cute2d": "artwork/keyboard_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "52a49e5938eac07ce75b012673ff307a570de8d42bf2fc7e9ce75c087022386a",
+          "exportSha256": "3f2792391277cb0e0420d6d7bd3027b4c556d40501bb12439a72f1b34c8c7198",
+          "bytes": 191243
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "4603e3a1251dd826f2eebc181f29f77c8600586cdbc48e76a0d0d8c855680a08",
+          "exportSha256": "9df1b41078a78db7a6ee03933d297e0413dc8cc8c219c0bda404775ca7fda18a",
+          "bytes": 157230
+        }
+      }
+    },
+    {
+      "id": "mouse",
+      "category": "Tech",
+      "names": {
+        "en": "Mouse",
+        "zh-CN": "鼠标",
+        "zh-TW": "滑鼠",
+        "ms": "Tetikus"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-079eaffa-59d5-4e21-bc9d-48020fc8127d.png",
+        "cute2d": "/workspace/generated_images/exec-6cca61a0-b5c6-4ad0-b59e-a64fbcf6d24d.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/mouse_3d.png",
+        "cute2d": "artwork/mouse_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "fc167360fadd53c41c1ea97253b6bdd5c049abbfe74720f396c92de137d96f09",
+          "exportSha256": "6d09a13fde9f2a356ebb327424fe5868d4ac3b582c67fcdd7f759ef0f24b9e04",
+          "bytes": 228133
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "73217568fa4f3b17b8d5f763283bc4b050e044024ed3a5992e820eb2320af177",
+          "exportSha256": "65fa4645bcd60ac5e684910b434f1a8157265b12ebf92819de26ee9603351341",
+          "bytes": 192262
+        }
+      }
+    },
+    {
+      "id": "speaker",
+      "category": "Tech",
+      "names": {
+        "en": "Speaker",
+        "zh-CN": "音箱",
+        "zh-TW": "喇叭",
+        "ms": "Pembesar suara"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-05223bed-745d-4f01-b205-50ef50f71487.png",
+        "cute2d": "/workspace/generated_images/exec-657f652b-b5ec-4b6f-ac1b-b036837962f2.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/speaker_3d.png",
+        "cute2d": "artwork/speaker_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "10c9550a0979802098a4f1e6af0ecbe03ed5558c56e23a53e1b46a2623b795e5",
+          "exportSha256": "51e99752142089010d029126887b761fb1ca88ecfa5a23459647428c8972583f",
+          "bytes": 302306
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "3d2a095664b5e4bc04b0096ec282cb85123fd5babffa808aaf252247a68aad3d",
+          "exportSha256": "bdec3f13543d107356f9acbd9429594e37f05b31a7f86054d6d55ef60a29ff5d",
+          "bytes": 255743
+        }
+      }
+    },
+    {
+      "id": "game_console",
+      "category": "Tech",
+      "names": {
+        "en": "Game console",
+        "zh-CN": "游戏机",
+        "zh-TW": "遊戲機",
+        "ms": "Konsol permainan"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-3e3988d8-22bd-4181-ba39-985c39a22c2b.png",
+        "cute2d": "/workspace/generated_images/exec-85251b26-8775-4871-9468-e9cfde22837f.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/game_console_3d.png",
+        "cute2d": "artwork/game_console_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "23f1ec4490a357fd0bb0ef4654ec6278ce2fa86c08300c322405cb4b52eb584e",
+          "exportSha256": "3dcb294f498aae38f07878f2d4eaa9e7273ede6c8d445ead5565cde639c84bc9",
+          "bytes": 176181
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "4a6f2a40ceb85b73a22a6a8e2fdad0a8775b1eafef49d8814a762ae22d0fc926",
+          "exportSha256": "120a5c71e993c483f3e23ac778b46de8d09eebbaad2083c595838e72792f832e",
+          "bytes": 158615
+        }
+      }
+    },
+    {
+      "id": "power_bank",
+      "category": "Tech",
+      "names": {
+        "en": "Power bank",
+        "zh-CN": "充电宝",
+        "zh-TW": "行動電源",
+        "ms": "Bank kuasa"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-19f221f4-c0b3-41b7-9d8c-02d7ab706257.png",
+        "cute2d": "/workspace/generated_images/exec-34a7ea7d-e408-42a5-9cb3-bd5e668417e7.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/power_bank_3d.png",
+        "cute2d": "artwork/power_bank_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "1ef8834710f6b6c38500548a874b88b8db6e18f91524417b5459a3ed3fc6d2c5",
+          "exportSha256": "41a7be8c374ecb7e3cc170a5d05bb136a5dcb556d774427f2f5eeb793d573a8e",
+          "bytes": 206610
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "ca9c0131df8d40d1cf1708b179254729bd193478e3fc1341b4fd2bf209903a50",
+          "exportSha256": "34ae151162722bd019d45cfecd7a4d2386fe0622cb2acc4a7ee471f2e15939b4",
+          "bytes": 189731
+        }
+      }
+    },
+    {
+      "id": "camera_lens",
+      "category": "Tech",
+      "names": {
+        "en": "Camera lens",
+        "zh-CN": "相机镜头",
+        "zh-TW": "相機鏡頭",
+        "ms": "Lensa kamera"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-a7be6245-a218-47fa-a206-4394bb44ba1a.png",
+        "cute2d": "/workspace/generated_images/exec-20b56a14-b1e1-4dee-80a0-525ab9229c89.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/camera_lens_3d.png",
+        "cute2d": "artwork/camera_lens_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "05427d06d3846108387b3195eea9810ae6d066091f1ef5dffef2c77b4ebbae79",
+          "exportSha256": "a83443d82abc04cf4d03c4212cd4945caf60f6549a24d78c3e12c27cda0f52ec",
+          "bytes": 223552
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "95c34e232ff183d03766b5ca1bb7b6172ccd6058bdd79ca90133e8a2e349668a",
+          "exportSha256": "e13bd2f5bcc8650e16fb56ed3258cb506ca98a1527fff57c712f71d16a8f6729",
+          "bytes": 222168
+        }
+      }
+    },
+    {
+      "id": "drone",
+      "category": "Tech",
+      "names": {
+        "en": "Drone",
+        "zh-CN": "无人机",
+        "zh-TW": "無人機",
+        "ms": "Dron"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-e6fb9f3f-e646-40e3-be5c-44aaf345ef48.png",
+        "cute2d": "/workspace/generated_images/exec-027c9cf5-fa3c-467c-89ce-ecb90367070f.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/drone_3d.png",
+        "cute2d": "artwork/drone_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "e0295800be4996c43047ebd01e66996a485d84d7f5aae58cf00c91c610e6bb13",
+          "exportSha256": "edaa2265b6b81a9656ade4542a68e3289eb3d966e01f577d4c66fc647607cff8",
+          "bytes": 144625
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "e672a4d366cdd99f22decaaba2e65e3ea4423b6fb4ecf41bbd59d24be2856666",
+          "exportSha256": "4edffc7c0c0b3045338d113a3167d1f4229afe6fa106dab50d274473eef0cc6b",
+          "bytes": 185439
+        }
+      }
+    },
+    {
+      "id": "television",
+      "category": "Home",
+      "names": {
+        "en": "Television",
+        "zh-CN": "电视",
+        "zh-TW": "電視",
+        "ms": "Televisyen"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "cute2d": "exported",
+        "3d": "exported"
+      },
+      "masterPaths": {
+        "cute2d": "/workspace/generated_images/exec-f074aca7-c630-4885-a920-c88e71b5f2ba.png",
+        "3d": "/workspace/generated_images/exec-0f61284c-b31c-4a74-873b-97f040c01067.png"
+      },
+      "exportPaths": {
+        "cute2d": "artwork/television_cute2d.png",
+        "3d": "artwork/television_3d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "3619f1a1c4cbd25751889dd36cc23993ad2c043f6d3b5d1f091e217811ae7f11",
+          "exportSha256": "3ab12847087e9e7d27282a9b2b76953a7cb2289ce695dac32c81d082567ca4dd",
+          "bytes": 110613
+        },
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "57d622f88a9894ad24a8c201098674f2038b921c76f7ed03ee64bfc0cab83cd9",
+          "exportSha256": "b9a086ab925934d0a4a287d3f5ff621617b03a329fea7eac44b14ebb3b3fdd5e",
+          "bytes": 139795
+        }
+      }
+    },
+    {
+      "id": "air_conditioner",
+      "category": "Home",
+      "names": {
+        "en": "Air conditioner",
+        "zh-CN": "空调",
+        "zh-TW": "冷氣機",
+        "ms": "Penyaman udara"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-37fcdcb9-a422-42fc-84c7-656086211ba6.png",
+        "cute2d": "/workspace/generated_images/exec-edf3367a-0d10-4057-9367-5cdc43408af6.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/air_conditioner_3d.png",
+        "cute2d": "artwork/air_conditioner_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "923efade79750943edea0846dacab2c31fc605037d8a9653fd041205438de72a",
+          "exportSha256": "c996d5a7623fbd344e6f833fb2dc9c916c5f334e4cfc70aea70090059b0ac24a",
+          "bytes": 180470
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "d0b2cba142b7f2dec1a8dee5e385580fed7029d565ace26f6921ece39aa3dd06",
+          "exportSha256": "4565becfa4efc85fb41f4854349b30b35f39e741b66be120bd86ba94ec4cbaa0",
+          "bytes": 155504
+        }
+      }
+    },
+    {
+      "id": "refrigerator",
+      "category": "Home",
+      "names": {
+        "en": "Refrigerator",
+        "zh-CN": "冰箱",
+        "zh-TW": "冰箱",
+        "ms": "Peti sejuk"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-6157bfac-11dd-4326-9332-a68fb73d1cfc.png",
+        "cute2d": "/workspace/generated_images/exec-7e74bf49-d9aa-4f4b-8e1a-8475714b2d59.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/refrigerator_3d.png",
+        "cute2d": "artwork/refrigerator_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "b87c0aecae22e80ba54ba18c4a136d255e509867387954c70c96c7884f71351a",
+          "exportSha256": "06d9d1a10ce541a12081bb316ffe6f5c392af3658026f13eecc72547f2561819",
+          "bytes": 149025
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "cd2724359cf0ecfa483a49c1831c33918fe6c3e3c638a9a06de8195752012cc9",
+          "exportSha256": "8ce7780a0f61710dd9bddf2b03cd61830d3434bb3c1a1ecdb32db5d72d128c2b",
+          "bytes": 134898
+        }
+      }
+    },
+    {
+      "id": "washing_machine",
+      "category": "Home",
+      "names": {
+        "en": "Washing machine",
+        "zh-CN": "洗衣机",
+        "zh-TW": "洗衣機",
+        "ms": "Mesin basuh"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-991478f2-1fc5-49cb-bb95-dc1848adee90.png",
+        "cute2d": "/workspace/generated_images/exec-81dc2c3a-27be-41e8-8cad-e38eb2195d9d.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/washing_machine_3d.png",
+        "cute2d": "artwork/washing_machine_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "a52eb4fb6bcdc032698190842ef24a96ab9992e71acc192cef7bb4117e42cf3c",
+          "exportSha256": "71fe217c527e3e116f82e52e2d85da54151bb4e83967e3a7d31eb87d62bbdc88",
+          "bytes": 248501
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "a4b9d46cfe8179459658ef915fe0f8cfe77972320c0607706a80b2f6ea36d6e4",
+          "exportSha256": "ddcc8d837bd36a8501b7267a0c6b0b86e10c3baf600358d8a23d273829d28036",
+          "bytes": 221656
+        }
+      }
+    },
+    {
+      "id": "vacuum",
+      "category": "Home",
+      "names": {
+        "en": "Vacuum cleaner",
+        "zh-CN": "吸尘器",
+        "zh-TW": "吸塵器",
+        "ms": "Pembersih vakum"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-19c7d8a5-7bb5-4710-9035-7ad9fc3b9b70.png",
+        "cute2d": "/workspace/generated_images/exec-f435e924-8812-4649-98b5-3a9eeea38b28.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/vacuum_3d.png",
+        "cute2d": "artwork/vacuum_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "a3a298db0ddc197cac663982234868435c357067e211e231c2b02cb0d9499fd8",
+          "exportSha256": "c38d0c0c65b018e2b2ed58b712e495cbc0442d5210c872d92946dfd514c978ec",
+          "bytes": 98328
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "1f6b1073b356430ed46f6e1183b2267e1345d27b9ab2d56f747fafd7d2cae21b",
+          "exportSha256": "bda8e9bb4e9103afb8678cb4f5d8d887186ddb9e882ba41fba6ad024a926c2fe",
+          "bytes": 110459
+        }
+      }
+    },
+    {
+      "id": "air_fryer",
+      "category": "Home",
+      "names": {
+        "en": "Air fryer",
+        "zh-CN": "空气炸锅",
+        "zh-TW": "氣炸鍋",
+        "ms": "Penggoreng udara"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-c8c636ce-ea65-42e5-8677-32e6d2ddc2e1.png",
+        "cute2d": "/workspace/generated_images/exec-aacb9ca4-4df1-47ca-8da9-392c4424faec.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/air_fryer_3d.png",
+        "cute2d": "artwork/air_fryer_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "e6abecb770b90c662dd1404b81fa03b78db0519a47d337fc8b95c0e4340bdcc8",
+          "exportSha256": "b48bd0ae2f7fe319aac6bf9b7ce29af7b9e248c985966ac9dd1e3719b6aaffa2",
+          "bytes": 207415
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "1667b9049cb83d8e77fe90b06f32d1b32cca3f0785392b9ab2023d2251fb06f4",
+          "exportSha256": "64429e12ebd6dee675d016244924ab0958694a58625c3ed55510931c56585d13",
+          "bytes": 197727
+        }
+      }
+    },
+    {
+      "id": "rice_cooker",
+      "category": "Home",
+      "names": {
+        "en": "Rice cooker",
+        "zh-CN": "电饭煲",
+        "zh-TW": "電鍋",
+        "ms": "Periuk nasi"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-8ca22f0f-1459-498e-9ad1-62c687496099.png",
+        "cute2d": "/workspace/generated_images/exec-abfa5429-36c3-4bf4-b3fe-27ccc6f439ea.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/rice_cooker_3d.png",
+        "cute2d": "artwork/rice_cooker_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "38c965af98c9ac07f942703559cae139eb81db217d8ef7163093a5c33fe7a16d",
+          "exportSha256": "61971600d81e9408b234a2c45126c7ef4d7300fe1a350782c83f689a29535a07",
+          "bytes": 245013
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "3ece9af763285ccdc90ea6dd9d62b4c085c937b7eb7c033089f1770e7c84fd3b",
+          "exportSha256": "2ed0f55c2e5d10b20b1d467ea9cf29facd4a2eea9449376d40fb13757b143ddd",
+          "bytes": 216194
+        }
+      }
+    },
+    {
+      "id": "desk",
+      "category": "Home",
+      "names": {
+        "en": "Desk",
+        "zh-CN": "书桌",
+        "zh-TW": "書桌",
+        "ms": "Meja"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-ee4ca795-b43c-4033-84d7-e51194388251.png",
+        "cute2d": "/workspace/generated_images/exec-2a6ce1b6-2636-4c18-ad4f-fa6e586cb946.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/desk_3d.png",
+        "cute2d": "artwork/desk_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "ec88c867ba9523fb69e05fb1c90edfcb71321aef43712f0d405130100792c978",
+          "exportSha256": "b62fc3cc8727c2a3d22310e7f47aa6c520e86702486550301d5329c1574ed038",
+          "bytes": 102150
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "0ef0a4280ff9d90fe89709d2fd2373dac2207b9cc74cd72ba713b69be00e3811",
+          "exportSha256": "5724b64a7a263f0d8cb65707b16fcab875e8bb49947a7f7049d0858529d02c5a",
+          "bytes": 126813
+        }
+      }
+    },
+    {
+      "id": "chair",
+      "category": "Home",
+      "names": {
+        "en": "Office chair",
+        "zh-CN": "办公椅",
+        "zh-TW": "辦公椅",
+        "ms": "Kerusi pejabat"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-5f3e7928-03bf-4d85-892c-3c9953b965c9.png",
+        "cute2d": "/workspace/generated_images/exec-bd6018b6-556e-43fc-916b-a2fd44d4c9e7.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/chair_3d.png",
+        "cute2d": "artwork/chair_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "b6917b3cc008ce7b122ec64ecfb7c768da066ae93dfa722db0237d4e0a1e6b00",
+          "exportSha256": "2328febdf793b0b4c067084d4ccb80cc52576960e878df5bdc73b1d5212c160b",
+          "bytes": 182646
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "e8bb7f931b7930674c3710e43df3a33de17e5d882ba1b1cde1340d3d804b7b4f",
+          "exportSha256": "be88d48c3d28d088fb3ebea30e755e418cfc7b38dd74c982a9cda4b0c96d2252",
+          "bytes": 198978
+        }
+      }
+    },
+    {
+      "id": "suitcase",
+      "category": "Wearables",
+      "names": {
+        "en": "Suitcase",
+        "zh-CN": "行李箱",
+        "zh-TW": "行李箱",
+        "ms": "Beg pakaian"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-36749d28-8d76-4134-984c-ea262f26d507.png",
+        "cute2d": "/workspace/generated_images/exec-63484e76-7de7-4008-9f92-d52d691bdcc9.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/suitcase_3d.png",
+        "cute2d": "artwork/suitcase_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "74916e448c056773ef3ca7872baa4660361ad7687070927b7c54d94feeb919fc",
+          "exportSha256": "acd8ffaf4ef83a30aa204e004730081d0b84d5ab59fd9b4e395429271585d6a0",
+          "bytes": 159551
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "bc3d2670213681ffe116b0af1309f433394fcb7711828f095400939e5e29693c",
+          "exportSha256": "c4da4864ec9e22f23805600511a0c52903175ddeeae5c0bce941f5dabf5046c3",
+          "bytes": 162673
+        }
+      }
+    },
+    {
+      "id": "handbag",
+      "category": "Wearables",
+      "names": {
+        "en": "Handbag",
+        "zh-CN": "手提包",
+        "zh-TW": "手提包",
+        "ms": "Beg tangan"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-e475dbba-1192-4253-9c57-7fe293907de8.png",
+        "cute2d": "/workspace/generated_images/exec-fb9c56c0-ed68-413e-9664-c4291dac96a6.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/handbag_3d.png",
+        "cute2d": "artwork/handbag_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "cba568d6870d8b4fd1c6c7eb7176f23d03db0ad1dee7b9a0ff21ddb699093eb9",
+          "exportSha256": "903708755189d5e02714aabd51dbac6fc03a71d68d84903badde9c5197651299",
+          "bytes": 265902
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "1fc0f04dae5c5925f3641fe2cd4d68680f415bb18dba38b6ad8628bfbdf3d540",
+          "exportSha256": "26e9265f9d09d800204bc85c18f347581d4f559ab26f2fbf1147617c448600ca",
+          "bytes": 209882
+        }
+      }
+    },
+    {
+      "id": "sunglasses",
+      "category": "Wearables",
+      "names": {
+        "en": "Sunglasses",
+        "zh-CN": "太阳眼镜",
+        "zh-TW": "太陽眼鏡",
+        "ms": "Cermin mata hitam"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-6138e81c-96de-4a9b-a138-5eda424d4024.png",
+        "cute2d": "/workspace/generated_images/exec-ba1b1ba9-3da0-413f-98aa-4d0dee883c95.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/sunglasses_3d.png",
+        "cute2d": "artwork/sunglasses_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "93da3dd0a128614ddfc42593c49931bbdd1e4d0a30638a5132a03dd694c234bf",
+          "exportSha256": "4365a452a8d6e0894b7bca5a59514e9141b59385139f906be11eb467f3e07add",
+          "bytes": 113493
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "38d320fea7644670df8d6eb68f9d9ac4561da013a17e7bec687f8859215f90b8",
+          "exportSha256": "a6526faba4022d431e3b85d596131f5da048daa64cb0b194190815c1f6766ae0",
+          "bytes": 142459
+        }
+      }
+    },
+    {
+      "id": "motorcycle",
+      "category": "Vehicles",
+      "names": {
+        "en": "Motorcycle",
+        "zh-CN": "摩托车",
+        "zh-TW": "機車",
+        "ms": "Motosikal"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "Approved original realistic 3D and cute sticker 2D styles",
+        "User-requested everyday asset expansion"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-551b4137-960e-4a64-aa24-2d91f475b71d.png",
+        "cute2d": "/workspace/generated_images/exec-c0a63ca1-d6ed-4bd3-94ad-ffa2da9cdb37.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/motorcycle_3d.png",
+        "cute2d": "artwork/motorcycle_cute2d.png"
+      },
+      "reviewNotes": "Inspected both styles at 48/64/96 px on light and dark backgrounds in catalog-031 proof sheets. Recognizable complete subject, transparent canvas, proportional fit and safe optical bounds. Generic illustration; not a verified branded model. Full-resolution masters retained; runtime export 512×512.",
+      "exports": {
+        "3d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "111ca7f9960552cf8533e8313dbe79f7120f4e1d9f45aa74ed4128f781413a4c",
+          "exportSha256": "77c87564e41e5885d46e00046d53193c2fa0b498aa5170f043cbefdb1e46084d",
+          "bytes": 325040
+        },
+        "cute2d": {
+          "width": 512,
+          "height": 512,
+          "masterSha256": "2a2f2d54e79c798d78792c7f48ef899064f0dedd804d0cfcce1420dbb73aec14",
+          "exportSha256": "82a198cc476792be22f013acc947eb887f27181fa116b951b79daa587c976b5b",
+          "bytes": 304436
+        }
+      }
     }
   ]
 }
