@@ -36,3 +36,5 @@ Application ID: `app.dayerize`; version code 4; version name 0.3.0; Android 8.0+
 Signing certificate SHA-256: `8912651d3133725e41bf8fe0d34cd94b4b24c92fa58edc128915efcbffa06962` (unchanged from prior testing build).
 
 Final APK: 103,327,387 bytes. SHA-256: `c397ac46f9845495fe98347ff55a8ffd17fa6253f77e21bb4a6dfb22b617e362`. Final lossless-packaged build passed the same 44 tests and lint checks. A fresh APK archive was created to remove incremental packaging padding; signature verification passed afterward.
+
+Public delivery completed: [direct APK](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.3.0-arm64.apk). A fresh public download matched the SHA-256 above. Source implementation is retained on branch `work` (implementation commit `23660da`); delivery repository commit `3b7259b` contains the APK and notes.
