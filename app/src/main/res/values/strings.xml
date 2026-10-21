@@ -46,7 +46,7 @@
     <string name="log_use">Log one use</string>
     <string name="use_mode">Track cost per use</string>
     <string name="icons">Choose an icon</string>
-    <string name="icon_search">Search icons (English)</string>
+    <string name="icon_search">Search original icons</string>
     <string name="photo">Choose photo</string>
     <string name="camera">Take photo</string>
     <string name="cutout">Remove background</string>

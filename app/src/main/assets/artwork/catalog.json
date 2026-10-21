@@ -1,0 +1,218 @@
+[
+  {
+    "id": "camera",
+    "category": "Tech",
+    "names": {
+      "en": "Camera",
+      "zh-CN": "相机",
+      "zh-TW": "相機",
+      "ms": "Kamera"
+    },
+    "aliases": [
+      "camera"
+    ],
+    "files": {
+      "3d": "artwork/camera_3d.png",
+      "cute2d": "artwork/camera_cute2d.png"
+    },
+    "opticalScale": 0.856
+  },
+  {
+    "id": "laptop",
+    "category": "Tech",
+    "names": {
+      "en": "Laptop",
+      "zh-CN": "笔记本电脑",
+      "zh-TW": "筆記型電腦",
+      "ms": "Komputer riba"
+    },
+    "aliases": [
+      "laptop"
+    ],
+    "files": {
+      "3d": "artwork/laptop_3d.png",
+      "cute2d": "artwork/laptop_cute2d.png"
+    },
+    "opticalScale": 0.937
+  },
+  {
+    "id": "sedan",
+    "category": "Vehicles",
+    "names": {
+      "en": "Sedan",
+      "zh-CN": "轿车",
+      "zh-TW": "轎車",
+      "ms": "Kereta"
+    },
+    "aliases": [
+      "sedan"
+    ],
+    "files": {
+      "3d": "artwork/sedan_3d.png",
+      "cute2d": "artwork/sedan_cute2d.png"
+    },
+    "opticalScale": 0.836
+  },
+  {
+    "id": "headphones",
+    "category": "Tech",
+    "names": {
+      "en": "Headphones",
+      "zh-CN": "耳机",
+      "zh-TW": "耳機",
+      "ms": "Fon kepala"
+    },
+    "aliases": [
+      "headphones"
+    ],
+    "files": {
+      "3d": "artwork/headphones_3d.png",
+      "cute2d": "artwork/headphones_cute2d.png"
+    },
+    "opticalScale": 0.944
+  },
+  {
+    "id": "watch",
+    "category": "Wearables",
+    "names": {
+      "en": "Watch",
+      "zh-CN": "手表",
+      "zh-TW": "手錶",
+      "ms": "Jam tangan"
+    },
+    "aliases": [
+      "watch"
+    ],
+    "files": {
+      "3d": "artwork/watch_3d.png",
+      "cute2d": "artwork/watch_cute2d.png"
+    },
+    "opticalScale": 0.912
+  },
+  {
+    "id": "backpack",
+    "category": "Wearables",
+    "names": {
+      "en": "Backpack",
+      "zh-CN": "背包",
+      "zh-TW": "背包",
+      "ms": "Beg galas"
+    },
+    "aliases": [
+      "backpack"
+    ],
+    "files": {
+      "3d": "artwork/backpack_3d.png",
+      "cute2d": "artwork/backpack_cute2d.png"
+    },
+    "opticalScale": 0.921
+  },
+  {
+    "id": "shoe",
+    "category": "Wearables",
+    "names": {
+      "en": "Sneaker",
+      "zh-CN": "运动鞋",
+      "zh-TW": "運動鞋",
+      "ms": "Kasut sukan"
+    },
+    "aliases": [
+      "shoe"
+    ],
+    "files": {
+      "3d": "artwork/shoe_3d.png",
+      "cute2d": "artwork/shoe_cute2d.png"
+    },
+    "opticalScale": 0.828
+  },
+  {
+    "id": "phone",
+    "category": "Tech",
+    "names": {
+      "en": "Phone",
+      "zh-CN": "手机",
+      "zh-TW": "手機",
+      "ms": "Telefon"
+    },
+    "aliases": [
+      "phone"
+    ],
+    "files": {
+      "3d": "artwork/phone_3d.png",
+      "cute2d": "artwork/phone_cute2d.png"
+    },
+    "opticalScale": 0.932
+  },
+  {
+    "id": "coffee",
+    "category": "Home",
+    "names": {
+      "en": "Coffee machine",
+      "zh-CN": "咖啡机",
+      "zh-TW": "咖啡機",
+      "ms": "Mesin kopi"
+    },
+    "aliases": [
+      "coffee"
+    ],
+    "files": {
+      "3d": "artwork/coffee_3d.png",
+      "cute2d": "artwork/coffee_cute2d.png"
+    },
+    "opticalScale": 0.958
+  },
+  {
+    "id": "drill",
+    "category": "Home",
+    "names": {
+      "en": "Drill",
+      "zh-CN": "电钻",
+      "zh-TW": "電鑽",
+      "ms": "Gerudi"
+    },
+    "aliases": [
+      "drill"
+    ],
+    "files": {
+      "3d": "artwork/drill_3d.png",
+      "cute2d": "artwork/drill_cute2d.png"
+    },
+    "opticalScale": 0.907
+  },
+  {
+    "id": "guitar",
+    "category": "Hobbies",
+    "names": {
+      "en": "Guitar",
+      "zh-CN": "吉他",
+      "zh-TW": "吉他",
+      "ms": "Gitar"
+    },
+    "aliases": [
+      "guitar"
+    ],
+    "files": {
+      "3d": "artwork/guitar_3d.png",
+      "cute2d": "artwork/guitar_cute2d.png"
+    },
+    "opticalScale": 0.837
+  },
+  {
+    "id": "bicycle",
+    "category": "Vehicles",
+    "names": {
+      "en": "Bicycle",
+      "zh-CN": "自行车",
+      "zh-TW": "自行車",
+      "ms": "Basikal"
+    },
+    "aliases": [
+      "bicycle"
+    ],
+    "files": {
+      "3d": "artwork/bicycle_3d.png",
+      "cute2d": "artwork/bicycle_cute2d.png"
+    },
+    "opticalScale": 0.832
+  }
+]

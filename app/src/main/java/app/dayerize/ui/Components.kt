@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.graphicsLayer
 import coil.compose.SubcomposeAsyncImage
 import app.dayerize.R
 import app.dayerize.core.*
@@ -53,9 +54,10 @@ fun formatMoney(m:Money):String=NumberFormat.getCurrencyInstance(Locale.getDefau
 fun statusLabel(status:Status)=when(status){Status.ACTIVE->R.string.active;Status.RETIRED->R.string.retired;Status.SOLD->R.string.sold;Status.SCRAPPED->R.string.scrapped}
 @Composable fun AssetArt(asset:Asset,modifier:Modifier=Modifier) {
     val ctx=LocalContext.current
-    val parts=asset.icon.split(':');val id=parts[0];val style=parts.getOrElse(1){"3d"}
-    val image=asset.photo?.let { File(ctx.filesDir,"photos/$it") } ?: "file:///android_asset/icons/${id}_${style}.${if(style=="3d")"png" else "webp"}"
-    SubcomposeAsyncImage(model=image,contentDescription=asset.name,modifier=modifier,contentScale=ContentScale.Fit,error={Icon(Icons.Outlined.Inventory2,asset.name,Modifier.padding(16.dp))})
+    val resolver=remember(ctx){app.dayerize.artwork.ArtworkResolver(ctx)}
+    val source=remember(asset.icon){resolver.resolve(asset.icon)}
+    val image=asset.photo?.let { File(ctx.filesDir,"photos/$it") } ?: "file:///android_asset/${source.path}"
+    SubcomposeAsyncImage(model=image,contentDescription=asset.name,modifier=modifier.graphicsLayer { val scale=if(asset.photo==null)source.opticalScale else 1f;scaleX=scale;scaleY=scale },contentScale=ContentScale.Fit,error={Icon(Icons.Outlined.Inventory2,asset.name,Modifier.padding(16.dp))})
 }
 @Composable fun StatusBadge(status:Status) {
     Row(Modifier.clip(RoundedCornerShape(30.dp)).background(MaterialTheme.colorScheme.surfaceVariant).padding(horizontal=8.dp,vertical=5.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(4.dp)) {

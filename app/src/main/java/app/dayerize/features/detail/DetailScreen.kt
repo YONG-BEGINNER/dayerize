@@ -22,16 +22,17 @@ import java.time.LocalDate
 
 @Composable fun DetailScreen(a:Asset,vm:AppViewModel,today:LocalDate,onBack:()->Unit,onEdit:()->Unit,onPurchase:()->Unit={}) {
     var action by remember { mutableStateOf("") }
+    if(action=="sell"){SaleScreen(a,vm){action=""};return}
     val cost=remember(a,today){CostCalculator.calculate(a,today)}
     var logging by remember { mutableStateOf(false) }
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),verticalArrangement=Arrangement.spacedBy(16.dp)) {
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween) {
             IconButton(onClick=onBack){Icon(Icons.AutoMirrored.Outlined.ArrowBack,stringResource(R.string.back))}
             IconButton(onClick=onEdit){Icon(Icons.Outlined.Edit,stringResource(R.string.edit))}
         }
         AssetArt(a,Modifier.fillMaxWidth().height(180.dp))
         Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
-            Text(a.name,Modifier.weight(1f),fontSize=23.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.4).sp)
+            Text(a.name,Modifier.weight(1f),fontSize=22.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.4).sp)
             if(!a.wishlist)StatusBadge(a.status)
         }
         if(a.wishlist) {
@@ -41,7 +42,7 @@ import java.time.LocalDate
         } else {
             Panel(Modifier.fillMaxWidth()) {
                 Label(if(a.sale!=null)R.string.net_cost else R.string.daily_total)
-                Text(formatCost(if(a.sale!=null)cost.net else cost.current,a.purchase.currency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),fontSize=32.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.8).sp)
+                Text(formatCost(if(a.sale!=null)cost.net else cost.current,a.purchase.currency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),fontSize=26.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.8).sp)
                 if(a.sale!=null){Label(R.string.daily_cost);Text(formatCost(cost.current,a.purchase.currency)+stringResource(if(a.useMode)R.string.per_use else R.string.per_day))}
                 Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween) {
                     Column{Text("${cost.days}",fontSize=20.sp,fontWeight=FontWeight.Bold);Label(R.string.held_days)}
@@ -73,20 +74,7 @@ import java.time.LocalDate
         }
         TextButton(onClick={action="delete"},modifier=Modifier.align(Alignment.CenterHorizontally)){Text(stringResource(R.string.delete),color=MaterialTheme.colorScheme.error)}
     }
-    if(action=="sell") SaleDialog(a,vm,onClose={action=""})
     if(action in listOf("retire","delete","reactivate"))AlertDialog(onDismissRequest={action=""},title={Text(stringResource(when(action){"delete"->R.string.delete_note;"reactivate"->R.string.reactivate_note;else->R.string.retire_note}))},confirmButton={TextButton(onClick={
         when(action){"delete"->vm.delete(a.id,onBack);"retire"->vm.save(AssetLifecycle.retire(a,today));"reactivate"->vm.save(a.copy(status=Status.ACTIVE,retiredDate=null))};action=""
     }){Text(stringResource(R.string.confirm))}},dismissButton={TextButton(onClick={action=""}){Text(stringResource(R.string.cancel))}})
-}
-@Composable fun SaleDialog(a:Asset,vm:AppViewModel,onClose:()->Unit) {
-    var price by remember { mutableStateOf("") };var currency by remember { mutableStateOf(a.purchase.currency) };var date by remember { mutableStateOf(vm.today().toString()) }
-    var channel by remember { mutableStateOf("") };var rate by remember { mutableStateOf("") };var error by remember { mutableStateOf(false) }
-    fun candidate()=AssetLifecycle.sell(a,Sale(Money.parse(price,currency),date,channel,if(currency!=a.purchase.currency)rate else null),vm.today())
-    val preview=runCatching { CostCalculator.calculate(candidate(),vm.today()) }.getOrNull()
-    AlertDialog(onDismissRequest=onClose,title={Text(stringResource(R.string.resell)+" · "+a.name)},text={Column(Modifier.verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(10.dp)) {
-        Field(price,{price=it},R.string.sale_price,true);Choice(currency,currencies,R.string.currency){currency=it};Field(date,{date=it},R.string.sale_date);Field(channel,{channel=it},R.string.sale_channel)
-        if(currency!=a.purchase.currency)Field(rate,{rate=it},R.string.sale_rate,true)
-        preview?.let { Panel { Label(R.string.price);Amount(a.purchase);Label(R.string.gain_loss);it.gain?.let { gain->Amount(gain) };Label(R.string.net_cost);Text(formatCost(it.net,a.purchase.currency)+" "+stringResource(R.string.per_day)) } }
-        if(error)Text(stringResource(R.string.check_fields),color=MaterialTheme.colorScheme.error)
-    }},confirmButton={TextButton(onClick={try{val sold=candidate();CostCalculator.calculate(sold,vm.today());vm.save(sold,done=onClose)}catch(e:Exception){error=true}}){Text(stringResource(R.string.confirm))}},dismissButton={TextButton(onClick=onClose){Text(stringResource(R.string.cancel))}})
 }

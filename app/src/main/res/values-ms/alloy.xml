@@ -1,0 +1,19 @@
+<resources>
+    <string name="cute_2d">2D comel</string>
+    <string name="apply">Guna</string>
+    <string name="art_tech">Teknologi</string>
+    <string name="art_vehicles">Kenderaan</string>
+    <string name="art_wearables">Pakaian</string>
+    <string name="art_home">Rumah</string>
+    <string name="art_hobbies">Hobi</string>
+    <string name="default_artwork">Ikon lalai</string>
+<string name="sort_by">Susun mengikut</string>
+<string name="ascending">Menaik</string>
+<string name="reset">Tetap semula</string>
+<string name="sort_unavailable">Item tanpa kos harian setanding dipaparkan terakhir.</string>
+<string name="photo_workspace">Sunting foto</string>
+<string name="photo_fit">Muat · nisbah asal</string>
+<string name="photo_outline">Garis putih</string>
+<string name="last_export">Eksport terakhir berjaya</string>
+<string name="never_exported">Belum mengeksport sandaran</string>
+</resources>

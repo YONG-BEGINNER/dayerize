@@ -31,6 +31,7 @@ import app.dayerize.features.editor.EditorScreen
 import app.dayerize.features.detail.DetailScreen
 import app.dayerize.features.analytics.AnalyticsScreen
 import app.dayerize.features.settings.SettingsScreen
+import app.dayerize.features.settings.BackupScreen
 import kotlinx.coroutines.*
 import java.time.LocalDate
 
@@ -38,6 +39,7 @@ import java.time.LocalDate
     val state by vm.state.collectAsStateWithLifecycle();val message by vm.message.collectAsStateWithLifecycle()
     val ctx=LocalContext.current
     var tab by rememberSaveable { mutableIntStateOf(0) };var selected by rememberSaveable { mutableStateOf<String?>(null) };var editing by rememberSaveable { mutableStateOf(false) }
+    var backupPage by rememberSaveable{mutableStateOf(false)}
     var acquiring by rememberSaveable { mutableStateOf(false) }
     var restore by remember { mutableStateOf<ImportedArchive?>(null) }
     val snackbar=remember { SnackbarHostState() };val scope=rememberCoroutineScope()
@@ -49,7 +51,7 @@ import java.time.LocalDate
         if(AppCompatDelegate.getApplicationLocales()!=requested)AppCompatDelegate.setApplicationLocales(requested)
     }
     val export=rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument("application/zip")){uri->if(uri!=null)vm.launch {
-        ctx.contentResolver.openOutputStream(uri)!!.use { FileBackup(vm.store).export(it) };vm.message.value=R.string.saved
+        FileBackup(vm.store).exportAndRecord(requireNotNull(ctx.contentResolver.openOutputStream(uri)));vm.message.value=R.string.saved
     } }
     val import=rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()){uri->if(uri!=null)scope.launch {
         try { restore=withContext(Dispatchers.IO){ctx.contentResolver.openInputStream(uri)!!.use { ArchiveCodec.read(it,vm.today()) }} }
@@ -63,13 +65,14 @@ import java.time.LocalDate
         Scaffold(snackbarHost={SnackbarHost(snackbar)},containerColor=MaterialTheme.colorScheme.background) { padding ->Box(Modifier.fillMaxSize().padding(padding)) {
             when {
                 !state.loaded->CircularProgressIndicator(Modifier.align(Alignment.Center))
+                backupPage->BackupScreen(state.assets.count{!it.wishlist},state.assets.count{it.wishlist},onExport={export.launch("dayerize-${vm.today()}.zip")},onRestore={import.launch(arrayOf("application/zip","application/octet-stream"))},onBack={backupPage=false},lastExport=state.config["lastExport"])
                 editing->EditorScreen(vm,asset,onDone={selected=it;editing=false;acquiring=false},onBack={editing=false;acquiring=false},wishDefault=tab==1,acquire=acquiring)
                 asset!=null->DetailScreen(asset,vm,today,onBack={selected=null},onEdit={editing=true},onPurchase={acquiring=true;editing=true})
                 tab==0 || tab==1->CollectionScreen(state,vm,today,onAdd={selected=null;editing=true},onOpen={selected=it.id},wishes=tab==1,onPurchase={selected=it.id;acquiring=true;editing=true})
                 tab==2->AnalyticsScreen(state.copy(assets=state.assets.filterNot { it.wishlist }),vm,today)
-                else->SettingsScreen(state,vm,onExport={export.launch("dayerize-${LocalDate.now()}.zip")},onRestore={import.launch(arrayOf("application/zip","application/octet-stream"))})
+                else->SettingsScreen(state,vm,onExport={backupPage=true},onRestore={backupPage=true})
             }
-            if(!editing && selected==null && state.loaded) Surface(Modifier.align(Alignment.BottomCenter).fillMaxWidth(),color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
+            if(!editing && !backupPage && selected==null && state.loaded) Surface(Modifier.align(Alignment.BottomCenter).fillMaxWidth(),color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
                 Row(Modifier.fillMaxWidth().padding(vertical=6.dp),horizontalArrangement=Arrangement.SpaceEvenly) {
                     listOf(R.string.collection to Icons.Outlined.GridView,R.string.wishlist to Icons.Outlined.FavoriteBorder,R.string.analytics to Icons.Outlined.BarChart,R.string.settings to Icons.Outlined.Settings).forEachIndexed { i,(label,icon)->
                         Column(Modifier.weight(1f).selectable(selected=tab==i,onClick={tab=i},role=androidx.compose.ui.semantics.Role.Tab).heightIn(min=56.dp).padding(vertical=6.dp),horizontalAlignment=Alignment.CenterHorizontally,verticalArrangement=Arrangement.spacedBy(4.dp)) {

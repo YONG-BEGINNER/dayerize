@@ -47,7 +47,7 @@ import app.dayerize.images.CutoutProcessor
     var category by rememberSaveable { mutableStateOf(existing?.category ?: ctx.getString(R.string.uncategorized)) };var tags by rememberSaveable { mutableStateOf(existing?.tags?.joinToString(", ") ?: "") }
     var notes by rememberSaveable { mutableStateOf(existing?.notes ?: "") };var serial by rememberSaveable { mutableStateOf(existing?.serial ?: "") }
     var channel by rememberSaveable { mutableStateOf(existing?.channel ?: "") };var warranty by rememberSaveable { mutableStateOf(existing?.warranty ?: "") }
-    var icon by rememberSaveable { mutableStateOf(existing?.icon ?: "package:3d") };var photo by rememberSaveable { mutableStateOf(existing?.photo) }
+    var icon by rememberSaveable { mutableStateOf(existing?.icon ?: "original/fallback:3d") };var photo by rememberSaveable { mutableStateOf(existing?.photo) }
     var originalPhoto by rememberSaveable { mutableStateOf(existing?.originalPhoto ?: existing?.photo) }
     var processedPhoto by rememberSaveable { mutableStateOf(if(existing?.originalPhoto!=null)existing.photo else null) }
     var wish by rememberSaveable { mutableStateOf(if(acquire)false else existing?.wishlist ?: wishDefault) }
@@ -56,6 +56,7 @@ import app.dayerize.images.CutoutProcessor
     var valuation by rememberSaveable { mutableStateOf(existing?.valuation ?: "purchase") };var value by rememberSaveable { mutableStateOf(existing?.manualValue?.let { Money(it,currency).decimal().toPlainString() } ?: "") }
     var residual by rememberSaveable { mutableStateOf(existing?.let { Money(it.residual,currency).decimal().toPlainString() } ?: "0") }
     var more by rememberSaveable { mutableStateOf(false) };var picker by remember { mutableStateOf(false) };var error by remember { mutableStateOf(false) };var busy by remember { mutableStateOf(false) };var discard by remember { mutableStateOf(false) }
+    var photoEditor by remember{mutableStateOf(false)}
     var sheet by remember { mutableStateOf("") };var datePicker by remember { mutableStateOf(false) };var newCategory by rememberSaveable { mutableStateOf("") }
     val imagePicker=rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri->if(uri!=null)scope.launch {
         busy=true
@@ -93,7 +94,7 @@ import app.dayerize.images.CutoutProcessor
         Box(Modifier.fillMaxWidth().padding(top=8.dp),contentAlignment=Alignment.Center) {
             Box(Modifier.size(112.dp)) {
                 AssetArt(preview,Modifier.fillMaxSize().padding(6.dp))
-                FilledIconButton(onClick={sheet="image"},modifier=Modifier.align(Alignment.BottomEnd).size(36.dp)){Icon(Icons.Outlined.Edit,stringResource(R.string.choose_image),Modifier.size(18.dp))}
+                FilledIconButton(onClick={sheet="image"},modifier=Modifier.align(Alignment.BottomEnd).size(48.dp)){Icon(Icons.Outlined.Edit,stringResource(R.string.choose_image),Modifier.size(18.dp))}
             }
         }
         TextField(name,{name=it},placeholder={Text(stringResource(R.string.item_name),Modifier.fillMaxWidth(),textAlign=TextAlign.Center)},textStyle=LocalTextStyle.current.copy(textAlign=TextAlign.Center,fontWeight=FontWeight.Bold,fontSize=20.sp),modifier=Modifier.fillMaxWidth().testTag("asset-name"),singleLine=true,colors=TextFieldDefaults.colors(focusedContainerColor=MaterialTheme.colorScheme.background,unfocusedContainerColor=MaterialTheme.colorScheme.background,focusedIndicatorColor=MaterialTheme.colorScheme.background,unfocusedIndicatorColor=MaterialTheme.colorScheme.background))
@@ -151,7 +152,8 @@ import app.dayerize.images.CutoutProcessor
     }
     }
     }
-    if(picker)IconPicker(onSelect={icon=it;photo=null;originalPhoto=null;processedPhoto=null;picker=false},onDismiss={picker=false})
+    if(photoEditor && originalPhoto!=null)PhotoEditorSheet(requireNotNull(originalPhoto),vm.store.photos,onApply={originalPhoto=it.originalName;photo=it.renderedName;processedPhoto=it.renderedName;photoEditor=false},onDismiss={photoEditor=false})
+    if(picker)IconPicker(defaultStyle=vm.state.value.config["artworkStyle"] ?: "3d",onSelect={icon=it;photo=null;originalPhoto=null;processedPhoto=null;picker=false},onDismiss={picker=false})
     if(sheet.isNotBlank())ModalBottomSheet(onDismissRequest={sheet=""},containerColor=MaterialTheme.colorScheme.surface) {
         Column(Modifier.padding(20.dp).navigationBarsPadding().verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)) {
             when(sheet) {
@@ -160,10 +162,7 @@ import app.dayerize.images.CutoutProcessor
                     SettingRow(stringResource(R.string.icons),icon=Icons.Outlined.Widgets,onClick={sheet="";picker=true})
                     SettingRow(stringResource(R.string.photo),icon=Icons.Outlined.Image,onClick={sheet="";imagePicker.launch("image/*")})
                     SettingRow(stringResource(R.string.camera),icon=Icons.Outlined.CameraAlt,onClick={sheet="";runCatching{camera.launch(null)}.onFailure{vm.message.value=R.string.processing_failed}})
-                    if(photo!=null)SettingRow(stringResource(if(photo==processedPhoto)R.string.original else R.string.cutout),icon=Icons.Outlined.AutoAwesome,onClick={sheet="";scope.launch {
-                        if(processedPhoto!=null)photo=if(photo==processedPhoto)originalPhoto else processedPhoto
-                        else {busy=true;try{processedPhoto=withContext(Dispatchers.Default){CutoutProcessor(ctx).process(File(vm.store.photos,requireNotNull(originalPhoto)),vm.store.photos).name};photo=processedPhoto}catch(e:Exception){vm.message.value=R.string.processing_failed}finally{busy=false}}
-                    }})
+                    if(photo!=null)SettingRow(stringResource(R.string.photo_workspace),icon=Icons.Outlined.AutoAwesome,onClick={sheet="";photoEditor=true})
                 }
                 "category"->{
                     Text(stringResource(R.string.category_pick),fontSize=22.sp,fontWeight=FontWeight.Bold)
@@ -205,11 +204,11 @@ import app.dayerize.images.CutoutProcessor
     if(discard)AlertDialog(onDismissRequest={discard=false},title={Text(stringResource(R.string.discard))},confirmButton={TextButton(onClick=onBack){Text(stringResource(R.string.confirm))}},dismissButton={TextButton(onClick={discard=false}){Text(stringResource(R.string.cancel))}})
 }
 @Composable fun Field(value:String,onChange:(String)->Unit,label:Int,numeric:Boolean=false) {
-    OutlinedTextField(value,onChange,label={Text(stringResource(label))},modifier=Modifier.fillMaxWidth(),shape=RoundedCornerShape(16.dp),keyboardOptions=KeyboardOptions(keyboardType=if(numeric)KeyboardType.Decimal else KeyboardType.Text))
+    OutlinedTextField(value,onChange,label={Text(stringResource(label))},modifier=Modifier.fillMaxWidth(),shape=RoundedCornerShape(12.dp),keyboardOptions=KeyboardOptions(keyboardType=if(numeric)KeyboardType.Decimal else KeyboardType.Text))
 }
 
 @Composable private fun DateWheel(value:Int,min:Int,max:Int,modifier:Modifier,onValue:(Int)->Unit) {
-    val dark=MaterialTheme.colorScheme.background==androidx.compose.ui.graphics.Color(0xFF111111)
+    val dark=MaterialTheme.colorScheme.background==AlloyTokens.Background
     androidx.compose.ui.viewinterop.AndroidView(
         factory={context->android.widget.NumberPicker(android.view.ContextThemeWrapper(context,if(dark)android.R.style.Theme_Material else android.R.style.Theme_Material_Light)).apply {
             minValue=min;maxValue=max;this.value=value;wrapSelectorWheel=false

@@ -1,0 +1,344 @@
+{
+  "targetIdentities": 600,
+  "currentIdentities": 12,
+  "currentStyleExports": 24,
+  "fallback": "artwork/fallback_3d.png",
+  "entries": [
+    {
+      "id": "camera",
+      "category": "Tech",
+      "names": {
+        "en": "Camera",
+        "zh-CN": "相机",
+        "zh-TW": "相機",
+        "ms": "Kamera"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-978ddca6-565a-48d0-a507-7f85c5c4b392.png",
+        "cute2d": "/workspace/generated_images/exec-7cc2e989-fc01-4c60-87e4-4eec5bc4e8fe.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/camera_3d.png",
+        "cute2d": "artwork/camera_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "laptop",
+      "category": "Tech",
+      "names": {
+        "en": "Laptop",
+        "zh-CN": "笔记本电脑",
+        "zh-TW": "筆記型電腦",
+        "ms": "Komputer riba"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-4e2f11a6-bec3-472e-b2a3-57c9ba289069.png",
+        "cute2d": "/workspace/generated_images/exec-8a573a7d-b33e-42be-9e30-44813860d720.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/laptop_3d.png",
+        "cute2d": "artwork/laptop_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "sedan",
+      "category": "Vehicles",
+      "names": {
+        "en": "Sedan",
+        "zh-CN": "轿车",
+        "zh-TW": "轎車",
+        "ms": "Kereta"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-6f9e146c-1b9b-40f8-b691-5b86439ac52d.png",
+        "cute2d": "/workspace/generated_images/exec-8a7b1bdc-6378-4d4f-bc7b-afd30dc923ed.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/sedan_3d.png",
+        "cute2d": "artwork/sedan_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "headphones",
+      "category": "Tech",
+      "names": {
+        "en": "Headphones",
+        "zh-CN": "耳机",
+        "zh-TW": "耳機",
+        "ms": "Fon kepala"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-f147511d-8190-4aee-8332-ea1e1ba90d33.png",
+        "cute2d": "/workspace/generated_images/exec-9adb5608-67b8-403a-8b31-44de3a2fe245.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/headphones_3d.png",
+        "cute2d": "artwork/headphones_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "watch",
+      "category": "Wearables",
+      "names": {
+        "en": "Watch",
+        "zh-CN": "手表",
+        "zh-TW": "手錶",
+        "ms": "Jam tangan"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-38bdfe5a-b0fa-4fd3-82c5-4bbe2348ac3a.png",
+        "cute2d": "/workspace/generated_images/exec-5ba0ee79-8be9-48a9-8229-40cc320b26c6.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/watch_3d.png",
+        "cute2d": "artwork/watch_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "backpack",
+      "category": "Wearables",
+      "names": {
+        "en": "Backpack",
+        "zh-CN": "背包",
+        "zh-TW": "背包",
+        "ms": "Beg galas"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-1878d540-40d3-4c90-b18a-e27ed6de35ba.png",
+        "cute2d": "/workspace/generated_images/exec-28bfeeea-43b1-4856-b257-06523774a32a.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/backpack_3d.png",
+        "cute2d": "artwork/backpack_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "shoe",
+      "category": "Wearables",
+      "names": {
+        "en": "Sneaker",
+        "zh-CN": "运动鞋",
+        "zh-TW": "運動鞋",
+        "ms": "Kasut sukan"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-e042cf23-e7a4-46f9-aeb8-2c588d6e8aa3.png",
+        "cute2d": "/workspace/generated_images/exec-13e7a915-ffaa-4fa0-9328-1c059198cd87.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/shoe_3d.png",
+        "cute2d": "artwork/shoe_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "phone",
+      "category": "Tech",
+      "names": {
+        "en": "Phone",
+        "zh-CN": "手机",
+        "zh-TW": "手機",
+        "ms": "Telefon"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-9fe768d8-6dab-4848-87e9-6de72d36105e.png",
+        "cute2d": "/workspace/generated_images/exec-55148d0f-fcbd-46cc-a073-ab301b3a4e12.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/phone_3d.png",
+        "cute2d": "artwork/phone_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "coffee",
+      "category": "Home",
+      "names": {
+        "en": "Coffee machine",
+        "zh-CN": "咖啡机",
+        "zh-TW": "咖啡機",
+        "ms": "Mesin kopi"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-8dcd9626-4b18-46bb-aa32-e0829cfa4328.png",
+        "cute2d": "/workspace/generated_images/exec-c1809bbc-445d-419e-8f96-f16955cff034.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/coffee_3d.png",
+        "cute2d": "artwork/coffee_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "drill",
+      "category": "Home",
+      "names": {
+        "en": "Drill",
+        "zh-CN": "电钻",
+        "zh-TW": "電鑽",
+        "ms": "Gerudi"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-50c6ba04-e4a0-416f-b976-9724a324cc0e.png",
+        "cute2d": "/workspace/generated_images/exec-5b3088e0-13c8-423e-b487-73798b92588f.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/drill_3d.png",
+        "cute2d": "artwork/drill_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "guitar",
+      "category": "Hobbies",
+      "names": {
+        "en": "Guitar",
+        "zh-CN": "吉他",
+        "zh-TW": "吉他",
+        "ms": "Gitar"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-b8d3a629-b714-4922-a80e-18ddbfc3277c.png",
+        "cute2d": "/workspace/generated_images/exec-25647d1a-2670-44bc-a10b-31c34bae599a.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/guitar_3d.png",
+        "cute2d": "artwork/guitar_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    },
+    {
+      "id": "bicycle",
+      "category": "Vehicles",
+      "names": {
+        "en": "Bicycle",
+        "zh-CN": "自行车",
+        "zh-TW": "自行車",
+        "ms": "Basikal"
+      },
+      "modelFamily": "generic",
+      "referenceConfidence": "generic",
+      "sourceRefs": [
+        "approved original 3D and cute 2D boards"
+      ],
+      "styleStatuses": {
+        "3d": "exported",
+        "cute2d": "exported"
+      },
+      "masterPaths": {
+        "3d": "/workspace/generated_images/exec-a4c182e1-9eaa-441c-b455-1896d6ce5293.png",
+        "cute2d": "/workspace/generated_images/exec-3c4dbc45-ad3e-4f3d-ae19-94fb3ae88699.png"
+      },
+      "exportPaths": {
+        "3d": "artwork/bicycle_3d.png",
+        "cute2d": "artwork/bicycle_cute2d.png"
+      },
+      "reviewNotes": "Individual generated objects inspected; transparent square canvases; fit rendering and bounded optical scale. Generic illustrative family, not an exact branded model."
+    }
+  ]
+}

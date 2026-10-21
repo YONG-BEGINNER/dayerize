@@ -46,7 +46,7 @@
     <string name="log_use">记录一次使用</string>
     <string name="use_mode">按使用次数计算</string>
     <string name="icons">选择图标</string>
-    <string name="icon_search">搜索图标（英文）</string>
+    <string name="icon_search">搜索原创图标</string>
     <string name="photo">选择照片</string>
     <string name="camera">拍照</string>
     <string name="cutout">智能抠图</string>

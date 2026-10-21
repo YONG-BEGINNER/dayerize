@@ -1,0 +1,19 @@
+<resources>
+    <string name="cute_2d">可爱 2D</string>
+    <string name="apply">应用</string>
+    <string name="art_tech">数码</string>
+    <string name="art_vehicles">交通</string>
+    <string name="art_wearables">穿戴</string>
+    <string name="art_home">家居</string>
+    <string name="art_hobbies">爱好</string>
+    <string name="default_artwork">默认图标</string>
+<string name="sort_by">排序方式</string>
+<string name="ascending">升序</string>
+<string name="reset">重置</string>
+<string name="sort_unavailable">无法比较日均成本的物品显示在最后。</string>
+<string name="photo_workspace">图片调整</string>
+<string name="photo_fit">适应 · 保持原始比例</string>
+<string name="photo_outline">白色描边</string>
+<string name="last_export">上次成功导出</string>
+<string name="never_exported">尚未导出备份</string>
+</resources>
