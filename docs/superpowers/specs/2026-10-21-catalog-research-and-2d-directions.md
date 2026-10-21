@@ -12,7 +12,7 @@ This is a taxonomy-grounded coverage plan. Priority is our product judgment, bas
 
 ## Revised target: 600 identities, up to 1,200 style exports
 
-The 600 identities include distinct product forms and reference-verified model families; colour swaps do not inflate the count. Both styles are planned, but the 2D visual language awaits selection. This supersedes the earlier 192-identity target, not the model-reference/proportion requirements.
+The 600 identities include distinct product forms and reference-verified model families; colour swaps do not inflate the count. Both styles are planned. The user selected Illustrated Sticker and then requested a cute revision; the revised sample is awaiting visual feedback. This supersedes the earlier 192-identity target, not the model-reference/proportion requirements.
 
 | Category | Target identities | Coverage examples |
 |---|---:|---|
@@ -61,4 +61,16 @@ Only this latest three-image set determines the user's next 2D selection:
 2. Colour Block: /workspace/generated_images/exec-83ddfaae-efa7-4dac-94f2-87302cb654d9.png
 3. Illustrated Sticker: /workspace/generated_images/exec-23df8817-6238-496f-a357-601ca3fdfa40.png
 
-All three are draft sheets, not per-icon exports. Background texture/shading introduced by generation is not a production transparency requirement; normalize these during individual asset production after style selection. No 2D style has yet been chosen from this set.
+All three are draft sheets, not per-icon exports. Background texture/shading introduced by generation is not a production transparency requirement; normalize these during individual asset production after style selection. The user selected option 3 (Illustrated Sticker), then requested a cute revision. The newer cute sheet below supersedes the unmodified sticker sample for review.
+
+
+## Cute revision and concrete category expansion
+
+The user pointed out that the promised cute sample had not been shown and that category expansion also needed follow-through. Both visual deliverables are now generated:
+
+- Cute 2D revision: `/workspace/generated_images/exec-868360df-3e0e-4d91-863c-a98693214cbd.png`. Twelve same-subject stickers with plump rounded silhouettes, pastel colours, cream borders and small expressions. This is an actual new sample, not merely a verbal proposal. Expressions are a proposed cute treatment, not an additional confirmed requirement. Model-level fidelity must not be claimed for these intentionally stylized generic shapes.
+- Additional realistic 3D coverage: `/workspace/generated_images/exec-e40919fc-9cb7-4681-a852-97854fc6d3f6.png`. Twenty-four new sample subjects: washing machine, air fryer, refrigerator, robot vacuum, stand mixer, security camera, office chair, sofa, table lamp, desk, bookshelf, camping chair, tent, cooler, lantern, adjustable dumbbell, hair dryer, electric toothbrush, stroller, child car seat, automatic pet feeder, pet carrier, sewing machine and 3D printer. Existing realistic style retained.
+
+This implements a sample batch from the category roadmap rather than increasing its target again. The 600-identity/1,200-style-export figures remain planned coverage, not finished output. The 3D sheet visibly has a shared backdrop despite a transparent-background generation request; individual production exports require background removal or regeneration. Both sheets require per-object bounds, padding, alpha-edge and optical-size checks. Neither sheet is a production-ready atlas or installed APK catalog.
+
+Outstanding tasks are explicit: obtain feedback on the cute revision; produce normalized individual exports and integrate the selected original catalog; validate accurate model variants against source photos; continue the remaining category batches. Optional Google login/sync is a separate unfinished workstream with no current-cost guarantee and no cloud provisioning. Do not imply that generating artwork completes sync or the app redesign.
