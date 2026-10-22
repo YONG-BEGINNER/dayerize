@@ -20,15 +20,22 @@ import java.time.*
 import java.math.BigDecimal
 
 @Composable fun SettingsScreen(state:AppState,vm:AppViewModel,onExport:()->Unit,onRestore:()->Unit) {
+    val context=androidx.compose.ui.platform.LocalContext.current
+    val notificationPermission=androidx.activity.compose.rememberLauncherForActivityResult(androidx.activity.result.contract.ActivityResultContracts.RequestPermission()){granted->
+        vm.setting("reminders",granted.toString())
+        if(!granted)vm.message.value=R.string.failed
+    }
+    var profile by remember{mutableStateOf(false)}
     var rates by remember { mutableStateOf(false) };var categories by remember { mutableStateOf(false) };var licenses by remember { mutableStateOf(false) };var tagDialog by remember { mutableStateOf(false) }
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=150.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         ScreenHeading(stringResource(R.string.settings))
         Panel(Modifier.fillMaxWidth()) {
             Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
                 Icon(Icons.Outlined.AccountCircle,null,Modifier.size(40.dp),tint=MaterialTheme.colorScheme.onSurfaceVariant)
-                Column{Text(stringResource(R.string.local_workspace),fontWeight=FontWeight.Bold);Text(stringResource(R.string.local_device),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)}
+                Column{Text(state.config["profileName"]?.takeIf{it.isNotBlank()} ?: stringResource(R.string.local_workspace),fontWeight=FontWeight.Bold);Text(stringResource(R.string.local_device),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)}
             }
         }
+        OutlinedButton(onClick={profile=true},modifier=Modifier.fillMaxWidth()){Text(stringResource(R.string.local_profile))}
         Label(R.string.numbers_units)
         Panel(Modifier.fillMaxWidth()) {
             Choice(state.config["currency"] ?: "MYR",currencies,R.string.reporting_currency){vm.setting("currency",it)}
@@ -48,6 +55,8 @@ import java.math.BigDecimal
             Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(6.dp)){listOf("system" to R.string.system,"light" to R.string.light,"dark" to R.string.dark).forEach { (k,label)->
                 SelectPill(stringResource(label),(state.config["theme"] ?: "dark")==k){vm.setting("theme",k)}
             } }
+            val densityNames=mapOf("compact" to stringResource(R.string.compact),"comfortable" to stringResource(R.string.comfortable),"large" to stringResource(R.string.large_layout))
+            ValueChoice(state.config["density"] ?: "comfortable",densityNames.keys.toList(),R.string.layout_density,{densityNames.getValue(it)}){vm.setting("density",it)}
             val styles=mapOf("3d" to stringResource(R.string.style_3d),"cute2d" to stringResource(R.string.cute_2d))
             Choice(styles[state.config["artworkStyle"] ?: "3d"]!!,styles.values.toList(),R.string.default_artwork){name->vm.setting("artworkStyle",styles.entries.first{it.value==name}.key)}
             SettingRow(stringResource(R.string.reduce_motion),trailing={Switch(state.config["reduceMotion"]!="false",{vm.setting("reduceMotion",it.toString())})})
@@ -59,9 +68,27 @@ import java.math.BigDecimal
             Choice(state.config["timezone"] ?: ZoneId.systemDefault().id,ZoneId.getAvailableZoneIds().sorted(),R.string.timezone){zone->
                 if(runCatching { state.assets.forEach { it.validate(LocalDate.now(ZoneId.of(zone))) } }.isSuccess)vm.setting("timezone",zone) else vm.message.value=R.string.check_fields
             }
+            SettingRow(stringResource(R.string.enable_reminders),trailing={Switch(state.config["reminders"]=="true",{enabled->
+                if(enabled && android.os.Build.VERSION.SDK_INT>=33 && context.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED)notificationPermission.launch(android.Manifest.permission.POST_NOTIFICATIONS)
+                else vm.setting("reminders",enabled.toString())
+            })})
+            Text(stringResource(R.string.reminders_note),style=MaterialTheme.typography.bodySmall)
             SettingRow(stringResource(R.string.licenses),icon=Icons.Outlined.Info,onClick={licenses=true})
         }
         Text(stringResource(R.string.local_only),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
+    }
+    if(profile) {
+        var name by remember{mutableStateOf(state.config["profileName"] ?: "")}
+        var birthday by remember{mutableStateOf(state.config["birthday"] ?: "")}
+        var error by remember{mutableStateOf(false)}
+        AlertDialog(onDismissRequest={profile=false},title={Text(stringResource(R.string.local_profile))},text={Column{
+            Field(name,{name=it},R.string.profile_name);Field(birthday,{birthday=it},R.string.birthday)
+            Text(stringResource(R.string.profile_local_note))
+            if(error)Text(stringResource(R.string.check_fields))
+        }},confirmButton={TextButton(onClick={try{
+            require(name.length<=100);require(birthday.isBlank() || LocalDate.parse(birthday)<=vm.today())
+            vm.launch{vm.store.preference("profileName",name.trim());vm.store.preference("birthday",birthday)};profile=false
+        }catch(e:Exception){error=true}}){Text(stringResource(R.string.save_asset))}},dismissButton={TextButton(onClick={profile=false}){Text(stringResource(R.string.cancel))}})
     }
     if(rates) {
         var from by remember { mutableStateOf("USD") };var to by remember { mutableStateOf(state.config["currency"] ?: "MYR") };var value by remember { mutableStateOf("") };var date by remember { mutableStateOf(vm.today().toString()) };var error by remember { mutableStateOf(false) }

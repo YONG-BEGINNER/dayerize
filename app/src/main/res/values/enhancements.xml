@@ -1,0 +1,65 @@
+<resources>
+    <string name="icon_favourites">Favourites</string>
+    <string name="icon_recent">Recent</string>
+    <string name="icon_favourite">Add to favourites</string>
+    <string name="icon_unfavourite">Remove from favourites</string>
+
+    <string name="layout_density">Layout density</string>
+    <string name="compact">Compact</string>
+    <string name="comfortable">Comfortable</string>
+    <string name="large_layout">Large</string>
+    <string name="quick_template">Quick template</string>
+    <string name="duplicate_item">Duplicate item</string>
+    <string name="ownership_total">Total ownership cost</string>
+    <string name="cost_per_use">Cost per use</string>
+    <string name="ownership_timeline">Ownership timeline</string>
+    <string name="add_event">Add expense or note</string>
+    <string name="usage_history">Usage history</string>
+    <string name="remove_usage">Remove usage entry</string>
+    <string name="event_repair">Repair</string>
+    <string name="event_maintenance">Maintenance</string>
+    <string name="event_accessory">Accessory expense</string>
+    <string name="event_note">Note</string>
+    <string name="collections_label">Collections (comma separated)</string>
+    <string name="location_label">Location</string>
+    <string name="return_by">Return deadline (YYYY-MM-DD)</string>
+    <string name="maintenance_date">Next maintenance (YYYY-MM-DD)</string>
+    <string name="savings_amount">Saved toward this wish</string>
+    <string name="cooling_off">Review after (YYYY-MM-DD)</string>
+    <string name="expense_note">Additional costs use the purchase currency. Do not also record the same accessory as a separate asset.</string>
+    <string name="collection_filter">Collection</string>
+    <string name="all_locations">All locations</string>
+    <string name="all_collections">All collections</string>
+
+    <string name="encrypted_export">Export encrypted backup</string>
+    <string name="encrypted_restore">Restore encrypted backup</string>
+    <string name="backup_password">Backup password (12+ characters)</string>
+    <string name="password_confirm">Confirm password</string>
+    <string name="password_note">Keep this password safely. It is not saved and cannot be recovered.</string>
+    <string name="backup_password_error">Check the password or backup file.</string>
+    <string name="restore_preview">Restore preview</string>
+    <string name="current_records">Current items</string>
+    <string name="incoming_records">Items in backup</string>
+    <string name="local_profile">Local profile</string>
+    <string name="profile_name">Display name</string>
+    <string name="birthday">Birthday (optional, YYYY-MM-DD)</string>
+    <string name="profile_local_note">Saved on this device. No account or cloud connection.</string>
+    <string name="reminders">Ownership reminders</string>
+    <string name="reminders_note">Daily check for warranty, return and maintenance dates, wishlist review dates and backups older than 30 days. Android may delay notifications.</string>
+    <string name="reminder_due">Items need your attention</string>
+    <string name="backup_due">Your backup needs updating</string>
+    <string name="enable_reminders">Enable reminders</string>
+
+    <string name="usage_insights">Ownership insights</string>
+    <string name="no_usage_recorded">No usage recorded</string>
+    <string name="most_used">Most used (logged)</string>
+    <string name="goals_reached">Cost targets reached</string>
+    <string name="compare_wishes">Compare wishes</string>
+    <string name="first_item">First item</string>
+    <string name="second_item">Second item</string>
+    <string name="widget_label">Dayerize overview</string>
+    <string name="widget_favourite">Show in widget</string>
+<string name="purchase_only_cost">Purchase-only cost</string>
+<string name="purchase_only_gain">Purchase-only gain / loss</string>
+<string name="encrypted_limit">Encrypted backups support up to 8 MB of data and photos. Larger archives can use standard export.</string>
+</resources>

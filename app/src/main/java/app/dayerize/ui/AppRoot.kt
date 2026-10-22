@@ -38,12 +38,15 @@ import java.time.LocalDate
 @Composable fun AppRoot(vm:AppViewModel) {
     val state by vm.state.collectAsStateWithLifecycle();val message by vm.message.collectAsStateWithLifecycle()
     val ctx=LocalContext.current
-    var tab by rememberSaveable { mutableIntStateOf(0) };var selected by rememberSaveable { mutableStateOf<String?>(null) };var editing by rememberSaveable { mutableStateOf(false) }
+    var tab by rememberSaveable { mutableIntStateOf(0) };var selected by rememberSaveable { mutableStateOf<String?>(null) };var editing by rememberSaveable { mutableStateOf((ctx as? android.app.Activity)?.intent?.getBooleanExtra("quick_add",false)==true) }
     var backupPage by rememberSaveable{mutableStateOf(false)}
+    var duplicating by rememberSaveable { mutableStateOf(false) }
     var acquiring by rememberSaveable { mutableStateOf(false) }
     var restore by remember { mutableStateOf<ImportedArchive?>(null) }
     val snackbar=remember { SnackbarHostState() };val scope=rememberCoroutineScope()
     val today by produceState(vm.today(),state.config["timezone"]) { while(true){value=vm.today();delay(60_000)} }
+    LaunchedEffect(state.assets,state.config){if(state.loaded)withContext(Dispatchers.IO){app.dayerize.widgets.OwnershipWidget.update(ctx,state.assets,state.config)}}
+    LaunchedEffect(state.config["reminders"]){if(state.loaded)app.dayerize.reminders.ReminderScheduler.update(ctx,state.config["reminders"]=="true")}
     LaunchedEffect(message) { message?.let { snackbar.showSnackbar(ctx.getString(it));vm.message.value=null } }
     LaunchedEffect(state.config["language"]) {
         val tag=state.config["language"] ?: "system"
@@ -61,13 +64,13 @@ import java.time.LocalDate
     DayerizeTheme(dark) {
         val asset=state.assets.find { it.id==selected }
         BackHandler(enabled=selected!=null && !editing){selected=null}
-        CompositionLocalProvider(LocalDisplayOptions provides DisplayOptions(state.config["decimals"]?.toIntOrNull(),state.config["grouping"]!="false")) {
+        CompositionLocalProvider(LocalLayoutDensity provides layoutDensity(state.config["density"]),LocalDisplayOptions provides DisplayOptions(state.config["decimals"]?.toIntOrNull(),state.config["grouping"]!="false")) {
         Scaffold(snackbarHost={SnackbarHost(snackbar)},containerColor=MaterialTheme.colorScheme.background) { padding ->Box(Modifier.fillMaxSize().padding(padding)) {
             when {
                 !state.loaded->CircularProgressIndicator(Modifier.align(Alignment.Center))
-                backupPage->BackupScreen(state.assets.count{!it.wishlist},state.assets.count{it.wishlist},onExport={export.launch("dayerize-${vm.today()}.zip")},onRestore={import.launch(arrayOf("application/zip","application/octet-stream"))},onBack={backupPage=false},lastExport=state.config["lastExport"])
-                editing->EditorScreen(vm,asset,onDone={selected=it;editing=false;acquiring=false},onBack={editing=false;acquiring=false},wishDefault=tab==1,acquire=acquiring)
-                asset!=null->DetailScreen(asset,vm,today,onBack={selected=null},onEdit={editing=true},onPurchase={acquiring=true;editing=true})
+                backupPage->BackupScreen(state.assets.count{!it.wishlist},state.assets.count{it.wishlist},onExport={export.launch("dayerize-${vm.today()}.zip")},onRestore={import.launch(arrayOf("application/zip","application/octet-stream"))},onBack={backupPage=false},lastExport=state.config["lastExport"],extra={app.dayerize.features.settings.EncryptedBackupActions(vm){restore=it}})
+                editing->EditorScreen(vm,if(duplicating && asset!=null)remember(asset.id){Ownership.duplicate(asset,java.util.UUID.randomUUID().toString(),today)} else asset,onDone={selected=it;editing=false;acquiring=false;duplicating=false},onBack={editing=false;acquiring=false;duplicating=false},wishDefault=tab==1,acquire=acquiring)
+                asset!=null->DetailScreen(asset,vm,today,onBack={selected=null},onEdit={editing=true},onPurchase={acquiring=true;editing=true},onDuplicate={duplicating=true;editing=true})
                 tab==0 || tab==1->CollectionScreen(state,vm,today,onAdd={selected=null;editing=true},onOpen={selected=it.id},wishes=tab==1,onPurchase={selected=it.id;acquiring=true;editing=true})
                 tab==2->AnalyticsScreen(state.copy(assets=state.assets.filterNot { it.wishlist }),vm,today)
                 else->SettingsScreen(state,vm,onExport={backupPage=true},onRestore={backupPage=true})
@@ -84,6 +87,6 @@ import java.time.LocalDate
             }
         } }
         }
-        restore?.let { archive->AlertDialog(onDismissRequest={restore=null},title={Text(stringResource(R.string.restore))},text={Text(stringResource(R.string.restore_warning)+"\n${archive.data.assets.size} ${stringResource(R.string.assets)}")},confirmButton={TextButton(onClick={vm.launch { FileBackup(vm.store).restore(archive);vm.message.value=R.string.saved };restore=null;selected=null;editing=false}){Text(stringResource(R.string.confirm))}},dismissButton={TextButton(onClick={restore=null}){Text(stringResource(R.string.cancel))}}) }
+        restore?.let { archive->AlertDialog(onDismissRequest={restore=null},title={Text(stringResource(R.string.restore_preview))},text={Text(stringResource(R.string.restore_warning)+"\n"+stringResource(R.string.current_records)+": ${state.assets.size}\n"+stringResource(R.string.incoming_records)+": ${archive.data.assets.size}")},confirmButton={TextButton(onClick={vm.launch { FileBackup(vm.store).restore(archive);vm.message.value=R.string.saved };restore=null;selected=null;editing=false}){Text(stringResource(R.string.confirm))}},dismissButton={TextButton(onClick={restore=null}){Text(stringResource(R.string.cancel))}}) }
     }
 }

@@ -13,3 +13,12 @@ object AlloyTokens {
     val ContentSpacing=12.dp
 }
 val AlloyPanelShape=CutCornerShape(8.dp)
+
+// Layout spacing only: never overrides Android's font scale or touch-target minimums.
+data class LayoutDensity(val panelPadding:Int,val gap:Int,val artworkHeight:Int)
+val LocalLayoutDensity=androidx.compose.runtime.staticCompositionLocalOf { layoutDensity("comfortable") }
+fun layoutDensity(key:String?)=when(key){
+    "compact"->LayoutDensity(10,8,112)
+    "large"->LayoutDensity(20,16,176)
+    else->LayoutDensity(14,12,144)
+}

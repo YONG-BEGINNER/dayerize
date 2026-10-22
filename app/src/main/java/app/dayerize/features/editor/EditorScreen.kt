@@ -55,6 +55,12 @@ import app.dayerize.images.CutoutProcessor
     var targetMode by rememberSaveable { mutableStateOf(existing?.let { if(it.useMode)"custom" else it.targetMode } ?: "none") };var dailyGoal by rememberSaveable { mutableStateOf(existing?.let { it.purchase.decimal().divide(java.math.BigDecimal(it.targetDays),8,RoundingMode.HALF_UP).toPlainString() } ?: "") }
     var valuation by rememberSaveable { mutableStateOf(existing?.valuation ?: "purchase") };var value by rememberSaveable { mutableStateOf(existing?.manualValue?.let { Money(it,currency).decimal().toPlainString() } ?: "") }
     var residual by rememberSaveable { mutableStateOf(existing?.let { Money(it.residual,currency).decimal().toPlainString() } ?: "0") }
+    var location by rememberSaveable{mutableStateOf(existing?.location ?: "")}
+    var collections by rememberSaveable{mutableStateOf(existing?.collections?.joinToString(", ") ?: "")}
+    var returnBy by rememberSaveable{mutableStateOf(existing?.returnBy ?: "")}
+    var maintenance by rememberSaveable{mutableStateOf(existing?.maintenanceDate ?: "")}
+    var savings by rememberSaveable{mutableStateOf(existing?.let{Money(it.savingsMinor,currency).decimal().toPlainString()} ?: "0")}
+    var cooling by rememberSaveable{mutableStateOf(existing?.coolingOffUntil ?: "")}
     var more by rememberSaveable { mutableStateOf(false) };var picker by remember { mutableStateOf(false) };var error by remember { mutableStateOf(false) };var busy by remember { mutableStateOf(false) };var discard by remember { mutableStateOf(false) }
     var photoEditor by remember{mutableStateOf(false)}
     var sheet by remember { mutableStateOf("") };var datePicker by remember { mutableStateOf(false) };var newCategory by rememberSaveable { mutableStateOf("") }
@@ -98,6 +104,19 @@ import app.dayerize.images.CutoutProcessor
             }
         }
         TextField(name,{name=it},placeholder={Text(stringResource(R.string.item_name),Modifier.fillMaxWidth(),textAlign=TextAlign.Center)},textStyle=LocalTextStyle.current.copy(textAlign=TextAlign.Center,fontWeight=FontWeight.Bold,fontSize=20.sp),modifier=Modifier.fillMaxWidth().testTag("asset-name"),singleLine=true,colors=TextFieldDefaults.colors(focusedContainerColor=MaterialTheme.colorScheme.background,unfocusedContainerColor=MaterialTheme.colorScheme.background,focusedIndicatorColor=MaterialTheme.colorScheme.background,unfocusedIndicatorColor=MaterialTheme.colorScheme.background))
+        if(existing==null) {
+            val templates=app.dayerize.artwork.ArtworkCatalog(ctx).entries.filter{it.id in listOf("camera","laptop","sedan","refrigerator","shoe")}
+            Text(stringResource(R.string.quick_template),style=MaterialTheme.typography.labelLarge)
+            Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)){
+                templates.forEach{t->val title=t.name(androidx.compose.ui.platform.LocalConfiguration.current.locales[0].toLanguageTag())
+                    SelectPill(title,icon.startsWith("original/${t.id}:")){
+                        if(name.isBlank())name=title
+                        icon=t.icon(if(editorState.config["artworkStyle"]=="cute2d")app.dayerize.artwork.ArtworkStyle.CUTE_2D else app.dayerize.artwork.ArtworkStyle.REALISTIC_3D)
+                        category=title;photo=null;originalPhoto=null;days=when(t.id){"sedan"->"3650";"refrigerator"->"3000";"shoe"->"365";else->"1000"};targetMode="duration"
+                    }
+                }
+            }
+        }
         Spacer(Modifier.height(2.dp))
         Panel {
             Row(verticalAlignment=Alignment.CenterVertically) {
@@ -126,12 +145,18 @@ import app.dayerize.images.CutoutProcessor
             SettingRow(stringResource(R.string.notes),icon=Icons.Outlined.EditNote)
             TextField(notes,{notes=it},placeholder={Text(stringResource(R.string.notes_hint))},modifier=Modifier.fillMaxWidth().heightIn(min=100.dp),colors=TextFieldDefaults.colors(focusedContainerColor=MaterialTheme.colorScheme.surface,unfocusedContainerColor=MaterialTheme.colorScheme.surface,focusedIndicatorColor=MaterialTheme.colorScheme.surface,unfocusedIndicatorColor=MaterialTheme.colorScheme.surface))
         }
+        Panel {
+            Field(location,{location=it},R.string.location_label)
+            Field(collections,{collections=it},R.string.collections_label)
+            if(wish){Field(savings,{savings=it},R.string.savings_amount,true);Field(cooling,{cooling=it},R.string.cooling_off)}
+        }
         if(!wish)Panel {
             SettingRow(stringResource(R.string.more),icon=Icons.Outlined.Tune,onClick={more=!more})
             if(more) {
                 Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(5.dp)) { listOf("purchase" to R.string.purchase_value,"manual" to R.string.manual_value,"linear" to R.string.linear).forEach { (key,label)->SelectPill(stringResource(label),valuation==key){valuation=key} } }
                 if(valuation=="manual")Field(value,{value=it},R.string.manual_value,true)
                 if(valuation=="linear")Field(residual,{residual=it},R.string.residual,true)
+                Field(returnBy,{returnBy=it},R.string.return_by);Field(maintenance,{maintenance=it},R.string.maintenance_date)
                 Field(channel,{channel=it},R.string.channel);Field(warranty,{warranty=it},R.string.warranty);Field(serial,{serial=it},R.string.serial)
             }
         }
@@ -145,7 +170,7 @@ import app.dayerize.images.CutoutProcessor
             try {
                 val purchase=Money.parse(price,currency)
                 val target=when {wish || targetMode=="none"->1000;targetMode=="daily"->{if(existing!=null && existing.targetMode=="daily" && purchase==existing.purchase && dailyGoal==existing.purchase.decimal().divide(java.math.BigDecimal(existing.targetDays),8,RoundingMode.HALF_UP).toPlainString())existing.targetDays else {val goal=dailyGoal.toBigDecimal();require(goal.signum()>0);purchase.decimal().divide(goal,0,RoundingMode.CEILING).intValueExact().coerceAtLeast(1)}};targetMode=="custom" && endMode && !useMode->(ChronoUnit.DAYS.between(LocalDate.parse(date),LocalDate.parse(endDate))+1).toInt();else->days.toInt()}
-                val a=(existing ?: Asset(UUID.randomUUID().toString(),vm.state.value.config.getValue("workspace"),name,purchase,date)).copy(name=name.trim(),purchase=purchase,purchaseDate=if(wish)vm.today().toString()else date,targetDays=target,category=category.trim(),tags=tags.split(',').map(String::trim).filter(String::isNotEmpty),notes=notes,serial=serial,channel=channel,warranty=warranty,icon=icon,photo=photo,useMode=!wish&&targetMode=="custom"&&useMode,valuation=valuation,manualValue=if(valuation=="manual")Money.parse(value,currency).minor else null,residual=if(valuation=="linear")Money.parse(residual,currency).minor else 0,originalPhoto=originalPhoto,wishlist=wish,targetMode=targetMode)
+                val a=(existing ?: Asset(UUID.randomUUID().toString(),vm.state.value.config.getValue("workspace"),name,purchase,date)).copy(name=name.trim(),purchase=purchase,purchaseDate=if(wish)vm.today().toString()else date,targetDays=target,category=category.trim(),tags=tags.split(',').map(String::trim).filter(String::isNotEmpty),notes=notes,serial=serial,channel=channel,warranty=warranty,icon=icon,photo=photo,useMode=!wish&&targetMode=="custom"&&useMode,valuation=valuation,manualValue=if(valuation=="manual")Money.parse(value,currency).minor else null,residual=if(valuation=="linear")Money.parse(residual,currency).minor else 0,originalPhoto=originalPhoto,wishlist=wish,targetMode=targetMode,location=location.trim(),collections=collections.split(',').map(String::trim).filter(String::isNotEmpty).distinct(),returnBy=returnBy,maintenanceDate=maintenance,savingsMinor=if(wish)Money.parse(savings,currency).minor else 0,coolingOffUntil=if(wish)cooling else "")
                 a.validate(vm.today());busy=true;vm.save(a,onError={busy=false;error=true}){busy=false;onDone(a.id)}
             }catch(e:Exception){error=true;busy=false}
         },enabled=!busy,modifier=Modifier.fillMaxWidth().padding(horizontal=24.dp,vertical=12.dp).heightIn(min=54.dp)){Text(stringResource(R.string.save_asset),fontWeight=FontWeight.Bold)}

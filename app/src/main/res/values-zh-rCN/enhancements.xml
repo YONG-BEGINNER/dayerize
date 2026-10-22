@@ -1,0 +1,65 @@
+<resources>
+    <string name="icon_favourites">收藏</string>
+    <string name="icon_recent">最近使用</string>
+    <string name="icon_favourite">添加到收藏</string>
+    <string name="icon_unfavourite">取消收藏</string>
+
+    <string name="layout_density">布局密度</string>
+    <string name="compact">紧凑</string>
+    <string name="comfortable">舒适</string>
+    <string name="large_layout">宽松</string>
+    <string name="quick_template">快速模板</string>
+    <string name="duplicate_item">复制物品</string>
+    <string name="ownership_total">总持有成本</string>
+    <string name="cost_per_use">每次使用成本</string>
+    <string name="ownership_timeline">持有时间线</string>
+    <string name="add_event">添加费用或记录</string>
+    <string name="usage_history">使用记录</string>
+    <string name="remove_usage">删除使用记录</string>
+    <string name="event_repair">维修</string>
+    <string name="event_maintenance">保养</string>
+    <string name="event_accessory">配件费用</string>
+    <string name="event_note">记录</string>
+    <string name="collections_label">组合（逗号分隔）</string>
+    <string name="location_label">位置</string>
+    <string name="return_by">退货截止日期 (YYYY-MM-DD)</string>
+    <string name="maintenance_date">下次保养日期 (YYYY-MM-DD)</string>
+    <string name="savings_amount">心愿已存金额</string>
+    <string name="cooling_off">重新考虑日期 (YYYY-MM-DD)</string>
+    <string name="expense_note">附加费用使用购买币种。请勿将同一配件重复记为独立资产。</string>
+    <string name="collection_filter">组合</string>
+    <string name="all_locations">全部位置</string>
+    <string name="all_collections">全部组合</string>
+
+    <string name="encrypted_export">导出加密备份</string>
+    <string name="encrypted_restore">恢复加密备份</string>
+    <string name="backup_password">备份密码（至少12个字符）</string>
+    <string name="password_confirm">确认密码</string>
+    <string name="password_note">请妥善保管密码。密码不会被保存，也无法找回。</string>
+    <string name="backup_password_error">请检查密码或备份文件。</string>
+    <string name="restore_preview">恢复预览</string>
+    <string name="current_records">当前物品</string>
+    <string name="incoming_records">备份中的物品</string>
+    <string name="local_profile">本地个人资料</string>
+    <string name="profile_name">显示名称</string>
+    <string name="birthday">生日（选填，YYYY-MM-DD）</string>
+    <string name="profile_local_note">仅保存在此设备，不会连接账户或云端。</string>
+    <string name="reminders">物品提醒</string>
+    <string name="reminders_note">每日检查保修、退货、保养、心愿复盘日期及超过30天的备份。Android可能延迟通知。</string>
+    <string name="reminder_due">有物品需要关注</string>
+    <string name="backup_due">请更新备份</string>
+    <string name="enable_reminders">启用提醒</string>
+
+    <string name="usage_insights">持有分析</string>
+    <string name="no_usage_recorded">尚无使用记录</string>
+    <string name="most_used">使用最多（已记录）</string>
+    <string name="goals_reached">已达成本目标</string>
+    <string name="compare_wishes">对比心愿</string>
+    <string name="first_item">第一件物品</string>
+    <string name="second_item">第二件物品</string>
+    <string name="widget_label">Dayerize 总览</string>
+    <string name="widget_favourite">在小组件显示</string>
+<string name="purchase_only_cost">仅购买成本</string>
+<string name="purchase_only_gain">仅购买盈亏</string>
+<string name="encrypted_limit">加密备份支持最多8 MB的数据和照片。较大的备份可使用普通导出。</string>
+</resources>

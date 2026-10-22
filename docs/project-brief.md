@@ -11,6 +11,10 @@
 
 The repository name `dayerize` is existing workspace context, not an approved public product name.
 
+## Current approved enhancement work (2026-10-22)
+
+The user explicitly approved implementation of the complete staged enhancement roadmap in `superpowers/plans/2026-10-22-enhancement-roadmap.md`: Android, four existing locales, multiple currencies, offline functionality, original 3D/cute 2D artwork, ownership tools, optional no-billing accounts/sync and feasible local AI. Strictly no paid API/backend or billing enrollment. Older unapproved/unspecified statements below are historical and superseded by this approval.
+
 ## Current deliverable
 
 The user has now approved the proposal and visual designs and requested implementation with multiple currencies, multiple languages, a large 3D/2D/custom icon library, and future account/profile support. See `approved-scope-addendum.md` for the new requirements and `superpowers/plans/2026-10-19-android-asset-manager.md` for the implementation plan. Earlier unapproved/single-currency statements below describe historical stages and are superseded by this approval.
