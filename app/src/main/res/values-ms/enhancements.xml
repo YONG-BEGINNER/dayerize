@@ -1,0 +1,65 @@
+<resources>
+    <string name="icon_favourites">Kegemaran</string>
+    <string name="icon_recent">Terkini</string>
+    <string name="icon_favourite">Tambah kegemaran</string>
+    <string name="icon_unfavourite">Buang kegemaran</string>
+
+    <string name="layout_density">Kepadatan susun atur</string>
+    <string name="compact">Padat</string>
+    <string name="comfortable">Selesa</string>
+    <string name="large_layout">Besar</string>
+    <string name="quick_template">Templat pantas</string>
+    <string name="duplicate_item">Salin item</string>
+    <string name="ownership_total">Jumlah kos pemilikan</string>
+    <string name="cost_per_use">Kos setiap penggunaan</string>
+    <string name="ownership_timeline">Garis masa pemilikan</string>
+    <string name="add_event">Tambah kos atau nota</string>
+    <string name="usage_history">Sejarah penggunaan</string>
+    <string name="remove_usage">Buang rekod penggunaan</string>
+    <string name="event_repair">Pembaikan</string>
+    <string name="event_maintenance">Penyelenggaraan</string>
+    <string name="event_accessory">Kos aksesori</string>
+    <string name="event_note">Nota</string>
+    <string name="collections_label">Koleksi (dipisahkan koma)</string>
+    <string name="location_label">Lokasi</string>
+    <string name="return_by">Tarikh akhir pemulangan (YYYY-MM-DD)</string>
+    <string name="maintenance_date">Penyelenggaraan seterusnya (YYYY-MM-DD)</string>
+    <string name="savings_amount">Simpanan untuk hasrat</string>
+    <string name="cooling_off">Semak selepas (YYYY-MM-DD)</string>
+    <string name="expense_note">Kos tambahan menggunakan mata wang pembelian. Jangan rekod aksesori sama sebagai aset berasingan.</string>
+    <string name="collection_filter">Koleksi</string>
+    <string name="all_locations">Semua lokasi</string>
+    <string name="all_collections">Semua koleksi</string>
+
+    <string name="encrypted_export">Eksport sandaran disulitkan</string>
+    <string name="encrypted_restore">Pulihkan sandaran disulitkan</string>
+    <string name="backup_password">Kata laluan sandaran (12+ aksara)</string>
+    <string name="password_confirm">Sahkan kata laluan</string>
+    <string name="password_note">Simpan kata laluan dengan selamat. Ia tidak disimpan dan tidak boleh dipulihkan.</string>
+    <string name="backup_password_error">Semak kata laluan atau fail sandaran.</string>
+    <string name="restore_preview">Pratonton pemulihan</string>
+    <string name="current_records">Item semasa</string>
+    <string name="incoming_records">Item dalam sandaran</string>
+    <string name="local_profile">Profil tempatan</string>
+    <string name="profile_name">Nama paparan</string>
+    <string name="birthday">Tarikh lahir (pilihan, YYYY-MM-DD)</string>
+    <string name="profile_local_note">Disimpan pada peranti ini. Tiada akaun atau sambungan awan.</string>
+    <string name="reminders">Peringatan pemilikan</string>
+    <string name="reminders_note">Semakan harian untuk waranti, pemulangan, penyelenggaraan, hasrat dan sandaran melebihi 30 hari. Android mungkin melambatkan pemberitahuan.</string>
+    <string name="reminder_due">Item memerlukan perhatian</string>
+    <string name="backup_due">Sandaran perlu dikemas kini</string>
+    <string name="enable_reminders">Aktifkan peringatan</string>
+
+    <string name="usage_insights">Cerapan pemilikan</string>
+    <string name="no_usage_recorded">Tiada penggunaan direkodkan</string>
+    <string name="most_used">Paling kerap digunakan (direkodkan)</string>
+    <string name="goals_reached">Sasaran kos dicapai</string>
+    <string name="compare_wishes">Bandingkan hasrat</string>
+    <string name="first_item">Item pertama</string>
+    <string name="second_item">Item kedua</string>
+    <string name="widget_label">Gambaran Dayerize</string>
+    <string name="widget_favourite">Papar dalam widget</string>
+<string name="purchase_only_cost">Kos pembelian sahaja</string>
+<string name="purchase_only_gain">Untung / rugi pembelian sahaja</string>
+<string name="encrypted_limit">Sandaran disulitkan menyokong sehingga 8 MB data dan foto. Arkib lebih besar boleh menggunakan eksport biasa.</string>
+</resources>

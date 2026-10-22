@@ -16,7 +16,10 @@ import java.time.temporal.ChronoUnit
     val channel: String="", val warranty: String="", val status: Status=Status.ACTIVE,
     val retiredDate: String?=null, val sale: Sale?=null, val useMode: Boolean=false,
     val uses: List<Usage> = emptyList(), val valuation: String="purchase", val manualValue: Long?=null,
-    val residual: Long=0, val originalPhoto: String?=null, val wishlist: Boolean=false, val targetMode: String="duration"
+    val residual: Long=0, val originalPhoto: String?=null, val wishlist: Boolean=false, val targetMode: String="duration",
+    val events: List<OwnershipEvent> = emptyList(), val collections: List<String> = emptyList(),
+    val location: String="", val returnBy: String="", val maintenanceDate: String="",
+    val favourite: Boolean=false, val savingsMinor: Long=0, val coolingOffUntil: String=""
 ) {
     fun validate(today: LocalDate) {
         require(id.isNotBlank() && workspaceId.isNotBlank() && name.isNotBlank())
@@ -42,6 +45,14 @@ import java.time.temporal.ChronoUnit
         }
         val end=sale?.date?.let(LocalDate::parse) ?: today
         require(uses.all { it.count>0 && LocalDate.parse(it.date) in bought..end })
+        require(savingsMinor>=0 && location.length<=200 && collections.size<=100 && collections.all{it.isNotBlank() && it.length<=100})
+        try{Ownership.totalCost(this)}catch(e:ArithmeticException){throw IllegalArgumentException("Ownership cost exceeds supported amount",e)}
+        require(events.size<=10000 && events.map{it.id}.distinct().size==events.size)
+        events.forEach { event->
+            require(event.id.isNotBlank() && event.kind in listOf("repair","maintenance","accessory","note"))
+            require(event.costMinor>=0 && event.note.length<=2000 && LocalDate.parse(event.date) in bought..end)
+        }
+        listOf(returnBy,maintenanceDate,coolingOffUntil).filter{it.isNotBlank()}.forEach{LocalDate.parse(it)}
         require(targetMode in listOf("none","daily","duration","custom"))
         require(valuation in listOf("purchase","manual","linear"))
         require(residual in 0..purchase.minor && (manualValue==null || manualValue>=0))

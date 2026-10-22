@@ -17,7 +17,7 @@ object ArchiveCodec {
             referenced.forEach { name->require(name.matches(Regex("[a-zA-Z0-9_-]+\\.(jpg|png|webp)")));entry("photos/$name",photos.getValue(name)) }
         }
     }
-    fun read(input:InputStream,today:LocalDate):ImportedArchive {
+    fun read(input:InputStream,today:LocalDate,maxBytes:Int=LIMIT):ImportedArchive {
         try {
             val entries=mutableMapOf<String,ByteArray>();var total=0L
             ZipInputStream(input).use { zip->
@@ -25,7 +25,7 @@ object ArchiveCodec {
                     require(!entry.isDirectory && entries.size<10001 && entry.name !in entries)
                     require(entry.name=="data.json" || entry.name.matches(Regex("photos/[a-zA-Z0-9_-]+\\.(jpg|png|webp)")))
                     val out=ByteArrayOutputStream();val buffer=ByteArray(8192)
-                    while(true){val n=zip.read(buffer);if(n<0)break;total+=n;require(total<=LIMIT && out.size()+n<=20_000_000);out.write(buffer,0,n)}
+                    while(true){val n=zip.read(buffer);if(n<0)break;total+=n;require(total<=maxBytes && out.size()+n<=20_000_000);out.write(buffer,0,n)}
                     entries[entry.name]=out.toByteArray();zip.closeEntry()
                 }
             }

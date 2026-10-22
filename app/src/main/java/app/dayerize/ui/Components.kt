@@ -36,7 +36,7 @@ val LocalDisplayOptions=staticCompositionLocalOf { DisplayOptions() }
 }
 @Composable fun Panel(modifier:Modifier=Modifier,content:@Composable ColumnScope.()->Unit) {
     Surface(modifier,shape=AlloyPanelShape,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant),color=MaterialTheme.colorScheme.surface) {
-        Column(Modifier.padding(14.dp),verticalArrangement=Arrangement.spacedBy(10.dp),content=content)
+        Column(Modifier.padding(LocalLayoutDensity.current.panelPadding.dp),verticalArrangement=Arrangement.spacedBy(LocalLayoutDensity.current.gap.dp),content=content)
     }
 }
 @Composable fun Label(id:Int) { Text(stringResource(id),style=MaterialTheme.typography.labelLarge,color=MaterialTheme.colorScheme.onSurfaceVariant) }

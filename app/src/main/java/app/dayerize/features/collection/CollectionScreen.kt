@@ -27,17 +27,22 @@ import java.math.RoundingMode
 
 @OptIn(ExperimentalFoundationApi::class,ExperimentalMaterial3Api::class)
 @Composable fun CollectionScreen(state:AppState,vm:AppViewModel,today:LocalDate,onAdd:()->Unit,onOpen:(Asset)->Unit,wishes:Boolean=false,onPurchase:(Asset)->Unit=onOpen) {
+    var comparing by remember{mutableStateOf(false)}
     var search by rememberSaveable(wishes) { mutableStateOf("") };var showSearch by rememberSaveable(wishes) { mutableStateOf(false) };var list by rememberSaveable { mutableStateOf(false) }
     var status by remember { mutableStateOf<Status?>(null) };var category by rememberSaveable(wishes) { mutableStateOf<String?>(null) }
+    var location by rememberSaveable(wishes){mutableStateOf<String?>(null)}
+    var collection by rememberSaveable(wishes){mutableStateOf<String?>(null)}
     var tag by rememberSaveable(wishes){mutableStateOf<String?>(null)}
     var sort by remember{mutableStateOf(CollectionSort.PURCHASE_DATE)}
     var ascending by remember{mutableStateOf(false)}
     val largeText=LocalDensity.current.fontScale>1.3f
     var filters by remember { mutableStateOf(false) };var menu by remember { mutableStateOf<Asset?>(null) }
-    val source=state.assets.filter { it.wishlist==wishes }
+    val allSource=state.assets.filter { it.wishlist==wishes }
+    val source=allSource.filter{(location==null || it.location==location) && (collection==null || collection in it.collections)}
     val scoped=source.filter { category==null || it.category==category }
     val code=state.config["currency"] ?: "MYR"
-    val items=CollectionQuery.apply(source,category,if(wishes)null else status,setOfNotNull(tag),search,sort,ascending,today,code,vm.fxRates())
+    val interpreted=LocalSearch.parse(search,today,code,allSource.map{it.category}.distinct())
+    val items=CollectionQuery.apply(source.filter{interpreted.matches(it,vm.fxRates(),today)},category,if(wishes)null else status,setOfNotNull(tag),interpreted.text,sort,ascending,today,code,vm.fxRates())
     val summary=remember(scoped,code,state.config,today) { runCatching { summarize(scoped.map { if(wishes)it.copy(wishlist=false)else it },code,vm.fxRates(),today) }.getOrNull() }
     val daily=remember(scoped,code,state.config,today) { runCatching {
         var total=BigDecimal.ZERO
@@ -47,9 +52,13 @@ import java.math.RoundingMode
             total+=cost*rate
         };total
     }.getOrNull() }
-    LazyVerticalGrid(columns=GridCells.Fixed(if(list || wishes || largeText)1 else 2),contentPadding=PaddingValues(start=16.dp,end=16.dp,top=4.dp,bottom=150.dp),horizontalArrangement=Arrangement.spacedBy(12.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+    LazyVerticalGrid(columns=GridCells.Fixed(if(list || wishes || largeText)1 else 2),contentPadding=PaddingValues(start=16.dp,end=16.dp,top=4.dp,bottom=150.dp),horizontalArrangement=Arrangement.spacedBy(LocalLayoutDensity.current.gap.dp),verticalArrangement=Arrangement.spacedBy(LocalLayoutDensity.current.gap.dp)) {
         item(span={GridItemSpan(maxLineSpan)}) { ScreenHeading(if(wishes)stringResource(R.string.wishlist) else "Dayerize") { IconButton(onClick={showSearch=!showSearch}){Icon(Icons.Outlined.Search,stringResource(R.string.search))}; FilledIconButton(onClick=onAdd,shape=RoundedCornerShape(12.dp)){Icon(Icons.Outlined.Add,stringResource(R.string.add_asset))} } }
+        if(wishes && source.size>=2)item(span={GridItemSpan(maxLineSpan)}){OutlinedButton(onClick={comparing=true}){Text(stringResource(R.string.compare_wishes))}}
         if(showSearch)item(span={GridItemSpan(maxLineSpan)}) { OutlinedTextField(search,{search=it},placeholder={Text(stringResource(R.string.search))},modifier=Modifier.fillMaxWidth(),singleLine=true,shape=RoundedCornerShape(24.dp),leadingIcon={Icon(Icons.Outlined.Search,null)}) }
+        if(showSearch && (interpreted.category!=null || interpreted.from!=null || interpreted.below!=null || interpreted.status!=null))item(span={GridItemSpan(maxLineSpan)}) {
+            Text(listOfNotNull(interpreted.category,interpreted.from?.let{"$it – ${interpreted.to}"},interpreted.below?.let{"< $code $it"},interpreted.status?.let{stringResource(statusLabel(it))}).joinToString(" · "),style=MaterialTheme.typography.bodySmall)
+        }
         item(span={GridItemSpan(maxLineSpan)}) { Panel(Modifier.fillMaxWidth()) {
             if(largeText) {
                 Label(if(wishes)R.string.budget else R.string.estimated_value)
@@ -103,7 +112,7 @@ import java.math.RoundingMode
                     }
                 }
             } else if(list || largeText)Surface(shape=AlloyPanelShape,color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
-                Row(Modifier.fillMaxWidth().combinedClickable(onClick={onOpen(a)},onLongClick={menu=a}).padding(14.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(14.dp)) {
+                Row(Modifier.fillMaxWidth().combinedClickable(onClick={onOpen(a)},onLongClick={menu=a}).padding(LocalLayoutDensity.current.panelPadding.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(14.dp)) {
                     AssetArt(a,Modifier.size(64.dp))
                     Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(5.dp)) {
                         Text(a.name,fontWeight=FontWeight.SemiBold,fontSize=15.sp,maxLines=1,overflow=TextOverflow.Ellipsis)
@@ -114,8 +123,8 @@ import java.math.RoundingMode
                 }
             } else
             Surface(shape=AlloyPanelShape,color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
-                Column(Modifier.combinedClickable(onClick={onOpen(a)},onLongClick={menu=a}).padding(14.dp),verticalArrangement=Arrangement.spacedBy(6.dp)) {
-                    Box(Modifier.fillMaxWidth().height(144.dp)) {
+                Column(Modifier.combinedClickable(onClick={onOpen(a)},onLongClick={menu=a}).padding(LocalLayoutDensity.current.panelPadding.dp),verticalArrangement=Arrangement.spacedBy(6.dp)) {
+                    Box(Modifier.fillMaxWidth().height(LocalLayoutDensity.current.artworkHeight.dp)) {
                         AssetArt(a,Modifier.fillMaxSize().padding(top=22.dp).align(Alignment.BottomCenter))
                         if(!wishes)Box(Modifier.align(Alignment.TopEnd)){StatusBadge(a.status)}
                     }
@@ -128,6 +137,10 @@ import java.math.RoundingMode
     }
     if(filters) {
         val allCategoriesLabel=stringResource(R.string.all_categories)
+        val allLocationsLabel=stringResource(R.string.all_locations)
+        val allCollectionsLabel=stringResource(R.string.all_collections)
+        var draftLocation by remember{mutableStateOf(location)}
+        var draftCollection by remember{mutableStateOf(collection)}
         var draftTag by remember{mutableStateOf(tag)}
         var draftCategory by remember{mutableStateOf(category)}
         var draftStatus by remember{mutableStateOf(status)}
@@ -140,6 +153,8 @@ import java.math.RoundingMode
                 Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)){
                     (listOf<Status?>(null)+Status.entries).forEach { value->SelectPill(stringResource(value?.let(::statusLabel) ?: R.string.all),draftStatus==value){draftStatus=value} }
                 }
+                ValueChoice(draftLocation,listOf<String?>(null)+allSource.map{it.location}.filter{it.isNotBlank()}.distinct(),R.string.location_label,{it ?: allLocationsLabel}){draftLocation=it}
+                ValueChoice(draftCollection,listOf<String?>(null)+allSource.flatMap{it.collections}.distinct(),R.string.collection_filter,{it ?: allCollectionsLabel}){draftCollection=it}
                 Label(R.string.tag_title)
                 Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)){
                     SelectPill(stringResource(R.string.all),draftTag==null){draftTag=null}
@@ -149,11 +164,22 @@ import java.math.RoundingMode
                 CollectionSort.entries.forEach { value->SelectPill(stringResource(when(value){CollectionSort.PURCHASE_DATE->R.string.purchase_date;CollectionSort.NAME->R.string.name;CollectionSort.DAILY_COST->R.string.daily_cost}),draftSort==value){draftSort=value} }
                 SettingRow(stringResource(R.string.ascending),trailing={Switch(draftAscending,{draftAscending=it})})
                 Row(horizontalArrangement=Arrangement.spacedBy(12.dp)){
-                    OutlinedButton(onClick={draftTag=null;draftCategory=null;draftStatus=null;draftSort=CollectionSort.PURCHASE_DATE;draftAscending=false},modifier=Modifier.weight(1f)){Text(stringResource(R.string.reset))}
-                    Button(onClick={tag=draftTag;category=draftCategory;status=draftStatus;sort=draftSort;ascending=draftAscending;filters=false},modifier=Modifier.weight(1f)){Text(stringResource(R.string.apply))}
+                    OutlinedButton(onClick={draftLocation=null;draftCollection=null;draftTag=null;draftCategory=null;draftStatus=null;draftSort=CollectionSort.PURCHASE_DATE;draftAscending=false},modifier=Modifier.weight(1f)){Text(stringResource(R.string.reset))}
+                    Button(onClick={location=draftLocation;collection=draftCollection;tag=draftTag;category=draftCategory;status=draftStatus;sort=draftSort;ascending=draftAscending;filters=false},modifier=Modifier.weight(1f)){Text(stringResource(R.string.apply))}
                 }
             }
         }
+    }
+    if(comparing && allSource.size>=2) {
+        var first by remember{mutableStateOf(allSource[0].id)};var second by remember{mutableStateOf(allSource[1].id)}
+        val names=allSource.associate{it.id to it.name}
+        AlertDialog(onDismissRequest={comparing=false},title={Text(stringResource(R.string.compare_wishes))},text={Column(Modifier.verticalScroll(rememberScrollState())) {
+            ValueChoice(first,names.keys.toList(),R.string.first_item,{names[it] ?: "—"}){first=it}
+            ValueChoice(second,names.keys.toList(),R.string.second_item,{names[it] ?: "—"}){second=it}
+            listOf(first,second).distinct().mapNotNull{id->allSource.find{it.id==id}}.forEach{a->
+                Panel(Modifier.fillMaxWidth()){Text(a.name);Amount(a.purchase);Text(a.notes);Label(R.string.savings_amount);Amount(Money(a.savingsMinor,a.purchase.currency))}
+            }
+        }},confirmButton={TextButton(onClick={comparing=false}){Text(stringResource(R.string.back))}})
     }
     menu?.let { a->AlertDialog(onDismissRequest={menu=null},title={Text(a.name)},confirmButton={TextButton(onClick={menu=null;onOpen(a)}){Text(stringResource(R.string.view))}},dismissButton={TextButton(onClick={menu=null}){Text(stringResource(R.string.cancel))}}) }
 }

@@ -31,7 +31,16 @@ import app.dayerize.artwork.*
     val style=ArtworkStyle.entries.firstOrNull{it.key==styleKey} ?: ArtworkStyle.REALISTIC_3D
     var category by rememberSaveable{mutableStateOf<String?>(null)}
     var selected by rememberSaveable{mutableStateOf<String?>(null)}
-    val visible=catalog.search(query,category,style,locale)
+    val prefs=remember(ctx){ctx.getSharedPreferences("artwork_picker",android.content.Context.MODE_PRIVATE)}
+    var favourites by remember{mutableStateOf(prefs.getStringSet("favourites",emptySet())!!.toSet())}
+    var recent by remember{mutableStateOf(prefs.getString("recent","")!!.split('|').filter{it.isNotBlank()})}
+    var shelf by rememberSaveable{mutableStateOf("all")}
+    val matches=catalog.search(query,category,style,locale)
+    val visible=when(shelf){
+        "favourites"->matches.filter{it.id in favourites}
+        "recent"->recent.mapNotNull{id->matches.find{it.id==id}}
+        else->matches
+    }
     val preview=catalog.entries.find{it.id==selected && style in it.files}
     Dialog(onDismissRequest=onDismiss,properties=DialogProperties(usePlatformDefaultWidth=false)) {
         Surface(Modifier.fillMaxSize(),color=MaterialTheme.colorScheme.background) {
@@ -49,6 +58,11 @@ import app.dayerize.artwork.*
                 Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
                     (listOf<String?>(null)+catalog.entries.filter{it.id!="fallback"}.map{it.category}.distinct()).forEach { c->SelectPill(c?.let{artworkCategoryLabel(it)} ?: stringResource(R.string.all),c==category){category=c} }
                 }
+                Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+                    listOf("all" to R.string.all,"favourites" to R.string.icon_favourites,"recent" to R.string.icon_recent).forEach { (key,label)->
+                        SelectPill(stringResource(label),shelf==key){shelf=key}
+                    }
+                }
                 if(visible.isEmpty())Text(stringResource(R.string.no_results))
                 LazyVerticalGrid(columns=GridCells.Adaptive(80.dp),modifier=Modifier.weight(1f),horizontalArrangement=Arrangement.spacedBy(10.dp),verticalArrangement=Arrangement.spacedBy(10.dp)) {
                     items(visible,key={it.id}) { entry ->
@@ -63,7 +77,15 @@ import app.dayerize.artwork.*
                 if(preview!=null)Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
                     AsyncImage("file:///android_asset/${preview.files.getValue(style)}",preview.name(locale),Modifier.size(64.dp).graphicsLayer{scaleX=preview.opticalScale;scaleY=preview.opticalScale},contentScale=ContentScale.Fit)
                     Text(preview.name(locale),Modifier.weight(1f))
-                    Button(onClick={onSelect(preview.icon(style))}){Text(stringResource(R.string.apply))}
+                    IconButton(onClick={
+                        favourites=if(preview.id in favourites)favourites-preview.id else favourites+preview.id
+                        prefs.edit().putStringSet("favourites",favourites).apply()
+                    }){Icon(if(preview.id in favourites)Icons.Outlined.Star else Icons.Outlined.StarBorder,stringResource(if(preview.id in favourites)R.string.icon_unfavourite else R.string.icon_favourite))}
+                    Button(onClick={
+                        recent=(listOf(preview.id)+recent.filter{it!=preview.id}).take(24)
+                        prefs.edit().putString("recent",recent.joinToString("|")).apply()
+                        onSelect(preview.icon(style))
+                    }){Text(stringResource(R.string.apply))}
                 }
             }
         }

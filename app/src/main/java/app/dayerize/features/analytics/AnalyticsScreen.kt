@@ -52,6 +52,13 @@ import java.time.*
         Panel(Modifier.fillMaxWidth()) { Label(R.string.status_distribution);Status.entries.forEach { status->
             SettingRow(stringResource(statusLabel(status)),owned.count { it.status==status }.toString())
         } }
+        Panel(Modifier.fillMaxWidth()) {
+            Label(R.string.usage_insights)
+            SettingRow(stringResource(R.string.no_usage_recorded),owned.count{it.uses.isEmpty() && it.status==Status.ACTIVE}.toString())
+            SettingRow(stringResource(R.string.goals_reached),owned.count{it.targetMode!="none" && CostCalculator.calculate(it,today).progress>=1f}.toString())
+            Label(R.string.most_used)
+            owned.filter{it.uses.isNotEmpty()}.sortedByDescending{it.uses.sumOf{u->u.count.toLong()}}.take(3).forEach{SettingRow(it.name,it.uses.sumOf{u->u.count.toLong()}.toString())}
+        }
         Panel(Modifier.fillMaxWidth()) { Label(R.string.monthly_flow);if(flow.isEmpty())Text("—");flow.forEach { (code,minor)->Amount(Money(minor,code)) } }
         Panel(Modifier.fillMaxWidth()) { Label(R.string.currency_subtotals);summary?.subtotals?.forEach { (code,minor)->Amount(Money(minor,code)) };if(summary?.subtotals.isNullOrEmpty())Text("—") }
         Text(stringResource(R.string.rate_note),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)

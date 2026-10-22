@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import app.dayerize.R
 import app.dayerize.ui.*
 
-@Composable fun BackupScreen(assetCount:Int,wishCount:Int,onExport:()->Unit,onRestore:()->Unit,onBack:()->Unit,lastExport:String?) {
+@Composable fun BackupScreen(assetCount:Int,wishCount:Int,onExport:()->Unit,onRestore:()->Unit,onBack:()->Unit,lastExport:String?,extra:@Composable ()->Unit={}) {
     BackHandler(onBack=onBack)
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         TextButton(onClick=onBack){Text(stringResource(R.string.back))}
@@ -25,6 +25,7 @@ import app.dayerize.ui.*
         }
         Panel(Modifier.fillMaxWidth()) {
             Text(stringResource(R.string.backup_note))
+            extra()
             Button(onClick=onExport,modifier=Modifier.fillMaxWidth().heightIn(min=48.dp)){Text(stringResource(R.string.export))}
         }
         Panel(Modifier.fillMaxWidth()) {

@@ -33,6 +33,14 @@ class AssetStore(val context:Context) {
         asset.validate(today())
         dao.put(AssetRow(asset.id,asset.workspaceId,json.encodeToString(asset)))
     }
+    suspend fun mutate(id:String,transform:(Asset)->Asset)=mutex.withLock {
+        database.withTransaction {
+            val current=json.decodeFromString<Asset>(requireNotNull(dao.all().find{it.id==id}).payload)
+            val updated=transform(current)
+            require(updated.id==current.id && updated.workspaceId==current.workspaceId)
+            updated.validate(today());dao.put(AssetRow(updated.id,updated.workspaceId,json.encodeToString(updated)))
+        }
+    }
     suspend fun delete(id:String)=mutex.withLock { dao.delete(id) }
     suspend fun preference(key:String,value:String)=mutex.withLock { dao.setConfig(ConfigRow(key,value)) }
     suspend fun renameTag(from:String,to:String)=mutex.withLock {
