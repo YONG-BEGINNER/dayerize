@@ -1,15 +1,13 @@
-# Dayerize 0.3.1 — everyday icons and fixes
+# Dayerize 0.4.0 testing APK
 
-[Download the ARM64 testing APK directly — 93 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.3.1-arm64.apk)
+[Download the APK directly — 104 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.4.0-arm64.apk)
 
-Fixed the category named “All” filter issue and the false error shown while a photo preview loads. Preview changes now have regression coverage to ensure Apply uses the newest result.
+Android 8.0+ · ARM64 · version code 6 · same signing certificate as 0.3.1. Back up your data before updating.
 
-Added **48 original icons**, bringing the catalog to **36 item types / 72 icons** in realistic 3D and cute 2D. New items include tablets, earbuds, smartwatches, monitors, keyboards, mice, speakers, game consoles, power banks, camera lenses, drones, televisions, air conditioners, refrigerators, washing machines, vacuum cleaners, air fryers, rice cookers, desks, office chairs, suitcases, handbags, sunglasses and motorcycles. All are bundled for offline selection with localized search and proportional rendering.
+Includes 100 original item identities / 200 icons, picker favourites and recents, adjustable density, templates, duplication, usage corrections, ownership expenses, collections/locations, wishlist tools, local reminders, a widget, local profile, encrypted backups and interpreted offline search.
 
-[Preview all 3D icons](previews/0.3.1-3d.png) · [Preview all cute 2D icons](previews/0.3.1-cute2d.png)
+[3D artwork preview](previews/0.4.0-3d.png) · [Cute 2D artwork preview](previews/0.4.0-cute2d.png) · [Scope, verification and remaining work](ENHANCEMENTS-0.4.0.md)
 
-52 host tests pass; Android lint reports 0 errors and 18 warnings. Independent code review found no critical or important issues, and its suggested additional preview test was added and passed. Physical-device testing remains outstanding. [Review and verification notes](ALLOY-0.3.1-REVIEW.md).
+67 automated tests passed. Android lint: zero errors, 25 warnings. Physical-device testing remains outstanding. Google login/sync, receipt OCR, photo classification and runtime icon generation are not enabled. No billing is required. Encrypted backups have an 8 MiB limit; standard ZIP backup remains available for larger archives.
 
-Android 8.0+; ARM64; version code 5. Same signing identity as the previous testing builds. Back up local data before updating. These are generic item illustrations; the larger model-specific catalog and Google login/sync remain separate milestones. Source changes are retained in the development workspace; this delivery repository contains the APK, previews and notes.
-
-APK SHA-256: `3c98dd704452b4565e96855972d6f287538a996b99dbfb7f86eaa6d4e7d3600c`
+APK SHA-256: `51fae5489c4231bfb70a5ec87690c64c28699d4c21540a76b8c79082be019306`
