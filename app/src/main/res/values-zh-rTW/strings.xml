@@ -104,4 +104,22 @@
     <string name="end_date">預計到期日（YYYY-MM-DD）</string>
     <string name="days_mode">按天數而非到期日設定</string>
     <string name="view">檢視</string>
+    <string name="receipt_scan">掃描收據</string>
+    <string name="receipt_review">核對收據</string>
+    <string name="receipt_unverified">以下為未經核實的建議。請核對後套用到草稿，只有儲存物品後才會儲存資料。</string>
+    <string name="receipt_total_warning">收據總額可能包含多件物品。請只填寫此物品的實際金額。</string>
+    <string name="receipt_choose_currency">請選擇幣別；收據中的幣別不明確。</string>
+    <string name="receipt_choose_date">請選擇正確日期，或留空保留草稿日期。</string>
+    <string name="receipt_retailer">商家</string>
+    <string name="receipt_raw">辨識文字</string>
+    <string name="receipt_local">在此手機上處理。Dayerize 不上傳或儲存收據。請使用清晰、正向的照片。</string>
+    <string name="receipt_latin">拉丁字母 / 英語 / 馬來語</string>
+    <string name="receipt_simplified">簡體中文 + 英語</string>
+    <string name="receipt_traditional">繁體中文 + 英語</string>
+    <string name="receipt_select">選擇收據照片</string>
+    <string name="receipt_selected">已選擇照片</string>
+    <string name="receipt_processing">正在本機辨識…</string>
+    <string name="receipt_failed">無法辨識此收據。請嘗試更清晰的照片或手動填寫。</string>
+    <string name="receipt_show_details">顯示詳情</string>
+    <string name="receipt_hide_details">隱藏詳情</string>
 </resources>

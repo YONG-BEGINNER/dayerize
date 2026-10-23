@@ -13,7 +13,7 @@ class ArtworkResolver(context:Context) {
             val entry=catalog.entries.find{it.id==id.removePrefix("original/")}
             val key=ArtworkStyle.entries.find{it.key==style}
             entry?.files?.get(key)?.let{return ArtworkSource(it,entry.opticalScale)}
-        } else if(id in legacy && style in setOf("3d","2d")) return ArtworkSource("icons/${id}_${style}.${if(style=="3d")"png" else "webp"}")
+        } else if(id in legacy && style in setOf("3d","2d")) return ArtworkSource("icons/${id}_${style}.webp")
         return ArtworkSource("artwork/fallback_3d.png")
     }
 }
