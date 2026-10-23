@@ -676,5 +676,1172 @@
       "cute2d": "artwork/motorcycle_cute2d.png"
     },
     "opticalScale": 0.834
+  },
+  {
+    "id": "toaster",
+    "category": "Home",
+    "names": {
+      "en": "Toaster",
+      "zh-CN": "烤面包机",
+      "zh-TW": "烤麵包機",
+      "ms": "Pembakar roti"
+    },
+    "aliases": [
+      "toaster"
+    ],
+    "files": {
+      "3d": "artwork/toaster_3d.png",
+      "cute2d": "artwork/toaster_cute2d.png"
+    },
+    "opticalScale": 0.927
+  },
+  {
+    "id": "kettle",
+    "category": "Home",
+    "names": {
+      "en": "Electric kettle",
+      "zh-CN": "电热水壶",
+      "zh-TW": "電熱水壺",
+      "ms": "Cerek elektrik"
+    },
+    "aliases": [
+      "kettle",
+      "electric kettle"
+    ],
+    "files": {
+      "3d": "artwork/kettle_3d.png",
+      "cute2d": "artwork/kettle_cute2d.png"
+    },
+    "opticalScale": 0.946
+  },
+  {
+    "id": "blender",
+    "category": "Home",
+    "names": {
+      "en": "Blender",
+      "zh-CN": "搅拌机",
+      "zh-TW": "攪拌機",
+      "ms": "Pengisar"
+    },
+    "aliases": [
+      "blender"
+    ],
+    "files": {
+      "3d": "artwork/blender_3d.png",
+      "cute2d": "artwork/blender_cute2d.png"
+    },
+    "opticalScale": 0.858
+  },
+  {
+    "id": "microwave",
+    "category": "Home",
+    "names": {
+      "en": "Microwave",
+      "zh-CN": "微波炉",
+      "zh-TW": "微波爐",
+      "ms": "Ketuhar gelombang mikro"
+    },
+    "aliases": [
+      "microwave"
+    ],
+    "files": {
+      "3d": "artwork/microwave_3d.png",
+      "cute2d": "artwork/microwave_cute2d.png"
+    },
+    "opticalScale": 0.868
+  },
+  {
+    "id": "oven",
+    "category": "Home",
+    "names": {
+      "en": "Oven",
+      "zh-CN": "烤箱",
+      "zh-TW": "烤箱",
+      "ms": "Ketuhar"
+    },
+    "aliases": [
+      "oven"
+    ],
+    "files": {
+      "3d": "artwork/oven_3d.png",
+      "cute2d": "artwork/oven_cute2d.png"
+    },
+    "opticalScale": 0.866
+  },
+  {
+    "id": "dishwasher",
+    "category": "Home",
+    "names": {
+      "en": "Dishwasher",
+      "zh-CN": "洗碗机",
+      "zh-TW": "洗碗機",
+      "ms": "Mesin basuh pinggan"
+    },
+    "aliases": [
+      "dishwasher"
+    ],
+    "files": {
+      "3d": "artwork/dishwasher_3d.png",
+      "cute2d": "artwork/dishwasher_cute2d.png"
+    },
+    "opticalScale": 0.892
+  },
+  {
+    "id": "fan",
+    "category": "Home",
+    "names": {
+      "en": "Standing fan",
+      "zh-CN": "落地扇",
+      "zh-TW": "立扇",
+      "ms": "Kipas berdiri"
+    },
+    "aliases": [
+      "fan",
+      "standing fan"
+    ],
+    "files": {
+      "3d": "artwork/fan_3d.png",
+      "cute2d": "artwork/fan_cute2d.png"
+    },
+    "opticalScale": 0.829
+  },
+  {
+    "id": "air_purifier",
+    "category": "Home",
+    "names": {
+      "en": "Air purifier",
+      "zh-CN": "空气净化器",
+      "zh-TW": "空氣清淨機",
+      "ms": "Penulen udara"
+    },
+    "aliases": [
+      "air purifier"
+    ],
+    "files": {
+      "3d": "artwork/air_purifier_3d.png",
+      "cute2d": "artwork/air_purifier_cute2d.png"
+    },
+    "opticalScale": 0.859
+  },
+  {
+    "id": "humidifier",
+    "category": "Home",
+    "names": {
+      "en": "Humidifier",
+      "zh-CN": "加湿器",
+      "zh-TW": "加濕器",
+      "ms": "Pelembap udara"
+    },
+    "aliases": [
+      "humidifier"
+    ],
+    "files": {
+      "3d": "artwork/humidifier_3d.png",
+      "cute2d": "artwork/humidifier_cute2d.png"
+    },
+    "opticalScale": 0.868
+  },
+  {
+    "id": "robot_vacuum",
+    "category": "Home",
+    "names": {
+      "en": "Robot vacuum",
+      "zh-CN": "扫地机器人",
+      "zh-TW": "掃地機器人",
+      "ms": "Vakum robot"
+    },
+    "aliases": [
+      "robot vacuum"
+    ],
+    "files": {
+      "3d": "artwork/robot_vacuum_3d.png",
+      "cute2d": "artwork/robot_vacuum_cute2d.png"
+    },
+    "opticalScale": 0.841
+  },
+  {
+    "id": "iron",
+    "category": "Home",
+    "names": {
+      "en": "Clothes iron",
+      "zh-CN": "电熨斗",
+      "zh-TW": "電熨斗",
+      "ms": "Seterika"
+    },
+    "aliases": [
+      "iron",
+      "clothes iron"
+    ],
+    "files": {
+      "3d": "artwork/iron_3d.png",
+      "cute2d": "artwork/iron_cute2d.png"
+    },
+    "opticalScale": 0.823
+  },
+  {
+    "id": "hair_dryer",
+    "category": "Home",
+    "names": {
+      "en": "Hair dryer",
+      "zh-CN": "吹风机",
+      "zh-TW": "吹風機",
+      "ms": "Pengering rambut"
+    },
+    "aliases": [
+      "hair dryer"
+    ],
+    "files": {
+      "3d": "artwork/hair_dryer_3d.png",
+      "cute2d": "artwork/hair_dryer_cute2d.png"
+    },
+    "opticalScale": 0.866
+  },
+  {
+    "id": "sofa",
+    "category": "Home",
+    "names": {
+      "en": "Sofa",
+      "zh-CN": "沙发",
+      "zh-TW": "沙發",
+      "ms": "Sofa"
+    },
+    "aliases": [
+      "sofa"
+    ],
+    "files": {
+      "3d": "artwork/sofa_3d.png",
+      "cute2d": "artwork/sofa_cute2d.png"
+    },
+    "opticalScale": 0.819
+  },
+  {
+    "id": "bed",
+    "category": "Home",
+    "names": {
+      "en": "Bed",
+      "zh-CN": "床",
+      "zh-TW": "床",
+      "ms": "Katil"
+    },
+    "aliases": [
+      "bed"
+    ],
+    "files": {
+      "3d": "artwork/bed_3d.png",
+      "cute2d": "artwork/bed_cute2d.png"
+    },
+    "opticalScale": 0.821
+  },
+  {
+    "id": "bookshelf",
+    "category": "Home",
+    "names": {
+      "en": "Bookshelf",
+      "zh-CN": "书架",
+      "zh-TW": "書架",
+      "ms": "Rak buku"
+    },
+    "aliases": [
+      "bookshelf"
+    ],
+    "files": {
+      "3d": "artwork/bookshelf_3d.png",
+      "cute2d": "artwork/bookshelf_cute2d.png"
+    },
+    "opticalScale": 0.892
+  },
+  {
+    "id": "lamp",
+    "category": "Home",
+    "names": {
+      "en": "Desk lamp",
+      "zh-CN": "台灯",
+      "zh-TW": "檯燈",
+      "ms": "Lampu meja"
+    },
+    "aliases": [
+      "lamp",
+      "desk lamp"
+    ],
+    "files": {
+      "3d": "artwork/lamp_3d.png",
+      "cute2d": "artwork/lamp_cute2d.png"
+    },
+    "opticalScale": 0.83
+  },
+  {
+    "id": "dining_table",
+    "category": "Home",
+    "names": {
+      "en": "Dining table",
+      "zh-CN": "餐桌",
+      "zh-TW": "餐桌",
+      "ms": "Meja makan"
+    },
+    "aliases": [
+      "dining table"
+    ],
+    "files": {
+      "3d": "artwork/dining_table_3d.png",
+      "cute2d": "artwork/dining_table_cute2d.png"
+    },
+    "opticalScale": 0.821
+  },
+  {
+    "id": "printer",
+    "category": "Tech",
+    "names": {
+      "en": "Printer",
+      "zh-CN": "打印机",
+      "zh-TW": "印表機",
+      "ms": "Pencetak"
+    },
+    "aliases": [
+      "printer"
+    ],
+    "files": {
+      "3d": "artwork/printer_3d.png",
+      "cute2d": "artwork/printer_cute2d.png"
+    },
+    "opticalScale": 0.854
+  },
+  {
+    "id": "router",
+    "category": "Tech",
+    "names": {
+      "en": "Wi-Fi router",
+      "zh-CN": "路由器",
+      "zh-TW": "路由器",
+      "ms": "Penghala Wi-Fi"
+    },
+    "aliases": [
+      "router",
+      "wi-fi router"
+    ],
+    "files": {
+      "3d": "artwork/router_3d.png",
+      "cute2d": "artwork/router_cute2d.png"
+    },
+    "opticalScale": 0.862
+  },
+  {
+    "id": "external_drive",
+    "category": "Tech",
+    "names": {
+      "en": "External drive",
+      "zh-CN": "移动硬盘",
+      "zh-TW": "外接硬碟",
+      "ms": "Pemacu luaran"
+    },
+    "aliases": [
+      "external drive"
+    ],
+    "files": {
+      "3d": "artwork/external_drive_3d.png",
+      "cute2d": "artwork/external_drive_cute2d.png"
+    },
+    "opticalScale": 0.832
+  },
+  {
+    "id": "microphone",
+    "category": "Tech",
+    "names": {
+      "en": "Microphone",
+      "zh-CN": "麦克风",
+      "zh-TW": "麥克風",
+      "ms": "Mikrofon"
+    },
+    "aliases": [
+      "microphone"
+    ],
+    "files": {
+      "3d": "artwork/microphone_3d.png",
+      "cute2d": "artwork/microphone_cute2d.png"
+    },
+    "opticalScale": 0.874
+  },
+  {
+    "id": "projector",
+    "category": "Tech",
+    "names": {
+      "en": "Projector",
+      "zh-CN": "投影仪",
+      "zh-TW": "投影機",
+      "ms": "Projektor"
+    },
+    "aliases": [
+      "projector"
+    ],
+    "files": {
+      "3d": "artwork/projector_3d.png",
+      "cute2d": "artwork/projector_cute2d.png"
+    },
+    "opticalScale": 0.821
+  },
+  {
+    "id": "game_controller",
+    "category": "Tech",
+    "names": {
+      "en": "Game controller",
+      "zh-CN": "游戏手柄",
+      "zh-TW": "遊戲手把",
+      "ms": "Pengawal permainan"
+    },
+    "aliases": [
+      "game controller"
+    ],
+    "files": {
+      "3d": "artwork/game_controller_3d.png",
+      "cute2d": "artwork/game_controller_cute2d.png"
+    },
+    "opticalScale": 0.794
+  },
+  {
+    "id": "desktop_pc",
+    "category": "Tech",
+    "names": {
+      "en": "Desktop PC",
+      "zh-CN": "台式电脑",
+      "zh-TW": "桌上型電腦",
+      "ms": "Komputer meja"
+    },
+    "aliases": [
+      "desktop pc"
+    ],
+    "files": {
+      "3d": "artwork/desktop_pc_3d.png",
+      "cute2d": "artwork/desktop_pc_cute2d.png"
+    },
+    "opticalScale": 0.842
+  },
+  {
+    "id": "ebook_reader",
+    "category": "Tech",
+    "names": {
+      "en": "E-book reader",
+      "zh-CN": "电子书阅读器",
+      "zh-TW": "電子書閱讀器",
+      "ms": "Pembaca e-buku"
+    },
+    "aliases": [
+      "ebook reader",
+      "e-book reader"
+    ],
+    "files": {
+      "3d": "artwork/ebook_reader_3d.png",
+      "cute2d": "artwork/ebook_reader_cute2d.png"
+    },
+    "opticalScale": 0.896
+  },
+  {
+    "id": "action_camera",
+    "category": "Tech",
+    "names": {
+      "en": "Action camera",
+      "zh-CN": "运动相机",
+      "zh-TW": "運動相機",
+      "ms": "Kamera aksi"
+    },
+    "aliases": [
+      "action camera"
+    ],
+    "files": {
+      "3d": "artwork/action_camera_3d.png",
+      "cute2d": "artwork/action_camera_cute2d.png"
+    },
+    "opticalScale": 0.907
+  },
+  {
+    "id": "instant_camera",
+    "category": "Tech",
+    "names": {
+      "en": "Instant camera",
+      "zh-CN": "拍立得相机",
+      "zh-TW": "即拍即印相機",
+      "ms": "Kamera segera"
+    },
+    "aliases": [
+      "instant camera"
+    ],
+    "files": {
+      "3d": "artwork/instant_camera_3d.png",
+      "cute2d": "artwork/instant_camera_cute2d.png"
+    },
+    "opticalScale": 0.918
+  },
+  {
+    "id": "tripod",
+    "category": "Tech",
+    "names": {
+      "en": "Tripod",
+      "zh-CN": "三脚架",
+      "zh-TW": "三腳架",
+      "ms": "Tripod"
+    },
+    "aliases": [
+      "tripod"
+    ],
+    "files": {
+      "3d": "artwork/tripod_3d.png",
+      "cute2d": "artwork/tripod_cute2d.png"
+    },
+    "opticalScale": 0.863
+  },
+  {
+    "id": "flash",
+    "category": "Tech",
+    "names": {
+      "en": "Camera flash",
+      "zh-CN": "闪光灯",
+      "zh-TW": "閃光燈",
+      "ms": "Denyar kamera"
+    },
+    "aliases": [
+      "flash",
+      "camera flash"
+    ],
+    "files": {
+      "3d": "artwork/flash_3d.png",
+      "cute2d": "artwork/flash_cute2d.png"
+    },
+    "opticalScale": 0.869
+  },
+  {
+    "id": "binoculars",
+    "category": "Hobbies",
+    "names": {
+      "en": "Binoculars",
+      "zh-CN": "望远镜",
+      "zh-TW": "望遠鏡",
+      "ms": "Teropong"
+    },
+    "aliases": [
+      "binoculars"
+    ],
+    "files": {
+      "3d": "artwork/binoculars_3d.png",
+      "cute2d": "artwork/binoculars_cute2d.png"
+    },
+    "opticalScale": 0.849
+  },
+  {
+    "id": "suv",
+    "category": "Vehicles",
+    "names": {
+      "en": "SUV",
+      "zh-CN": "运动型多用途车",
+      "zh-TW": "休旅車",
+      "ms": "SUV"
+    },
+    "aliases": [
+      "suv"
+    ],
+    "files": {
+      "3d": "artwork/suv_3d.png",
+      "cute2d": "artwork/suv_cute2d.png"
+    },
+    "opticalScale": 0.792
+  },
+  {
+    "id": "pickup",
+    "category": "Vehicles",
+    "names": {
+      "en": "Pickup truck",
+      "zh-CN": "皮卡车",
+      "zh-TW": "皮卡車",
+      "ms": "Trak pikap"
+    },
+    "aliases": [
+      "pickup",
+      "pickup truck"
+    ],
+    "files": {
+      "3d": "artwork/pickup_3d.png",
+      "cute2d": "artwork/pickup_cute2d.png"
+    },
+    "opticalScale": 0.795
+  },
+  {
+    "id": "scooter",
+    "category": "Vehicles",
+    "names": {
+      "en": "Motor scooter",
+      "zh-CN": "踏板摩托车",
+      "zh-TW": "速克達",
+      "ms": "Skuter"
+    },
+    "aliases": [
+      "scooter",
+      "motor scooter"
+    ],
+    "files": {
+      "3d": "artwork/scooter_3d.png",
+      "cute2d": "artwork/scooter_cute2d.png"
+    },
+    "opticalScale": 0.838
+  },
+  {
+    "id": "electric_scooter",
+    "category": "Vehicles",
+    "names": {
+      "en": "Electric scooter",
+      "zh-CN": "电动滑板车",
+      "zh-TW": "電動滑板車",
+      "ms": "Skuter elektrik"
+    },
+    "aliases": [
+      "electric scooter"
+    ],
+    "files": {
+      "3d": "artwork/electric_scooter_3d.png",
+      "cute2d": "artwork/electric_scooter_cute2d.png"
+    },
+    "opticalScale": 0.856
+  },
+  {
+    "id": "helmet",
+    "category": "Vehicles",
+    "names": {
+      "en": "Helmet",
+      "zh-CN": "头盔",
+      "zh-TW": "安全帽",
+      "ms": "Topi keledar"
+    },
+    "aliases": [
+      "helmet"
+    ],
+    "files": {
+      "3d": "artwork/helmet_3d.png",
+      "cute2d": "artwork/helmet_cute2d.png"
+    },
+    "opticalScale": 0.889
+  },
+  {
+    "id": "skateboard",
+    "category": "Hobbies",
+    "names": {
+      "en": "Skateboard",
+      "zh-CN": "滑板",
+      "zh-TW": "滑板",
+      "ms": "Papan selaju"
+    },
+    "aliases": [
+      "skateboard"
+    ],
+    "files": {
+      "3d": "artwork/skateboard_3d.png",
+      "cute2d": "artwork/skateboard_cute2d.png"
+    },
+    "opticalScale": 0.814
+  },
+  {
+    "id": "tennis_racket",
+    "category": "Hobbies",
+    "names": {
+      "en": "Tennis racket",
+      "zh-CN": "网球拍",
+      "zh-TW": "網球拍",
+      "ms": "Raket tenis"
+    },
+    "aliases": [
+      "tennis racket"
+    ],
+    "files": {
+      "3d": "artwork/tennis_racket_3d.png",
+      "cute2d": "artwork/tennis_racket_cute2d.png"
+    },
+    "opticalScale": 0.841
+  },
+  {
+    "id": "badminton_racket",
+    "category": "Hobbies",
+    "names": {
+      "en": "Badminton racket",
+      "zh-CN": "羽毛球拍",
+      "zh-TW": "羽球拍",
+      "ms": "Raket badminton"
+    },
+    "aliases": [
+      "badminton racket"
+    ],
+    "files": {
+      "3d": "artwork/badminton_racket_3d.png",
+      "cute2d": "artwork/badminton_racket_cute2d.png"
+    },
+    "opticalScale": 0.864
+  },
+  {
+    "id": "dumbbells",
+    "category": "Hobbies",
+    "names": {
+      "en": "Dumbbells",
+      "zh-CN": "哑铃",
+      "zh-TW": "啞鈴",
+      "ms": "Dumbel"
+    },
+    "aliases": [
+      "dumbbells"
+    ],
+    "files": {
+      "3d": "artwork/dumbbells_3d.png",
+      "cute2d": "artwork/dumbbells_cute2d.png"
+    },
+    "opticalScale": 0.835
+  },
+  {
+    "id": "yoga_mat",
+    "category": "Hobbies",
+    "names": {
+      "en": "Yoga mat",
+      "zh-CN": "瑜伽垫",
+      "zh-TW": "瑜伽墊",
+      "ms": "Tikar yoga"
+    },
+    "aliases": [
+      "yoga mat"
+    ],
+    "files": {
+      "3d": "artwork/yoga_mat_3d.png",
+      "cute2d": "artwork/yoga_mat_cute2d.png"
+    },
+    "opticalScale": 0.84
+  },
+  {
+    "id": "tent",
+    "category": "Hobbies",
+    "names": {
+      "en": "Camping tent",
+      "zh-CN": "帐篷",
+      "zh-TW": "帳篷",
+      "ms": "Khemah"
+    },
+    "aliases": [
+      "tent",
+      "camping tent"
+    ],
+    "files": {
+      "3d": "artwork/tent_3d.png",
+      "cute2d": "artwork/tent_cute2d.png"
+    },
+    "opticalScale": 0.808
+  },
+  {
+    "id": "fishing_rod",
+    "category": "Hobbies",
+    "names": {
+      "en": "Fishing rod",
+      "zh-CN": "钓鱼竿",
+      "zh-TW": "釣魚竿",
+      "ms": "Joran"
+    },
+    "aliases": [
+      "fishing rod"
+    ],
+    "files": {
+      "3d": "artwork/fishing_rod_3d.png",
+      "cute2d": "artwork/fishing_rod_cute2d.png"
+    },
+    "opticalScale": 0.857
+  },
+  {
+    "id": "piano",
+    "category": "Hobbies",
+    "names": {
+      "en": "Digital piano",
+      "zh-CN": "电子钢琴",
+      "zh-TW": "數位鋼琴",
+      "ms": "Piano digital"
+    },
+    "aliases": [
+      "piano",
+      "digital piano"
+    ],
+    "files": {
+      "3d": "artwork/piano_3d.png",
+      "cute2d": "artwork/piano_cute2d.png"
+    },
+    "opticalScale": 0.811
+  },
+  {
+    "id": "violin",
+    "category": "Hobbies",
+    "names": {
+      "en": "Violin",
+      "zh-CN": "小提琴",
+      "zh-TW": "小提琴",
+      "ms": "Biola"
+    },
+    "aliases": [
+      "violin"
+    ],
+    "files": {
+      "3d": "artwork/violin_3d.png",
+      "cute2d": "artwork/violin_cute2d.png"
+    },
+    "opticalScale": 0.835
+  },
+  {
+    "id": "drum_kit",
+    "category": "Hobbies",
+    "names": {
+      "en": "Drum kit",
+      "zh-CN": "架子鼓",
+      "zh-TW": "爵士鼓",
+      "ms": "Set dram"
+    },
+    "aliases": [
+      "drum kit"
+    ],
+    "files": {
+      "3d": "artwork/drum_kit_3d.png",
+      "cute2d": "artwork/drum_kit_cute2d.png"
+    },
+    "opticalScale": 0.863
+  },
+  {
+    "id": "figurine",
+    "category": "Hobbies",
+    "names": {
+      "en": "Collectible figure",
+      "zh-CN": "收藏手办",
+      "zh-TW": "收藏公仔",
+      "ms": "Patung koleksi"
+    },
+    "aliases": [
+      "figurine",
+      "collectible figure"
+    ],
+    "files": {
+      "3d": "artwork/figurine_3d.png",
+      "cute2d": "artwork/figurine_cute2d.png"
+    },
+    "opticalScale": 0.84
+  },
+  {
+    "id": "building_blocks",
+    "category": "Hobbies",
+    "names": {
+      "en": "Building blocks",
+      "zh-CN": "积木",
+      "zh-TW": "積木",
+      "ms": "Blok binaan"
+    },
+    "aliases": [
+      "building blocks"
+    ],
+    "files": {
+      "3d": "artwork/building_blocks_3d.png",
+      "cute2d": "artwork/building_blocks_cute2d.png"
+    },
+    "opticalScale": 0.908
+  },
+  {
+    "id": "board_game",
+    "category": "Hobbies",
+    "names": {
+      "en": "Board game",
+      "zh-CN": "桌游",
+      "zh-TW": "桌遊",
+      "ms": "Permainan papan"
+    },
+    "aliases": [
+      "board game"
+    ],
+    "files": {
+      "3d": "artwork/board_game_3d.png",
+      "cute2d": "artwork/board_game_cute2d.png"
+    },
+    "opticalScale": 0.853
+  },
+  {
+    "id": "gold_bar",
+    "category": "Hobbies",
+    "names": {
+      "en": "Gold bar",
+      "zh-CN": "金条",
+      "zh-TW": "金條",
+      "ms": "Jongkong emas"
+    },
+    "aliases": [
+      "gold bar"
+    ],
+    "files": {
+      "3d": "artwork/gold_bar_3d.png",
+      "cute2d": "artwork/gold_bar_cute2d.png"
+    },
+    "opticalScale": 0.83
+  },
+  {
+    "id": "vinyl_player",
+    "category": "Hobbies",
+    "names": {
+      "en": "Record player",
+      "zh-CN": "黑胶唱机",
+      "zh-TW": "黑膠唱盤",
+      "ms": "Pemain piring hitam"
+    },
+    "aliases": [
+      "vinyl player",
+      "record player"
+    ],
+    "files": {
+      "3d": "artwork/vinyl_player_3d.png",
+      "cute2d": "artwork/vinyl_player_cute2d.png"
+    },
+    "opticalScale": 0.798
+  },
+  {
+    "id": "jacket",
+    "category": "Wearables",
+    "names": {
+      "en": "Jacket",
+      "zh-CN": "夹克",
+      "zh-TW": "夾克",
+      "ms": "Jaket"
+    },
+    "aliases": [
+      "jacket"
+    ],
+    "files": {
+      "3d": "artwork/jacket_3d.png",
+      "cute2d": "artwork/jacket_cute2d.png"
+    },
+    "opticalScale": 0.871
+  },
+  {
+    "id": "tshirt",
+    "category": "Wearables",
+    "names": {
+      "en": "T-shirt",
+      "zh-CN": "T恤",
+      "zh-TW": "T恤",
+      "ms": "Baju T"
+    },
+    "aliases": [
+      "tshirt",
+      "t-shirt"
+    ],
+    "files": {
+      "3d": "artwork/tshirt_3d.png",
+      "cute2d": "artwork/tshirt_cute2d.png"
+    },
+    "opticalScale": 0.851
+  },
+  {
+    "id": "jeans",
+    "category": "Wearables",
+    "names": {
+      "en": "Jeans",
+      "zh-CN": "牛仔裤",
+      "zh-TW": "牛仔褲",
+      "ms": "Seluar jean"
+    },
+    "aliases": [
+      "jeans"
+    ],
+    "files": {
+      "3d": "artwork/jeans_3d.png",
+      "cute2d": "artwork/jeans_cute2d.png"
+    },
+    "opticalScale": 0.842
+  },
+  {
+    "id": "dress",
+    "category": "Wearables",
+    "names": {
+      "en": "Dress",
+      "zh-CN": "连衣裙",
+      "zh-TW": "洋裝",
+      "ms": "Gaun"
+    },
+    "aliases": [
+      "dress"
+    ],
+    "files": {
+      "3d": "artwork/dress_3d.png",
+      "cute2d": "artwork/dress_cute2d.png"
+    },
+    "opticalScale": 0.856
+  },
+  {
+    "id": "boots",
+    "category": "Wearables",
+    "names": {
+      "en": "Boots",
+      "zh-CN": "靴子",
+      "zh-TW": "靴子",
+      "ms": "But"
+    },
+    "aliases": [
+      "boots"
+    ],
+    "files": {
+      "3d": "artwork/boots_3d.png",
+      "cute2d": "artwork/boots_cute2d.png"
+    },
+    "opticalScale": 0.874
+  },
+  {
+    "id": "sandals",
+    "category": "Wearables",
+    "names": {
+      "en": "Sandals",
+      "zh-CN": "凉鞋",
+      "zh-TW": "涼鞋",
+      "ms": "Sandal"
+    },
+    "aliases": [
+      "sandals"
+    ],
+    "files": {
+      "3d": "artwork/sandals_3d.png",
+      "cute2d": "artwork/sandals_cute2d.png"
+    },
+    "opticalScale": 0.823
+  },
+  {
+    "id": "cap",
+    "category": "Wearables",
+    "names": {
+      "en": "Cap",
+      "zh-CN": "帽子",
+      "zh-TW": "帽子",
+      "ms": "Topi"
+    },
+    "aliases": [
+      "cap"
+    ],
+    "files": {
+      "3d": "artwork/cap_3d.png",
+      "cute2d": "artwork/cap_cute2d.png"
+    },
+    "opticalScale": 0.826
+  },
+  {
+    "id": "wallet",
+    "category": "Wearables",
+    "names": {
+      "en": "Wallet",
+      "zh-CN": "钱包",
+      "zh-TW": "錢包",
+      "ms": "Dompet"
+    },
+    "aliases": [
+      "wallet"
+    ],
+    "files": {
+      "3d": "artwork/wallet_3d.png",
+      "cute2d": "artwork/wallet_cute2d.png"
+    },
+    "opticalScale": 1.0
+  },
+  {
+    "id": "ring",
+    "category": "Wearables",
+    "names": {
+      "en": "Ring",
+      "zh-CN": "戒指",
+      "zh-TW": "戒指",
+      "ms": "Cincin"
+    },
+    "aliases": [
+      "ring"
+    ],
+    "files": {
+      "3d": "artwork/ring_3d.png",
+      "cute2d": "artwork/ring_cute2d.png"
+    },
+    "opticalScale": 1.0
+  },
+  {
+    "id": "necklace",
+    "category": "Wearables",
+    "names": {
+      "en": "Necklace",
+      "zh-CN": "项链",
+      "zh-TW": "項鍊",
+      "ms": "Rantai leher"
+    },
+    "aliases": [
+      "necklace"
+    ],
+    "files": {
+      "3d": "artwork/necklace_3d.png",
+      "cute2d": "artwork/necklace_cute2d.png"
+    },
+    "opticalScale": 0.842
+  },
+  {
+    "id": "perfume",
+    "category": "Wearables",
+    "names": {
+      "en": "Perfume",
+      "zh-CN": "香水",
+      "zh-TW": "香水",
+      "ms": "Minyak wangi"
+    },
+    "aliases": [
+      "perfume"
+    ],
+    "files": {
+      "3d": "artwork/perfume_3d.png",
+      "cute2d": "artwork/perfume_cute2d.png"
+    },
+    "opticalScale": 0.884
+  },
+  {
+    "id": "stroller",
+    "category": "Home",
+    "names": {
+      "en": "Baby stroller",
+      "zh-CN": "婴儿车",
+      "zh-TW": "嬰兒推車",
+      "ms": "Kereta sorong bayi"
+    },
+    "aliases": [
+      "stroller",
+      "baby stroller"
+    ],
+    "files": {
+      "3d": "artwork/stroller_3d.png",
+      "cute2d": "artwork/stroller_cute2d.png"
+    },
+    "opticalScale": 0.838
+  },
+  {
+    "id": "pet_carrier",
+    "category": "Home",
+    "names": {
+      "en": "Pet carrier",
+      "zh-CN": "宠物航空箱",
+      "zh-TW": "寵物提籠",
+      "ms": "Pembawa haiwan"
+    },
+    "aliases": [
+      "pet carrier"
+    ],
+    "files": {
+      "3d": "artwork/pet_carrier_3d.png",
+      "cute2d": "artwork/pet_carrier_cute2d.png"
+    },
+    "opticalScale": 0.842
+  },
+  {
+    "id": "sewing_machine",
+    "category": "Home",
+    "names": {
+      "en": "Sewing machine",
+      "zh-CN": "缝纫机",
+      "zh-TW": "縫紉機",
+      "ms": "Mesin jahit"
+    },
+    "aliases": [
+      "sewing machine"
+    ],
+    "files": {
+      "3d": "artwork/sewing_machine_3d.png",
+      "cute2d": "artwork/sewing_machine_cute2d.png"
+    },
+    "opticalScale": 0.856
   }
 ]

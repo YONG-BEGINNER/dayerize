@@ -31,7 +31,7 @@ class ArtworkCatalogTest {
         val catalog=ArtworkCatalog(context)
         val expected=setOf("tablet","earbuds","smartwatch","monitor","keyboard","mouse","speaker","game_console","power_bank","camera_lens","drone","television","air_conditioner","refrigerator","washing_machine","vacuum","air_fryer","rice_cooker","desk","chair","suitcase","handbag","sunglasses","motorcycle")
         assertTrue("Everyday assets must be selectable",catalog.entries.map{it.id}.containsAll(expected))
-        assertTrue(catalog.entries.size>=36)
+        assertTrue(catalog.entries.size>=100)
         for(entry in catalog.entries) {
             for(style in ArtworkStyle.entries) {
                 val path=entry.files.getValue(style)

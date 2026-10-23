@@ -62,4 +62,8 @@
 <string name="purchase_only_cost">僅購買成本</string>
 <string name="purchase_only_gain">僅購買損益</string>
 <string name="encrypted_limit">加密備份支援最多8 MB的資料和照片。較大的備份可使用一般匯出。</string>
+<string name="net_ownership_cost">售出後淨持有成本</string>
+<string name="remove_event">刪除費用或紀錄</string>
+<string name="show_more">顯示更多</string>
+<string name="event_date">紀錄日期 (YYYY-MM-DD)</string>
 </resources>

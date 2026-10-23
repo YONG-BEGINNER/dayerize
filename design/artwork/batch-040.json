@@ -1,0 +1,702 @@
+{
+  "items": [
+    [
+      "toaster",
+      "Home",
+      "Toaster",
+      "烤面包机",
+      "烤麵包機",
+      "Pembakar roti",
+      "compact silver two-slot toaster with toast"
+    ],
+    [
+      "kettle",
+      "Home",
+      "Electric kettle",
+      "电热水壶",
+      "電熱水壺",
+      "Cerek elektrik",
+      "rounded electric kettle with handle and spout"
+    ],
+    [
+      "blender",
+      "Home",
+      "Blender",
+      "搅拌机",
+      "攪拌機",
+      "Pengisar",
+      "glass blender jug on a compact motor base"
+    ],
+    [
+      "microwave",
+      "Home",
+      "Microwave",
+      "微波炉",
+      "微波爐",
+      "Ketuhar gelombang mikro",
+      "countertop microwave oven"
+    ],
+    [
+      "oven",
+      "Home",
+      "Oven",
+      "烤箱",
+      "烤箱",
+      "Ketuhar",
+      "countertop oven with glass door and two knobs"
+    ],
+    [
+      "dishwasher",
+      "Home",
+      "Dishwasher",
+      "洗碗机",
+      "洗碗機",
+      "Mesin basuh pinggan",
+      "dishwasher with open lower rack and plates"
+    ],
+    [
+      "fan",
+      "Home",
+      "Standing fan",
+      "落地扇",
+      "立扇",
+      "Kipas berdiri",
+      "round pedestal standing fan"
+    ],
+    [
+      "air_purifier",
+      "Home",
+      "Air purifier",
+      "空气净化器",
+      "空氣清淨機",
+      "Penulen udara",
+      "cylindrical air purifier with vent holes"
+    ],
+    [
+      "humidifier",
+      "Home",
+      "Humidifier",
+      "加湿器",
+      "加濕器",
+      "Pelembap udara",
+      "small tabletop humidifier with a gentle mist plume"
+    ],
+    [
+      "robot_vacuum",
+      "Home",
+      "Robot vacuum",
+      "扫地机器人",
+      "掃地機器人",
+      "Vakum robot",
+      "disc shaped robot vacuum with raised lidar sensor"
+    ],
+    [
+      "iron",
+      "Home",
+      "Clothes iron",
+      "电熨斗",
+      "電熨斗",
+      "Seterika",
+      "steam clothes iron with soleplate and handle"
+    ],
+    [
+      "hair_dryer",
+      "Home",
+      "Hair dryer",
+      "吹风机",
+      "吹風機",
+      "Pengering rambut",
+      "compact hair dryer with nozzle and handle"
+    ],
+    [
+      "sofa",
+      "Home",
+      "Sofa",
+      "沙发",
+      "沙發",
+      "Sofa",
+      "cozy two-seat fabric sofa"
+    ],
+    [
+      "bed",
+      "Home",
+      "Bed",
+      "床",
+      "床",
+      "Katil",
+      "double bed with pillows and folded duvet"
+    ],
+    [
+      "bookshelf",
+      "Home",
+      "Bookshelf",
+      "书架",
+      "書架",
+      "Rak buku",
+      "wooden three shelf bookcase with books"
+    ],
+    [
+      "lamp",
+      "Home",
+      "Desk lamp",
+      "台灯",
+      "檯燈",
+      "Lampu meja",
+      "adjustable desk lamp with round base"
+    ],
+    [
+      "dining_table",
+      "Home",
+      "Dining table",
+      "餐桌",
+      "餐桌",
+      "Meja makan",
+      "round wooden dining table with two chairs"
+    ],
+    [
+      "printer",
+      "Tech",
+      "Printer",
+      "打印机",
+      "印表機",
+      "Pencetak",
+      "compact desktop inkjet printer with paper tray"
+    ],
+    [
+      "router",
+      "Tech",
+      "Wi-Fi router",
+      "路由器",
+      "路由器",
+      "Penghala Wi-Fi",
+      "wireless router with three antennas"
+    ],
+    [
+      "external_drive",
+      "Tech",
+      "External drive",
+      "移动硬盘",
+      "外接硬碟",
+      "Pemacu luaran",
+      "portable external hard drive with short cable"
+    ],
+    [
+      "microphone",
+      "Tech",
+      "Microphone",
+      "麦克风",
+      "麥克風",
+      "Mikrofon",
+      "studio microphone on desktop stand"
+    ],
+    [
+      "projector",
+      "Tech",
+      "Projector",
+      "投影仪",
+      "投影機",
+      "Projektor",
+      "compact video projector with large circular lens"
+    ],
+    [
+      "game_controller",
+      "Tech",
+      "Game controller",
+      "游戏手柄",
+      "遊戲手把",
+      "Pengawal permainan",
+      "unbranded gamepad with two sticks and buttons"
+    ],
+    [
+      "desktop_pc",
+      "Tech",
+      "Desktop PC",
+      "台式电脑",
+      "桌上型電腦",
+      "Komputer meja",
+      "desktop computer tower with transparent side panel"
+    ],
+    [
+      "ebook_reader",
+      "Tech",
+      "E-book reader",
+      "电子书阅读器",
+      "電子書閱讀器",
+      "Pembaca e-buku",
+      "small e-ink ebook reader with textured back"
+    ],
+    [
+      "action_camera",
+      "Tech",
+      "Action camera",
+      "运动相机",
+      "運動相機",
+      "Kamera aksi",
+      "rugged tiny action camera with square lens"
+    ],
+    [
+      "instant_camera",
+      "Tech",
+      "Instant camera",
+      "拍立得相机",
+      "即拍即印相機",
+      "Kamera segera",
+      "rounded instant film camera ejecting a photo"
+    ],
+    [
+      "tripod",
+      "Tech",
+      "Tripod",
+      "三脚架",
+      "三腳架",
+      "Tripod",
+      "foldable three leg camera tripod with ball head"
+    ],
+    [
+      "flash",
+      "Tech",
+      "Camera flash",
+      "闪光灯",
+      "閃光燈",
+      "Denyar kamera",
+      "tilting external camera flash with hot shoe foot"
+    ],
+    [
+      "binoculars",
+      "Hobbies",
+      "Binoculars",
+      "望远镜",
+      "望遠鏡",
+      "Teropong",
+      "compact binoculars with two glass objectives"
+    ],
+    [
+      "suv",
+      "Vehicles",
+      "SUV",
+      "运动型多用途车",
+      "休旅車",
+      "SUV",
+      "unbranded tall five-door SUV with roof rails"
+    ],
+    [
+      "pickup",
+      "Vehicles",
+      "Pickup truck",
+      "皮卡车",
+      "皮卡車",
+      "Trak pikap",
+      "unbranded pickup truck with open cargo bed"
+    ],
+    [
+      "scooter",
+      "Vehicles",
+      "Motor scooter",
+      "踏板摩托车",
+      "速克達",
+      "Skuter",
+      "classic motor scooter with curved leg shield"
+    ],
+    [
+      "electric_scooter",
+      "Vehicles",
+      "Electric scooter",
+      "电动滑板车",
+      "電動滑板車",
+      "Skuter elektrik",
+      "standing electric kick scooter with long stem"
+    ],
+    [
+      "helmet",
+      "Vehicles",
+      "Helmet",
+      "头盔",
+      "安全帽",
+      "Topi keledar",
+      "full face motorcycle helmet with dark visor"
+    ],
+    [
+      "skateboard",
+      "Hobbies",
+      "Skateboard",
+      "滑板",
+      "滑板",
+      "Papan selaju",
+      "wooden skateboard with four wheels"
+    ],
+    [
+      "tennis_racket",
+      "Hobbies",
+      "Tennis racket",
+      "网球拍",
+      "網球拍",
+      "Raket tenis",
+      "tennis racket and one tennis ball"
+    ],
+    [
+      "badminton_racket",
+      "Hobbies",
+      "Badminton racket",
+      "羽毛球拍",
+      "羽球拍",
+      "Raket badminton",
+      "slender badminton racket and shuttlecock"
+    ],
+    [
+      "dumbbells",
+      "Hobbies",
+      "Dumbbells",
+      "哑铃",
+      "啞鈴",
+      "Dumbel",
+      "pair of hexagonal exercise dumbbells"
+    ],
+    [
+      "yoga_mat",
+      "Hobbies",
+      "Yoga mat",
+      "瑜伽垫",
+      "瑜伽墊",
+      "Tikar yoga",
+      "partly rolled yoga exercise mat"
+    ],
+    [
+      "tent",
+      "Hobbies",
+      "Camping tent",
+      "帐篷",
+      "帳篷",
+      "Khemah",
+      "small dome camping tent with open doorway"
+    ],
+    [
+      "fishing_rod",
+      "Hobbies",
+      "Fishing rod",
+      "钓鱼竿",
+      "釣魚竿",
+      "Joran",
+      "compact diagonally placed fishing rod with reel"
+    ],
+    [
+      "piano",
+      "Hobbies",
+      "Digital piano",
+      "电子钢琴",
+      "數位鋼琴",
+      "Piano digital",
+      "digital piano keyboard on simple stand"
+    ],
+    [
+      "violin",
+      "Hobbies",
+      "Violin",
+      "小提琴",
+      "小提琴",
+      "Biola",
+      "wooden violin with bow"
+    ],
+    [
+      "drum_kit",
+      "Hobbies",
+      "Drum kit",
+      "架子鼓",
+      "爵士鼓",
+      "Set dram",
+      "small drum kit with bass drum and cymbal"
+    ],
+    [
+      "figurine",
+      "Hobbies",
+      "Collectible figure",
+      "收藏手办",
+      "收藏公仔",
+      "Patung koleksi",
+      "original friendly little astronaut collectible figurine"
+    ],
+    [
+      "building_blocks",
+      "Hobbies",
+      "Building blocks",
+      "积木",
+      "積木",
+      "Blok binaan",
+      "small original colorful toy block house with loose blocks"
+    ],
+    [
+      "board_game",
+      "Hobbies",
+      "Board game",
+      "桌游",
+      "桌遊",
+      "Permainan papan",
+      "unbranded board game box with dice and playing tokens"
+    ],
+    [
+      "gold_bar",
+      "Hobbies",
+      "Gold bar",
+      "金条",
+      "金條",
+      "Jongkong emas",
+      "single polished gold investment ingot without text"
+    ],
+    [
+      "vinyl_player",
+      "Hobbies",
+      "Record player",
+      "黑胶唱机",
+      "黑膠唱盤",
+      "Pemain piring hitam",
+      "turntable with vinyl record and tonearm"
+    ],
+    [
+      "jacket",
+      "Wearables",
+      "Jacket",
+      "夹克",
+      "夾克",
+      "Jaket",
+      "puffy outdoor jacket front three quarter view"
+    ],
+    [
+      "tshirt",
+      "Wearables",
+      "T-shirt",
+      "T恤",
+      "T恤",
+      "Baju T",
+      "folded soft cotton crew neck t-shirt"
+    ],
+    [
+      "jeans",
+      "Wearables",
+      "Jeans",
+      "牛仔裤",
+      "牛仔褲",
+      "Seluar jean",
+      "neatly folded blue denim jeans"
+    ],
+    [
+      "dress",
+      "Wearables",
+      "Dress",
+      "连衣裙",
+      "洋裝",
+      "Gaun",
+      "simple flowing knee length dress on invisible form"
+    ],
+    [
+      "boots",
+      "Wearables",
+      "Boots",
+      "靴子",
+      "靴子",
+      "But",
+      "pair of leather ankle boots"
+    ],
+    [
+      "sandals",
+      "Wearables",
+      "Sandals",
+      "凉鞋",
+      "涼鞋",
+      "Sandal",
+      "pair of casual strap sandals"
+    ],
+    [
+      "cap",
+      "Wearables",
+      "Cap",
+      "帽子",
+      "帽子",
+      "Topi",
+      "simple unbranded baseball cap"
+    ],
+    [
+      "wallet",
+      "Wearables",
+      "Wallet",
+      "钱包",
+      "錢包",
+      "Dompet",
+      "leather bifold wallet slightly open"
+    ],
+    [
+      "ring",
+      "Wearables",
+      "Ring",
+      "戒指",
+      "戒指",
+      "Cincin",
+      "gold ring with a single small gemstone"
+    ],
+    [
+      "necklace",
+      "Wearables",
+      "Necklace",
+      "项链",
+      "項鍊",
+      "Rantai leher",
+      "gold necklace arranged as loop with small pendant"
+    ],
+    [
+      "perfume",
+      "Wearables",
+      "Perfume",
+      "香水",
+      "香水",
+      "Minyak wangi",
+      "elegant unbranded glass perfume bottle"
+    ],
+    [
+      "stroller",
+      "Home",
+      "Baby stroller",
+      "婴儿车",
+      "嬰兒推車",
+      "Kereta sorong bayi",
+      "compact baby stroller with canopy and four wheels"
+    ],
+    [
+      "pet_carrier",
+      "Home",
+      "Pet carrier",
+      "宠物航空箱",
+      "寵物提籠",
+      "Pembawa haiwan",
+      "small pet travel carrier with handle and vented door"
+    ],
+    [
+      "sewing_machine",
+      "Home",
+      "Sewing machine",
+      "缝纫机",
+      "縫紉機",
+      "Mesin jahit",
+      "compact sewing machine with thread spool and needle"
+    ]
+  ],
+  "results": [
+    {
+      "id": "dishwasher",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-e9824176-9189-47f3-a9f7-0f9ecb68d04a.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "fan",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-5a1b9096-c561-49c7-be4b-7f53111606b4.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "oven",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-ab4584d9-5883-4b8e-a07d-b4d012ad35cb.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "microwave",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-b3211d29-6d5c-4a34-a202-fa0e639fccfd.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "oven",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-d8ae3409-7219-4406-a14f-1926a879920e.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "blender",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-ddec2292-2f71-4482-9d06-8437eaaf4f92.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "microwave",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-faf7f691-afa8-49a1-b3bb-45c80d7afd49.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "kettle",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-680b4d4c-ecdb-49a6-b133-e6c63db75f16.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "blender",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-f5295820-75c6-4165-a368-4653b76ea535.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "kettle",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-7f8e667d-c981-4209-81d2-29acb635b88c.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "toaster",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-f7f8886c-4b61-4f87-8fc4-0a8ad2036bbb.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "toaster",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-c003220d-ccb2-4a57-82c0-76f1d421242c.png",
+      "provenance": "Generated in this turn; subject/style verified visually in /tmp/new-art-review.png"
+    },
+    {
+      "id": "fan",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-9438d246-67fa-4508-84ae-c74b1bbe5f2f.png",
+      "prompt": "One original Dayerize icon: round pedestal standing fan. Premium realistic 3D product miniature, graphite and silver or natural materials, small amber accents, soft studio lighting, three quarter view. Whole object centered on a fully transparent square canvas occupying 75% of canvas, generous equal padding, no cropping, no text/logos/watermarks. Readable at 48px. Only Standing fan: round pedestal standing fan."
+    },
+    {
+      "id": "air_purifier",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-58e26e0d-06f4-4787-8b42-5287d7cbdf75.png",
+      "prompt": "One original Dayerize icon: cylindrical air purifier with vent holes. Premium realistic 3D product miniature, graphite and silver or natural materials, small amber accents, soft studio lighting, three quarter view. Whole object centered on a fully transparent square canvas occupying 75% of canvas, generous equal padding, no cropping, no text/logos/watermarks. Readable at 48px. Only Air purifier: cylindrical air purifier with vent holes."
+    },
+    {
+      "id": "air_purifier",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-9b26e3b1-6339-4dc0-a3ab-500f648f175a.png",
+      "prompt": "One original Dayerize icon: cylindrical air purifier with vent holes. Cute 2D sticker, rounded shapes, clean charcoal contour, soft pastel fills, slight cel shading, playful but recognizable, not a 3D render. Whole object centered on a fully transparent square canvas occupying 75% of canvas, generous equal padding, no cropping, no text/logos/watermarks. Readable at 48px. Only Air purifier: cylindrical air purifier with vent holes."
+    },
+    {
+      "id": "humidifier",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-37d6daba-858b-46e7-ab5c-f504c59a1eef.png",
+      "prompt": "One original Dayerize icon: small tabletop humidifier with a gentle mist plume. Cute 2D sticker, rounded shapes, clean charcoal contour, soft pastel fills, slight cel shading, playful but recognizable, not a 3D render. Whole object centered on a fully transparent square canvas occupying 75% of canvas, generous equal padding, no cropping, no text/logos/watermarks. Readable at 48px. Only Humidifier: small tabletop humidifier with a gentle mist plume."
+    },
+    {
+      "id": "dishwasher",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-8f6dacac-6cad-421a-9650-9a0955acd29d.png",
+      "prompt": "One original Dayerize icon: dishwasher with open lower rack and plates. Cute 2D sticker, rounded shapes, clean charcoal contour, soft pastel fills, slight cel shading, playful but recognizable, not a 3D render. Whole object centered on a fully transparent square canvas occupying 75% of canvas, generous equal padding, no cropping, no text/logos/watermarks. Readable at 48px. Only Dishwasher: dishwasher with open lower rack and plates."
+    },
+    {
+      "id": "humidifier",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-3faff45f-3a6d-44e5-bafe-db9ec427718d.png",
+      "prompt": "One original Dayerize icon: small tabletop humidifier with a gentle mist plume. Premium realistic 3D product miniature, graphite and silver or natural materials, small amber accents, soft studio lighting, three quarter view. Whole object centered on a fully transparent square canvas occupying 75% of canvas, generous equal padding, no cropping, no text/logos/watermarks. Readable at 48px. Only Humidifier: small tabletop humidifier with a gentle mist plume."
+    },
+    {
+      "id": "robot_vacuum",
+      "style": "3d",
+      "path": "/workspace/generated_images/exec-6f25dec7-45dd-42ed-be0b-7f912d503806.png",
+      "prompt": "One original Dayerize icon: disc shaped robot vacuum with raised lidar sensor. Premium realistic 3D product miniature, graphite and silver or natural materials, small amber accents, soft studio lighting, three quarter view. Whole object centered on a fully transparent square canvas occupying 75% of canvas, generous equal padding, no cropping, no text/logos/watermarks. Readable at 48px. Only Robot vacuum: disc shaped robot vacuum with raised lidar sensor."
+    },
+    {
+      "id": "robot_vacuum",
+      "style": "cute2d",
+      "path": "/workspace/generated_images/exec-2940a039-31c6-4f46-a8e5-34225c142df6.png",
+      "prompt": "One original Dayerize icon: disc shaped robot vacuum with raised lidar sensor. Cute 2D sticker, rounded shapes, clean charcoal contour, soft pastel fills, slight cel shading, playful but recognizable, not a 3D render. Whole object centered on a fully transparent square canvas occupying 75% of canvas, generous equal padding, no cropping, no text/logos/watermarks. Readable at 48px. Only Robot vacuum: disc shaped robot vacuum with raised lidar sensor."
+    }
+  ]
+}

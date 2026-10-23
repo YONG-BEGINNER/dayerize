@@ -62,4 +62,8 @@
 <string name="purchase_only_cost">Purchase-only cost</string>
 <string name="purchase_only_gain">Purchase-only gain / loss</string>
 <string name="encrypted_limit">Encrypted backups support up to 8 MB of data and photos. Larger archives can use standard export.</string>
+<string name="net_ownership_cost">Net ownership cost after sale</string>
+<string name="remove_event">Remove expense or note</string>
+<string name="show_more">Show more</string>
+<string name="event_date">Event date (YYYY-MM-DD)</string>
 </resources>

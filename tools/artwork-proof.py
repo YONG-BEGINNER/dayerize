@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """Build read-only visual QA contact sheets; never modifies product artwork."""
+import argparse
 import json
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
+parser=argparse.ArgumentParser()
+parser.add_argument('--prefix',default='catalog-031')
+prefix=parser.parse_args().prefix
 repo=Path(__file__).resolve().parents[1]
 assets=repo/'app/src/main/assets'
 entries=json.loads((assets/'artwork/catalog.json').read_text())
@@ -25,6 +29,6 @@ for style in ('3d','cute2d'):
                 sheet.alpha_composite(tile,(start,y+28+(96-size)//2))
                 start+=size+10
             draw.line((x,y+148,x+255,y+148),fill='#596066',width=1)
-        path=out/f'catalog-031-{style}-{theme}.png'
+        path=out/f'{prefix}-{style}-{theme}.png'
         sheet.convert('RGB').save(path)
         print(path)

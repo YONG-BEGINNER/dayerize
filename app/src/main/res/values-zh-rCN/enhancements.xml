@@ -62,4 +62,8 @@
 <string name="purchase_only_cost">仅购买成本</string>
 <string name="purchase_only_gain">仅购买盈亏</string>
 <string name="encrypted_limit">加密备份支持最多8 MB的数据和照片。较大的备份可使用普通导出。</string>
+<string name="net_ownership_cost">售出后净持有成本</string>
+<string name="remove_event">删除费用或记录</string>
+<string name="show_more">显示更多</string>
+<string name="event_date">记录日期 (YYYY-MM-DD)</string>
 </resources>

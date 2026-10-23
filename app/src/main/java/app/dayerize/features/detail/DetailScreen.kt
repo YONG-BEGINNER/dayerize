@@ -28,10 +28,12 @@ import java.time.LocalDate
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
         Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.SpaceBetween) {
             IconButton(onClick=onBack){Icon(Icons.AutoMirrored.Outlined.ArrowBack,stringResource(R.string.back))}
-            IconButton(onClick=onEdit){Icon(Icons.Outlined.Edit,stringResource(R.string.edit))}
+            Row {
+                IconToggleButton(checked=a.favourite,onCheckedChange={vm.mutate(a.id,{current->current.copy(favourite=it)})}){Icon(if(a.favourite)Icons.Outlined.Star else Icons.Outlined.StarBorder,stringResource(R.string.widget_favourite))}
+                IconButton(onClick=onEdit){Icon(Icons.Outlined.Edit,stringResource(R.string.edit))}
+            }
         }
-        SettingRow(stringResource(R.string.widget_favourite),trailing={Switch(a.favourite,{vm.mutate(a.id,{current->current.copy(favourite=it)})})})
-        AssetArt(a,Modifier.fillMaxWidth().height(180.dp))
+        AssetArt(a,Modifier.fillMaxWidth().height((LocalLayoutDensity.current.artworkHeight+36).dp))
         Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
             Text(a.name,Modifier.weight(1f),fontSize=22.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.4).sp)
             if(!a.wishlist)StatusBadge(a.status)
@@ -83,6 +85,6 @@ import java.time.LocalDate
         TextButton(onClick={action="delete"},modifier=Modifier.align(Alignment.CenterHorizontally)){Text(stringResource(R.string.delete),color=MaterialTheme.colorScheme.error)}
     }
     if(action in listOf("retire","delete","reactivate"))AlertDialog(onDismissRequest={action=""},title={Text(stringResource(when(action){"delete"->R.string.delete_note;"reactivate"->R.string.reactivate_note;else->R.string.retire_note}))},confirmButton={TextButton(onClick={
-        when(action){"delete"->vm.delete(a.id,onBack);"retire"->vm.save(AssetLifecycle.retire(a,today));"reactivate"->vm.save(a.copy(status=Status.ACTIVE,retiredDate=null))};action=""
+        when(action){"delete"->vm.delete(a.id,onBack);"retire"->vm.mutate(a.id,{AssetLifecycle.retire(it,today)});"reactivate"->vm.mutate(a.id,{current->require(current.status==Status.RETIRED);current.copy(status=Status.ACTIVE,retiredDate=null)})};action=""
     }){Text(stringResource(R.string.confirm))}},dismissButton={TextButton(onClick={action=""}){Text(stringResource(R.string.cancel))}})
 }

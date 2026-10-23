@@ -41,15 +41,16 @@ import app.dayerize.features.editor.Field
                 if(currency!=asset.purchase.currency)Field(rate,{rate=it},R.string.sale_rate,true)
             }
             preview?.let { Panel(Modifier.fillMaxWidth()) {
-                Label(R.string.gain_loss);it.gain?.let{gain->Amount(gain)}
-                Label(R.string.net_cost)
+                Label(R.string.purchase_only_gain);it.gain?.let{gain->Amount(gain)}
+                Label(R.string.purchase_only_cost)
                 Text(formatCost(it.net,asset.purchase.currency)+" "+stringResource(R.string.per_day),Modifier.testTag("sale-net"),style=MaterialTheme.typography.titleLarge)
+                Ownership.netCost(candidate())?.let{net->Label(R.string.net_ownership_cost);Amount(net)}
             } }
         }
         if(error)Text(stringResource(R.string.check_fields),color=MaterialTheme.colorScheme.error)
         Row(horizontalArrangement=Arrangement.spacedBy(12.dp)) {
             OutlinedButton(onClick=onBack,enabled=!busy,modifier=Modifier.weight(1f)){Text(stringResource(R.string.cancel))}
-            Button(onClick={try { val result=candidate();busy=true;vm.save(result,onError={busy=false;error=true}){busy=false;onBack()} }catch(e:Exception){error=true}},enabled=!busy,modifier=Modifier.weight(1f)){Text(stringResource(R.string.confirm))}
+            Button(onClick={try { val result=candidate();busy=true;vm.mutate(asset.id,{current->AssetLifecycle.sell(current,requireNotNull(result.sale),vm.today())},onError={busy=false;error=true}){busy=false;onBack()} }catch(e:Exception){error=true}},enabled=!busy,modifier=Modifier.weight(1f)){Text(stringResource(R.string.confirm))}
         }
     }
 }
