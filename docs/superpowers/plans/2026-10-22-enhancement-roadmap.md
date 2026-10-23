@@ -36,3 +36,5 @@ Additional OCR feasibility evidence: Maven Central's `com.rmtheis:tess-two:9.1.0
 ## 2026-10-23 packaging milestone
 
 Completed 64 additional original pairs, total 100 identities / 200 exports at 384×384; existing IDs retained and source masters preserved. All new masters and light/dark 48/64/96 px sheets visually reviewed. Final full verification passed: 67 tests, zero failures; lint zero errors / 25 warnings; signed ARM64 0.4.0 code 6 APK built at 103,874,303 bytes. Same certificate as 0.3.1. Physical-device validation remains outstanding. See docs/ENHANCEMENTS-0.4.0.md for exact scope and remaining roadmap prerequisites.
+
+Delivery completed 2026-10-23: delivery repository main commit e19f4e3 publishes the APK, previews and scope notes. Fresh HTTPS download from https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.4.0-arm64.apk matched the local tested APK byte-for-byte and SHA-256 51fae5489c4231bfb70a5ec87690c64c28699d4c21540a76b8c79082be019306. Source milestone fbe0e0b retained on work; no source push or PR. Remaining work is explicitly listed in docs/ENHANCEMENTS-0.4.0.md.
