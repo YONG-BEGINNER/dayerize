@@ -1,13 +1,13 @@
-# Dayerize 0.4.0 testing APK
+# Dayerize 0.4.1 testing APK
 
-[Download the APK directly — 104 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.4.0-arm64.apk)
+[Download APK directly — 98 MB](https://raw.githubusercontent.com/YONG-BEGINNER/dayerize/main/downloads/Dayerize-0.4.1-arm64.apk)
 
-Android 8.0+ · ARM64 · version code 6 · same signing certificate as 0.3.1. Back up your data before updating.
+Android 8.0+ · ARM64 · version code 7 · same signing certificate as previous builds. Back up your data before updating.
 
-Includes 100 original item identities / 200 icons, picker favourites and recents, adjustable density, templates, duplication, usage corrections, ownership expenses, collections/locations, wishlist tools, local reminders, a widget, local profile, encrypted backups and interpreted offline search.
+Keeps the existing minimalist Alloy layout and 100 item identities / 200 original icons. Adds one **Scan receipt** action in new asset entry. Recognition runs on-device, without an account or paid API. Review price, currency, date and retailer before applying to the unsaved draft. Raw text is hidden under **Show details**.
 
-[3D artwork preview](previews/0.4.0-3d.png) · [Cute 2D artwork preview](previews/0.4.0-cute2d.png) · [Scope, verification and remaining work](ENHANCEMENTS-0.4.0.md)
+[Preview the receipt review screen](previews/0.4.1-receipt-review.png) · [3D icons](previews/0.4.0-3d.png) · [Cute 2D icons](previews/0.4.0-cute2d.png) · [Scope, testing and limitations](ENHANCEMENTS-0.4.1.md)
 
-67 automated tests passed. Android lint: zero errors, 25 warnings. Physical-device testing remains outstanding. Google login/sync, receipt OCR, photo classification and runtime icon generation are not enabled. No billing is required. Encrypted backups have an 8 MiB limit; standard ZIP backup remains available for larger archives.
+79 host tests passed, plus actual native OCR on an Android 15 emulator. Lint: zero errors, 28 warnings. Physical-phone validation and real-world receipt accuracy remain outstanding. Google login/sync, photo classification and runtime icon generation are not enabled. All existing offline features remain available. Encrypted backups retain the 8 MiB limit.
 
-APK SHA-256: `51fae5489c4231bfb70a5ec87690c64c28699d4c21540a76b8c79082be019306`
+APK SHA-256: `47b0a9eeb0fe8e8213ae69a34fa90727cce0680f3be7e8827fd4b4129f507b31`
