@@ -104,4 +104,22 @@
     <string name="end_date">Planned end date (YYYY-MM-DD)</string>
     <string name="days_mode">Use days instead of end date</string>
     <string name="view">View</string>
+    <string name="receipt_scan">Scan receipt</string>
+    <string name="receipt_review">Review receipt</string>
+    <string name="receipt_unverified">These are unverified suggestions. Correct them before applying to your draft. Nothing is saved until you save the asset.</string>
+    <string name="receipt_total_warning">A receipt total may include several items. Enter only the amount paid for this asset.</string>
+    <string name="receipt_choose_currency">Choose the currency; the receipt does not identify it unambiguously.</string>
+    <string name="receipt_choose_date">Choose the correct date, or leave blank to keep the draft date.</string>
+    <string name="receipt_retailer">Retailer</string>
+    <string name="receipt_raw">Recognized text</string>
+    <string name="receipt_local">Runs on this phone. The receipt is not uploaded or stored by Dayerize. Use a clear, upright photo.</string>
+    <string name="receipt_latin">Latin / English / Malay</string>
+    <string name="receipt_simplified">Simplified Chinese + English</string>
+    <string name="receipt_traditional">Traditional Chinese + English</string>
+    <string name="receipt_select">Choose receipt photo</string>
+    <string name="receipt_selected">Photo selected</string>
+    <string name="receipt_processing">Reading locally…</string>
+    <string name="receipt_failed">Could not read this receipt. Try a clearer image or enter the fields manually.</string>
+    <string name="receipt_show_details">Show details</string>
+    <string name="receipt_hide_details">Hide details</string>
 </resources>

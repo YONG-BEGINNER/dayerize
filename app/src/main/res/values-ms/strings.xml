@@ -104,4 +104,22 @@
     <string name="end_date">Tarikh tamat sasaran (YYYY-MM-DD)</string>
     <string name="days_mode">Gunakan bilangan hari</string>
     <string name="view">Lihat</string>
+    <string name="receipt_scan">Imbas resit</string>
+    <string name="receipt_review">Semak resit</string>
+    <string name="receipt_unverified">Ini cadangan yang belum disahkan. Betulkan sebelum digunakan pada draf. Tiada data disimpan sehingga anda menyimpan aset.</string>
+    <string name="receipt_total_warning">Jumlah resit mungkin merangkumi beberapa barang. Masukkan hanya harga aset ini.</string>
+    <string name="receipt_choose_currency">Pilih mata wang; mata wang pada resit tidak jelas.</string>
+    <string name="receipt_choose_date">Pilih tarikh yang betul, atau biarkan kosong untuk mengekalkan tarikh draf.</string>
+    <string name="receipt_retailer">Peruncit</string>
+    <string name="receipt_raw">Teks yang dikenal pasti</string>
+    <string name="receipt_local">Diproses pada telefon ini. Resit tidak dimuat naik atau disimpan oleh Dayerize. Gunakan foto yang jelas dan tegak.</string>
+    <string name="receipt_latin">Latin / Inggeris / Melayu</string>
+    <string name="receipt_simplified">Cina Ringkas + Inggeris</string>
+    <string name="receipt_traditional">Cina Tradisional + Inggeris</string>
+    <string name="receipt_select">Pilih foto resit</string>
+    <string name="receipt_selected">Foto dipilih</string>
+    <string name="receipt_processing">Membaca secara setempat…</string>
+    <string name="receipt_failed">Resit tidak dapat dibaca. Cuba imej yang lebih jelas atau isi medan secara manual.</string>
+    <string name="receipt_show_details">Tunjuk butiran</string>
+    <string name="receipt_hide_details">Sembunyikan butiran</string>
 </resources>

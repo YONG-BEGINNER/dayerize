@@ -63,6 +63,7 @@ import app.dayerize.images.CutoutProcessor
     var cooling by rememberSaveable{mutableStateOf(existing?.coolingOffUntil ?: "")}
     var more by rememberSaveable { mutableStateOf(false) };var picker by remember { mutableStateOf(false) };var error by remember { mutableStateOf(false) };var busy by remember { mutableStateOf(false) };var discard by remember { mutableStateOf(false) }
     var photoEditor by remember{mutableStateOf(false)}
+    var receiptEntry by remember{mutableStateOf(false)}
     var sheet by remember { mutableStateOf("") };var datePicker by remember { mutableStateOf(false) };var newCategory by rememberSaveable { mutableStateOf("") }
     val imagePicker=rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri->if(uri!=null)scope.launch {
         busy=true
@@ -118,6 +119,7 @@ import app.dayerize.images.CutoutProcessor
             }
         }
         Spacer(Modifier.height(2.dp))
+        if(existing==null && !wish)TextButton(onClick={receiptEntry=true},enabled=!busy,modifier=Modifier.testTag("scan-receipt")){Text(stringResource(R.string.receipt_scan))}
         Panel {
             Row(verticalAlignment=Alignment.CenterVertically) {
                 Icon(Icons.Outlined.Paid,null,Modifier.size(19.dp));Text(stringResource(if(wish)R.string.budget else R.string.price),Modifier.weight(1f).padding(start=8.dp),fontSize=14.sp)
@@ -183,6 +185,7 @@ import app.dayerize.images.CutoutProcessor
     }
     }
     }
+    if(receiptEntry)ReceiptEntry(onApply={fields->price=fields.amount;currency=fields.currency;if(fields.date.isNotBlank())date=fields.date;if(fields.retailer.isNotBlank())channel=fields.retailer;receiptEntry=false},onDismiss={receiptEntry=false})
     if(photoEditor && originalPhoto!=null)PhotoEditorSheet(requireNotNull(originalPhoto),vm.store.photos,onApply={originalPhoto=it.originalName;photo=it.renderedName;processedPhoto=it.renderedName;photoEditor=false},onDismiss={photoEditor=false})
     if(picker)IconPicker(defaultStyle=vm.state.value.config["artworkStyle"] ?: "3d",onSelect={icon=it;photo=null;originalPhoto=null;processedPhoto=null;picker=false},onDismiss={picker=false})
     if(sheet.isNotBlank())ModalBottomSheet(onDismissRequest={sheet=""},containerColor=MaterialTheme.colorScheme.surface) {

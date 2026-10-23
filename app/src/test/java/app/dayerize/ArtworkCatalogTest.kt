@@ -13,7 +13,7 @@ class ArtworkCatalogTest {
     private val context:Context get()=ApplicationProvider.getApplicationContext()
     @Test fun resolverPreservesLegacyAndRejectsUnknownPaths() {
         val resolver=ArtworkResolver(context)
-        assertEquals("icons/camera_3d.png",resolver.resolve("camera:3d").path)
+        assertEquals("icons/camera_3d.webp",resolver.resolve("camera:3d").path)
         assertEquals("artwork/camera_3d.png",resolver.resolve("original/camera:3d").path)
         assertEquals(resolver.resolve("unknown"),resolver.resolve("../../private:3d"))
         assertTrue(resolver.resolve("unknown").path.startsWith("artwork/"))
