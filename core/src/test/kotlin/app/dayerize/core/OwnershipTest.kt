@@ -20,6 +20,16 @@ class OwnershipTest {
         val corrected=Ownership.removeUsage(a,0)
         assertNull(Ownership.costPerUse(corrected));assertEquals(item.purchase,corrected.purchase)
     }
+    @Test fun saleDeductsRecoveryFromExpenseInclusiveCostPerUse() {
+        val a=item.copy(events=listOf(OwnershipEvent("r","2026-10-10","repair","Repair",2000)),uses=listOf(Usage("2026-10-03",2)),status=Status.SOLD,sale=Sale(Money(8000,"MYR"),"2026-10-22"))
+        assertEquals("20.00000000",Ownership.costPerUse(a)!!.toPlainString())
+    }
+    @Test fun removingWrongExpensePreservesOtherEvents() {
+        val a=item.copy(events=listOf(OwnershipEvent("r","2026-10-10","repair","",2000),OwnershipEvent("m","2026-10-12","maintenance","",1000)))
+        val corrected=Ownership.removeEvent(a,"r")
+        assertEquals(listOf("m"),corrected.events.map{it.id});assertEquals(Money(11000,"MYR"),Ownership.totalCost(corrected))
+        assertEquals(corrected,Ownership.removeEvent(corrected,"r"))
+    }
     @Test fun invalidEventAndNegativeSavingsAreRejected() {
         for(a in listOf(item.copy(events=listOf(OwnershipEvent("bad","2026-11-01","repair","",10))),item.copy(savingsMinor=-1))) {
             try{a.validate(day);fail("Accepted invalid ownership data")}catch(expected:IllegalArgumentException){}

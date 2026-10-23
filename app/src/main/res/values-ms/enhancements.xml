@@ -62,4 +62,8 @@
 <string name="purchase_only_cost">Kos pembelian sahaja</string>
 <string name="purchase_only_gain">Untung / rugi pembelian sahaja</string>
 <string name="encrypted_limit">Sandaran disulitkan menyokong sehingga 8 MB data dan foto. Arkib lebih besar boleh menggunakan eksport biasa.</string>
+<string name="net_ownership_cost">Kos pemilikan bersih selepas jualan</string>
+<string name="remove_event">Buang kos atau nota</string>
+<string name="show_more">Papar lagi</string>
+<string name="event_date">Tarikh rekod (YYYY-MM-DD)</string>
 </resources>

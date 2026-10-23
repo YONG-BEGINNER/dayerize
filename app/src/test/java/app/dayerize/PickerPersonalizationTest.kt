@@ -20,6 +20,7 @@ class PickerPersonalizationTest {
         var applied:String?=null
         fun open(){ui.runOnUiThread{ui.activity.setContent{}};ui.waitForIdle();ui.runOnUiThread{ui.activity.setContent{DayerizeTheme(true){IconPicker({applied=it},{})}}};ui.waitForIdle()}
         open()
+        ui.onNode(hasSetTextAction()).performTextInput("Camera")
         ui.onNodeWithContentDescription("Camera").performClick()
         assertNull(applied)
         ui.onNodeWithContentDescription("Add to favourites").performClick()

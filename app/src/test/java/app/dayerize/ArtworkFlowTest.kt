@@ -23,6 +23,7 @@ class ArtworkFlowTest {
         ui.waitUntil(15000){vm.state.value.loaded}
         var selected:String?=null
         ui.runOnUiThread{ui.activity.setContent{DayerizeTheme(true){IconPicker({selected=it},{})}}}
+        ui.onNode(hasSetTextAction()).performTextInput("Camera")
         ui.onNodeWithContentDescription("Camera").performClick()
         assertNull(selected)
         ui.onNodeWithText("Apply").performClick()
@@ -30,6 +31,7 @@ class ArtworkFlowTest {
         ui.onNodeWithText("Cute 2D").performClick()
         ui.onNodeWithText("Apply").performClick()
         assertEquals("original/camera:cute2d",selected)
+        ui.onNode(hasSetTextAction()).performTextClearance()
         ui.onNode(hasSetTextAction()).performTextInput("rice cooker")
         ui.onNodeWithContentDescription("Rice cooker").performClick()
         assertEquals("original/camera:cute2d",selected)

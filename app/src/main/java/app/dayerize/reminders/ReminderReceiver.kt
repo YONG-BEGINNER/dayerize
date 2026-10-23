@@ -34,7 +34,7 @@ class ReminderReceiver:BroadcastReceiver() {
                 if(Build.VERSION.SDK_INT>=33 && context.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS)!=android.content.pm.PackageManager.PERMISSION_GRANTED)return@runBlocking
                 manager.createNotificationChannel(NotificationChannel("ownership",context.getString(R.string.reminders),NotificationManager.IMPORTANCE_DEFAULT))
                 val assets=store.dao.all().map{store.json.decodeFromString<Asset>(it.payload)}
-                val count=ReminderPolicy.due(assets,store.today()).size
+                val count=ReminderPolicy.due(assets,store.today()).map{it.assetId}.distinct().size
                 val backupDue=settings["lastExport"]?.let{runCatching{Instant.parse(it).isBefore(Instant.now().minus(30,ChronoUnit.DAYS))}.getOrDefault(true)} ?: true
                 if((count>0 || backupDue) && settings["lastReminderDay"]!=store.today().toString()) {
                     val open=PendingIntent.getActivity(context,42,Intent(context,MainActivity::class.java),PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)

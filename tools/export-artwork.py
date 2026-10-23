@@ -4,11 +4,15 @@
 Only packaging derivatives are produced. Generated source masters are left intact.
 Run after reviewing generated masters and recording their paths in production.json.
 """
+import argparse
 import hashlib
 import json
 from pathlib import Path
 from PIL import Image
 
+parser=argparse.ArgumentParser()
+parser.add_argument('--size',type=int,choices=[256,384,512],default=512)
+export_size=parser.parse_args().size
 repo = Path(__file__).resolve().parents[1]
 production_path = repo / 'design/artwork/production.json'
 production = json.loads(production_path.read_text())
@@ -32,10 +36,10 @@ for entry in production['entries']:
             fraction = max(bounds[2]-bounds[0], bounds[3]-bounds[1]) / image.width
             scales.append(min(1.0, .78 / fraction))
             # Uniform square-canvas downsampling only; no subject crop or alteration.
-            export = rgba.resize((512, 512), Image.Resampling.LANCZOS)
+            export = rgba.resize((export_size, export_size), Image.Resampling.LANCZOS)
             export.save(target, format='PNG', optimize=True, compress_level=9)
         entry['exports'][style] = {
-            'width': 512, 'height': 512,
+            'width': export_size, 'height': export_size,
             'masterSha256': hashlib.sha256(source.read_bytes()).hexdigest(),
             'exportSha256': hashlib.sha256(target.read_bytes()).hexdigest(),
             'bytes': target.stat().st_size,
@@ -45,4 +49,4 @@ production['currentIdentities'] = len(catalog)
 production['currentStyleExports'] = sum(len(entry['files']) for entry in catalog)
 production_path.write_text(json.dumps(production,ensure_ascii=False,indent=2)+'\n')
 catalog_path.write_text(json.dumps(catalog,ensure_ascii=False,indent=2)+'\n')
-print(f'Exported {production["currentStyleExports"]} icons at 512×512; source masters preserved.')
+print(f'Exported {production["currentStyleExports"]} icons at {export_size}×{export_size}; source masters preserved.')

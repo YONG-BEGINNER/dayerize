@@ -105,7 +105,7 @@ import app.dayerize.images.CutoutProcessor
         }
         TextField(name,{name=it},placeholder={Text(stringResource(R.string.item_name),Modifier.fillMaxWidth(),textAlign=TextAlign.Center)},textStyle=LocalTextStyle.current.copy(textAlign=TextAlign.Center,fontWeight=FontWeight.Bold,fontSize=20.sp),modifier=Modifier.fillMaxWidth().testTag("asset-name"),singleLine=true,colors=TextFieldDefaults.colors(focusedContainerColor=MaterialTheme.colorScheme.background,unfocusedContainerColor=MaterialTheme.colorScheme.background,focusedIndicatorColor=MaterialTheme.colorScheme.background,unfocusedIndicatorColor=MaterialTheme.colorScheme.background))
         if(existing==null) {
-            val templates=app.dayerize.artwork.ArtworkCatalog(ctx).entries.filter{it.id in listOf("camera","laptop","sedan","refrigerator","shoe")}
+            val templates=remember(ctx){app.dayerize.artwork.ArtworkCatalog(ctx).entries.filter{it.id in listOf("camera","laptop","sedan","refrigerator","shoe")}}
             Text(stringResource(R.string.quick_template),style=MaterialTheme.typography.labelLarge)
             Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)){
                 templates.forEach{t->val title=t.name(androidx.compose.ui.platform.LocalConfiguration.current.locales[0].toLanguageTag())
@@ -171,7 +171,13 @@ import app.dayerize.images.CutoutProcessor
                 val purchase=Money.parse(price,currency)
                 val target=when {wish || targetMode=="none"->1000;targetMode=="daily"->{if(existing!=null && existing.targetMode=="daily" && purchase==existing.purchase && dailyGoal==existing.purchase.decimal().divide(java.math.BigDecimal(existing.targetDays),8,RoundingMode.HALF_UP).toPlainString())existing.targetDays else {val goal=dailyGoal.toBigDecimal();require(goal.signum()>0);purchase.decimal().divide(goal,0,RoundingMode.CEILING).intValueExact().coerceAtLeast(1)}};targetMode=="custom" && endMode && !useMode->(ChronoUnit.DAYS.between(LocalDate.parse(date),LocalDate.parse(endDate))+1).toInt();else->days.toInt()}
                 val a=(existing ?: Asset(UUID.randomUUID().toString(),vm.state.value.config.getValue("workspace"),name,purchase,date)).copy(name=name.trim(),purchase=purchase,purchaseDate=if(wish)vm.today().toString()else date,targetDays=target,category=category.trim(),tags=tags.split(',').map(String::trim).filter(String::isNotEmpty),notes=notes,serial=serial,channel=channel,warranty=warranty,icon=icon,photo=photo,useMode=!wish&&targetMode=="custom"&&useMode,valuation=valuation,manualValue=if(valuation=="manual")Money.parse(value,currency).minor else null,residual=if(valuation=="linear")Money.parse(residual,currency).minor else 0,originalPhoto=originalPhoto,wishlist=wish,targetMode=targetMode,location=location.trim(),collections=collections.split(',').map(String::trim).filter(String::isNotEmpty).distinct(),returnBy=returnBy,maintenanceDate=maintenance,savingsMinor=if(wish)Money.parse(savings,currency).minor else 0,coolingOffUntil=if(wish)cooling else "")
-                a.validate(vm.today());busy=true;vm.save(a,onError={busy=false;error=true}){busy=false;onDone(a.id)}
+                a.validate(vm.today());busy=true
+                val done:()->Unit={busy=false;onDone(a.id)}
+                val failed:()->Unit={busy=false;error=true}
+                if(existing!=null && editorState.assets.any{it.id==existing.id})vm.mutate(a.id,{current->
+                    require(current.wishlist==existing.wishlist)
+                    a.copy(uses=current.uses,events=current.events,favourite=current.favourite,status=current.status,retiredDate=current.retiredDate,sale=current.sale)
+                },onError=failed,done=done) else vm.save(a,onError=failed,done=done)
             }catch(e:Exception){error=true;busy=false}
         },enabled=!busy,modifier=Modifier.fillMaxWidth().padding(horizontal=24.dp,vertical=12.dp).heightIn(min=54.dp)){Text(stringResource(R.string.save_asset),fontWeight=FontWeight.Bold)}
     }
