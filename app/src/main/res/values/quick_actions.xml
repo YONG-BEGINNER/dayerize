@@ -1,0 +1,9 @@
+<resources>
+    <string name="due_soon">Due soon</string>
+    <string name="due_warranty">Warranty ends</string>
+    <string name="due_return">Return by</string>
+    <string name="due_maintenance">Maintenance</string>
+    <string name="due_review">Review</string>
+    <string name="due_more">%1$d more due this week</string>
+    <string name="widget_unfavourite">Remove from widget</string>
+</resources>

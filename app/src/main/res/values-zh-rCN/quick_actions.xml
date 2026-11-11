@@ -1,0 +1,9 @@
+<resources>
+    <string name="due_soon">即将到期</string>
+    <string name="due_warranty">保修到期</string>
+    <string name="due_return">退货截止</string>
+    <string name="due_maintenance">保养</string>
+    <string name="due_review">复核</string>
+    <string name="due_more">本周还有 %1$d 项</string>
+    <string name="widget_unfavourite">从小组件移除</string>
+</resources>

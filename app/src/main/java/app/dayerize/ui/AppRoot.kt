@@ -87,8 +87,8 @@ import java.time.LocalDate
                 else->PrimaryTabFade(tab) {
                     tabState.SaveableStateProvider("primary-tab-$tab") {
                         when (tab) {
-                            0,1->CollectionScreen(state,vm,today,onAdd={selected=null;editing=true},onOpen={selected=it.id},wishes=tab==1,onPurchase={selected=it.id;acquiring=true;editing=true})
-                            2->AnalyticsScreen(state.copy(assets=state.assets.filterNot { it.wishlist }),vm,today)
+                            0,1->CollectionScreen(state,vm,today,onAdd={selected=null;editing=true},onOpen={selected=it.id},wishes=tab==1,onPurchase={selected=it.id;acquiring=true;editing=true},onDuplicate={selected=it.id;duplicating=true;editing=true})
+                            2->AnalyticsScreen(remember(state){state.copy(assets=state.assets.filterNot { it.wishlist })},vm,today,onOpen={selected=it.id})
                             else->SettingsScreen(state,vm,onExport={backupPage=true},onRestore={backupPage=true})
                         }
                     }

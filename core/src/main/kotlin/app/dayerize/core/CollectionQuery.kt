@@ -9,7 +9,7 @@ object CollectionQuery {
     fun dailyCost(asset:Asset,today:LocalDate,reportingCurrency:String,rates:List<FxRate>):BigDecimal? {
         if(asset.useMode && asset.sale==null)return null
         val cost=CostCalculator.calculate(asset,today).let{it.net ?: it.current} ?: return null
-        val rate=if(asset.purchase.currency==reportingCurrency)BigDecimal.ONE else rates.filter{it.from==asset.purchase.currency && it.to==reportingCurrency && it.date<=today}.maxByOrNull{it.date}?.rate ?: return null
+        val rate=rates.rateOn(asset.purchase.currency,reportingCurrency,today) ?: return null
         return cost*rate
     }
     fun apply(assets:List<Asset>,category:String?,status:Status?,tags:Set<String>,query:String,sort:CollectionSort,ascending:Boolean,today:LocalDate,reportingCurrency:String,rates:List<FxRate>):List<Asset> {

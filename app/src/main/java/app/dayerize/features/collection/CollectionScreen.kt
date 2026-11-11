@@ -28,7 +28,7 @@ import java.math.BigDecimal
 import java.math.RoundingMode
 
 @OptIn(ExperimentalFoundationApi::class,ExperimentalMaterial3Api::class)
-@Composable fun CollectionScreen(state:AppState,vm:AppViewModel,today:LocalDate,onAdd:()->Unit,onOpen:(Asset)->Unit,wishes:Boolean=false,onPurchase:(Asset)->Unit=onOpen) {
+@Composable fun CollectionScreen(state:AppState,vm:AppViewModel,today:LocalDate,onAdd:()->Unit,onOpen:(Asset)->Unit,wishes:Boolean=false,onPurchase:(Asset)->Unit=onOpen,onDuplicate:((Asset)->Unit)?=null) {
     var comparing by remember{mutableStateOf(false)}
     var search by rememberSaveable(wishes) { mutableStateOf("") };var showSearch by rememberSaveable(wishes) { mutableStateOf(false) };var list by rememberSaveable(wishes) { mutableStateOf(state.config[if(wishes)"wishlistList" else "collectionList"]=="true") }
     var status by rememberSaveable(wishes) { mutableStateOf<Status?>(null) };var category by rememberSaveable(wishes) { mutableStateOf<String?>(null) }
@@ -43,18 +43,24 @@ import java.math.RoundingMode
     val motionEnabled=LocalMotionEnabled.current
     val largeText=LocalDensity.current.fontScale>1.3f
     var filters by remember { mutableStateOf(false) };var menu by remember { mutableStateOf<Asset?>(null) }
-    val allSource=state.assets.filter { it.wishlist==wishes }
-    val source=allSource.filter{(location==null || it.location==location) && (collection==null || collection in it.collections)}
-    val scoped=source.filter { category==null || it.category==category }
+    var confirm by remember { mutableStateOf<Pair<String,Asset>?>(null) }
+    // Each stage is remembered on its real inputs so typing, tab fades and unrelated settings do not redo the work.
+    val fx=vm.fxRates()
+    val allSource=remember(state.assets,wishes){state.assets.filter { it.wishlist==wishes }}
+    val source=remember(allSource,location,collection){allSource.filter{(location==null || it.location==location) && (collection==null || collection in it.collections)}}
+    val scoped=remember(source,category){source.filter { category==null || it.category==category }}
     val code=state.config["currency"] ?: "MYR"
-    val interpreted=LocalSearch.parse(search,today,code,allSource.map{it.category}.distinct())
-    val items=CollectionQuery.apply(source.filter{interpreted.matches(it,vm.fxRates(),today)},category,if(wishes)null else status,setOfNotNull(tag),interpreted.text,sort,ascending,today,code,vm.fxRates())
-    val summary=remember(scoped,code,state.config,today) { runCatching { summarize(scoped.map { if(wishes)it.copy(wishlist=false)else it },code,vm.fxRates(),today) }.getOrNull() }
-    val daily=remember(scoped,code,state.config,today) { runCatching {
+    val categoryChoices=remember(source){listOf<String?>(null)+source.map{it.category}.distinct()}
+    val interpreted=remember(search,today,code,allSource){LocalSearch.parse(search,today,code,allSource.map{it.category}.distinct())}
+    val items=remember(source,interpreted,category,status,tag,sort,ascending,today,code,fx,wishes){CollectionQuery.apply(source.filter{interpreted.matches(it,fx,today)},category,if(wishes)null else status,setOfNotNull(tag),interpreted.text,sort,ascending,today,code,fx)}
+    val sortUnavailable=remember(items,sort,today,code,fx){sort==CollectionSort.DAILY_COST && items.any{CollectionQuery.dailyCost(it,today,code,fx)==null}}
+    val due=remember(allSource,today){dueSoon(allSource,today)}
+    val summary=remember(scoped,code,fx,today,wishes) { runCatching { summarize(scoped.map { if(wishes)it.copy(wishlist=false)else it },code,fx,today) }.getOrNull() }
+    val daily=remember(scoped,code,fx,today) { runCatching {
         var total=BigDecimal.ZERO
         for(a in scoped.filter { it.status==Status.ACTIVE && !it.useMode }) {
             val cost=CostCalculator.calculate(a,today).current ?: continue
-            val rate=if(a.purchase.currency==code)BigDecimal.ONE else vm.fxRates().filter { it.from==a.purchase.currency && it.to==code && it.date<=today }.maxByOrNull { it.date }?.rate ?: return@runCatching null
+            val rate=fx.rateOn(a.purchase.currency,code,today) ?: return@runCatching null
             total+=cost*rate
         };total
     }.getOrNull() }
@@ -84,15 +90,15 @@ import java.math.RoundingMode
                 StatusCounts(scoped)
             }
         } }
+        if(due.isNotEmpty())item(span={GridItemSpan(maxLineSpan)}) { DueSoonPanel(due,allSource,onOpen) }
         if(!wishes) {
             item(span={GridItemSpan(maxLineSpan)}) {
                 Column {
                     val allCategoriesLabel=stringResource(R.string.all_categories)
-                    if(largeText) ValueChoice(category,listOf<String?>(null)+source.map{it.category}.distinct(),R.string.category,{it ?: allCategoriesLabel}){category=it}
+                    if(largeText) ValueChoice(category,categoryChoices,R.string.category,{it ?: allCategoriesLabel}){category=it}
                     Row(verticalAlignment=Alignment.CenterVertically) {
                     if(largeText) Spacer(Modifier.weight(1f)) else Box(Modifier.weight(1f)) {
-                        val allCategories=stringResource(R.string.all_categories)
-                        ValueChoice(category,listOf<String?>(null)+source.map{it.category}.distinct(),R.string.category,{it ?: allCategories}){category=it}
+                        ValueChoice(category,categoryChoices,R.string.category,{it ?: allCategoriesLabel}){category=it}
                     }
                     IconButton(onClick={filters=true}){Icon(Icons.Outlined.FilterAlt,stringResource(R.string.filter))}
                     IconButton(onClick={list=!list;vm.setting(preferencePrefix+"List",list.toString())}){Icon(if(list)Icons.Outlined.GridView else Icons.AutoMirrored.Outlined.ViewList,stringResource(R.string.layout))}
@@ -121,7 +127,7 @@ import java.math.RoundingMode
                 TextButton(onClick=clearFilters){Text(stringResource(R.string.clear_search_filters))}
             }
         }
-        if(sort==CollectionSort.DAILY_COST && items.any{CollectionQuery.dailyCost(it,today,code,vm.fxRates())==null})item(span={GridItemSpan(maxLineSpan)}){Text(stringResource(R.string.sort_unavailable),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)}
+        if(sortUnavailable)item(span={GridItemSpan(maxLineSpan)}){Text(stringResource(R.string.sort_unavailable),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)}
         if(items.isEmpty()) item(span={GridItemSpan(maxLineSpan)}) { Column(Modifier.fillMaxWidth().padding(vertical=24.dp),horizontalAlignment=Alignment.CenterHorizontally) {
             AssetArt(Asset("box","preview","",Money(0,code),today.toString(),icon="package:3d"),Modifier.size(60.dp))
             Text(stringResource(if(allSource.isEmpty())if(wishes)R.string.empty_wish else R.string.empty else R.string.no_results),Modifier.padding(top=8.dp),fontWeight=FontWeight.Bold)
@@ -130,7 +136,11 @@ import java.math.RoundingMode
         } }
         items(items,key={it.id}) { a ->
             val itemMotion=Modifier.animateItem(fadeInSpec=if(motionEnabled)tween(MotionDurationMillis) else null,placementSpec=if(motionEnabled)tween(MotionDurationMillis) else null,fadeOutSpec=if(motionEnabled)tween(MotionDurationMillis) else null)
-            val cost=runCatching { CostCalculator.calculate(a,today) }.getOrNull()
+            val cost=remember(a,today){runCatching { CostCalculator.calculate(a,today) }.getOrNull()}
+            // Show the running cost in the reporting currency when a saved rate allows it; otherwise keep the item's own currency.
+            val rate=remember(a.purchase.currency,code,fx,today){fx.rateOn(a.purchase.currency,code,today)}
+            val unitCost=(cost?.net ?: cost?.current).let{value->if(rate!=null)value?.multiply(rate) else value}
+            val unitCurrency=if(rate!=null)code else a.purchase.currency
             if(wishes)Panel(itemMotion.fillMaxWidth()) {
                 Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
                     AssetArt(a,Modifier.size(96.dp).clickable{onOpen(a)})
@@ -146,7 +156,7 @@ import java.math.RoundingMode
                     Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(5.dp)) {
                         Text(a.name,fontWeight=FontWeight.SemiBold,fontSize=15.sp,maxLines=1,overflow=TextOverflow.Ellipsis)
                         Text(displayMoney(a.purchase)+" · ${cost?.days ?: 0} "+stringResource(R.string.days),fontSize=11.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
-                        Text(formatCost(cost?.net ?: cost?.current,a.purchase.currency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),fontSize=16.sp,fontWeight=FontWeight.Bold)
+                        Text(formatCost(unitCost,unitCurrency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),fontSize=16.sp,fontWeight=FontWeight.Bold)
                     }
                     Icon(Icons.Outlined.ChevronRight,null,Modifier.size(18.dp),tint=MaterialTheme.colorScheme.onSurfaceVariant)
                 }
@@ -159,7 +169,7 @@ import java.math.RoundingMode
                     }
                     Text(a.name,fontWeight=FontWeight.SemiBold,fontSize=15.sp,maxLines=1,overflow=TextOverflow.Ellipsis)
                     Text(displayMoney(a.purchase)+(if(!wishes)" · ${cost?.days ?: 0} "+stringResource(R.string.days) else ""),fontSize=11.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
-                    Text(if(wishes)stringResource(R.string.view) else formatCost(cost?.net ?: cost?.current,a.purchase.currency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),Modifier.padding(top=10.dp),fontWeight=FontWeight.Bold,fontSize=17.sp)
+                    Text(if(wishes)stringResource(R.string.view) else formatCost(unitCost,unitCurrency)+stringResource(if(a.sale==null && a.useMode)R.string.per_use else R.string.per_day),Modifier.padding(top=10.dp),fontWeight=FontWeight.Bold,fontSize=17.sp)
                 }
             }
         }
@@ -178,7 +188,7 @@ import java.math.RoundingMode
         ModalBottomSheet(onDismissRequest={filters=false},containerColor=MaterialTheme.colorScheme.surface) {
             Column(Modifier.padding(16.dp).navigationBarsPadding().verticalScroll(rememberScrollState()),verticalArrangement=Arrangement.spacedBy(12.dp)) {
                 Text(stringResource(R.string.filter),style=MaterialTheme.typography.titleLarge)
-                ValueChoice(draftCategory,listOf<String?>(null)+source.map{it.category}.distinct(),R.string.category,{it ?: allCategoriesLabel}){draftCategory=it}
+                ValueChoice(draftCategory,categoryChoices,R.string.category,{it ?: allCategoriesLabel}){draftCategory=it}
                 Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)){
                     (listOf<Status?>(null)+Status.entries).forEach { value->SelectPill(stringResource(value?.let(::statusLabel) ?: R.string.all),draftStatus==value){draftStatus=value} }
                 }
@@ -210,5 +220,21 @@ import java.math.RoundingMode
             }
         }},confirmButton={TextButton(onClick={comparing=false}){Text(stringResource(R.string.back))}})
     }
-    menu?.let { a->AlertDialog(onDismissRequest={menu=null},title={Text(a.name)},confirmButton={TextButton(onClick={menu=null;onOpen(a)}){Text(stringResource(R.string.view))}},dismissButton={TextButton(onClick={menu=null}){Text(stringResource(R.string.cancel))}}) }
+    menu?.let { a->
+        ModalBottomSheet(onDismissRequest={menu=null},containerColor=MaterialTheme.colorScheme.surface) {
+            Column(Modifier.padding(horizontal=16.dp).padding(bottom=16.dp).navigationBarsPadding().verticalScroll(rememberScrollState())) {
+                Text(a.name,style=MaterialTheme.typography.titleLarge,maxLines=1,overflow=TextOverflow.Ellipsis)
+                SettingRow(stringResource(R.string.view),icon=Icons.Outlined.Visibility,onClick={menu=null;onOpen(a)})
+                if(a.status==Status.ACTIVE)SettingRow(stringResource(R.string.log_use),icon=Icons.Outlined.AddTask,onClick={menu=null;vm.mutate(a.id,{current->require(current.status==Status.ACTIVE);current.copy(uses=current.uses+Usage(today.toString(),1))},done={vm.message.value=R.string.saved})})
+                SettingRow(stringResource(if(a.favourite)R.string.widget_unfavourite else R.string.widget_favourite),icon=if(a.favourite)Icons.Outlined.Star else Icons.Outlined.StarBorder,onClick={menu=null;vm.mutate(a.id,{current->current.copy(favourite=!a.favourite)})})
+                if(onDuplicate!=null)SettingRow(stringResource(R.string.duplicate_item),icon=Icons.Outlined.ContentCopy,onClick={menu=null;onDuplicate(a)})
+                if(a.status==Status.ACTIVE)SettingRow(stringResource(R.string.retire),icon=Icons.Outlined.Archive,onClick={menu=null;confirm="retire" to a})
+                SettingRow(stringResource(R.string.delete),icon=Icons.Outlined.Delete,onClick={menu=null;confirm="delete" to a})
+            }
+        }
+    }
+    confirm?.let { (action,a)->AlertDialog(onDismissRequest={confirm=null},title={Text(a.name)},text={Text(stringResource(if(action=="delete")R.string.delete_note else R.string.retire_note))},confirmButton={TextButton(onClick={
+        if(action=="delete")vm.delete(a.id){} else vm.mutate(a.id,{AssetLifecycle.retire(it,today)})
+        confirm=null
+    }){Text(stringResource(R.string.confirm))}},dismissButton={TextButton(onClick={confirm=null}){Text(stringResource(R.string.cancel))}}) }
 }

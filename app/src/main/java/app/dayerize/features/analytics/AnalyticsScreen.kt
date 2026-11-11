@@ -21,16 +21,17 @@ import app.dayerize.core.*
 import app.dayerize.ui.*
 import java.time.*
 
-@Composable fun AnalyticsScreen(state:AppState,vm:AppViewModel,today:LocalDate) {
-    val owned=state.assets.filterNot { it.wishlist }
-    val summary=runCatching { summarize(owned,state.config["currency"] ?: "MYR",vm.fxRates(),today) }.getOrNull()
+@Composable fun AnalyticsScreen(state:AppState,vm:AppViewModel,today:LocalDate,onOpen:((Asset)->Unit)?=null) {
+    val owned=remember(state.assets){state.assets.filterNot { it.wishlist }}
+    val code=state.config["currency"] ?: "MYR";val fx=vm.fxRates()
+    val summary=remember(owned,code,fx,today){runCatching { summarize(owned,code,fx,today) }.getOrNull()}
     val currentMonth=YearMonth.from(today)
-    val earliestMonth=earliestCashFlowMonth(owned,currentMonth)
+    val earliestMonth=remember(owned,currentMonth){earliestCashFlowMonth(owned,currentMonth)}
     var selectedMonthText by rememberSaveable { mutableStateOf(currentMonth.toString()) }
     val selectedMonth=YearMonth.parse(selectedMonthText).coerceIn(earliestMonth,currentMonth)
-    val flow=try { monthlyCashFlow(owned,selectedMonth) } catch (_:ArithmeticException) { null }
+    val flow=remember(owned,selectedMonth){try { monthlyCashFlow(owned,selectedMonth) } catch (_:ArithmeticException) { null }}
     val locale=LocalConfiguration.current.locales[0]
-    val groups=owned.filter { it.sale==null }.groupBy { it.category }.mapValues { (_,assets)->runCatching{summarize(assets,state.config["currency"]?:"MYR",vm.fxRates(),today)}.getOrNull() }
+    val groups=remember(owned,code,fx,today){owned.filter { it.sale==null }.groupBy { it.category }.mapValues { (_,assets)->runCatching{summarize(assets,code,fx,today)}.getOrNull() }}
     val shades=listOf(Lime,Color(0xFFB7C0C5),Color(0xFF788B98),Color(0xFF596066))
     Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=24.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
         ScreenHeading(stringResource(R.string.analytics))
@@ -40,6 +41,7 @@ import java.time.*
             Text((state.config["currency"]?:"MYR")+" · "+stringResource(R.string.rates),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
             if(summary?.missing?.isNotEmpty()==true)Text(stringResource(R.string.incomplete_total)+": "+summary.missing.joinToString(),fontSize=12.sp)
         }
+        DueSoonPanel(remember(owned,today){dueSoon(owned,today)},owned,onOpen)
         Panel(Modifier.fillMaxWidth()) {
             Label(R.string.category_distribution)
             if(owned.isEmpty()) Text(stringResource(R.string.empty),style=MaterialTheme.typography.bodyMedium,color=MaterialTheme.colorScheme.onSurfaceVariant)

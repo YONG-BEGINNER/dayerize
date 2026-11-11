@@ -29,4 +29,12 @@ class MoneyTest {
             convert(Money(100,"EUR"),FxRate("USD","MYR",BigDecimal.ONE,LocalDate.now()))
         }
     }
+    @Test fun rateOnPicksLatestSavedRateNotAfterTheDate() {
+        val day=LocalDate.of(2026,10,21)
+        val rates=listOf(FxRate("USD","MYR",BigDecimal("4.1"),day.minusDays(9)),FxRate("USD","MYR",BigDecimal("4.3"),day.minusDays(1)),FxRate("USD","MYR",BigDecimal("9"),day.plusDays(1)))
+        assertEquals(BigDecimal("4.3"),rates.rateOn("USD","MYR",day))
+        assertEquals(BigDecimal.ONE,rates.rateOn("MYR","MYR",day))
+        assertNull(rates.rateOn("EUR","MYR",day))
+        assertNull(rates.rateOn("USD","MYR",day.minusDays(30)))
+    }
 }

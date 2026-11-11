@@ -29,3 +29,6 @@ fun convert(money: Money, rate: FxRate): Money {
     val digits=Currency.getInstance(rate.to).defaultFractionDigits
     return Money(money.decimal().multiply(rate.rate).movePointRight(digits).setScale(0,RoundingMode.HALF_UP).longValueExact(),rate.to)
 }
+/** Latest saved rate on or before [date]; 1 for the same currency; null when no rate applies. */
+fun List<FxRate>.rateOn(from: String, to: String, date: LocalDate): BigDecimal? =
+    if(from==to) BigDecimal.ONE else filter { it.from==from && it.to==to && it.date<=date }.maxByOrNull { it.date }?.rate

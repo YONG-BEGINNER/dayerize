@@ -1,0 +1,9 @@
+<resources>
+    <string name="due_soon">Akan tiba</string>
+    <string name="due_warranty">Waranti tamat</string>
+    <string name="due_return">Pulangkan sebelum</string>
+    <string name="due_maintenance">Penyelenggaraan</string>
+    <string name="due_review">Semak semula</string>
+    <string name="due_more">%1$d lagi minggu ini</string>
+    <string name="widget_unfavourite">Buang daripada widget</string>
+</resources>

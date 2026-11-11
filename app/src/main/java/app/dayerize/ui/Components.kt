@@ -25,6 +25,7 @@ import java.math.BigDecimal
 import java.text.NumberFormat
 import java.util.*
 import java.io.File
+import java.time.LocalDate
 
 val Lime=AlloyTokens.Amber
 data class DisplayOptions(val decimals:Int?=null,val grouping:Boolean=true)
@@ -57,7 +58,7 @@ fun formatMoney(m:Money):String=NumberFormat.getCurrencyInstance(Locale.getDefau
 fun statusLabel(status:Status)=when(status){Status.ACTIVE->R.string.active;Status.RETIRED->R.string.retired;Status.SOLD->R.string.sold;Status.SCRAPPED->R.string.scrapped}
 @Composable fun AssetArt(asset:Asset,modifier:Modifier=Modifier) {
     val ctx=LocalContext.current
-    val resolver=remember(ctx){app.dayerize.artwork.ArtworkResolver(ctx)}
+    val resolver=remember(ctx){app.dayerize.artwork.ArtworkResolver.shared(ctx)}
     val source=remember(asset.icon){resolver.resolve(asset.icon)}
     val image=asset.photo?.let { File(ctx.filesDir,"photos/$it") } ?: "file:///android_asset/${source.path}"
     SubcomposeAsyncImage(model=image,contentDescription=asset.name,modifier=modifier.graphicsLayer { val scale=if(asset.photo==null)source.opticalScale else 1f;scaleX=scale;scaleY=scale },contentScale=ContentScale.Fit,error={Icon(Icons.Outlined.Inventory2,asset.name,Modifier.padding(16.dp))})
@@ -120,5 +121,21 @@ val currencies:List<String> = Currency.getAvailableCurrencies().filter { it.defa
                     color=MaterialTheme.colorScheme.onSurfaceVariant)
             }
         }
+    }
+}
+
+/** Dated obligations falling due within the next week, soonest first. */
+fun dueSoon(assets:List<Asset>,today:LocalDate):List<DueReminder> =
+    runCatching{ReminderPolicy.due(assets,today)}.getOrDefault(emptyList()).sortedWith(compareBy({it.date},{it.assetId},{it.kind}))
+fun dueLabel(kind:String)=when(kind){"warranty"->R.string.due_warranty;"return"->R.string.due_return;"maintenance"->R.string.due_maintenance;else->R.string.due_review}
+@Composable fun DueSoonPanel(due:List<DueReminder>,assets:List<Asset>,onOpen:((Asset)->Unit)?=null) {
+    if(due.isEmpty())return
+    val byId=remember(assets){assets.associateBy{it.id}}
+    Panel(Modifier.fillMaxWidth()) {
+        Label(R.string.due_soon)
+        due.take(3).forEach { reminder -> byId[reminder.assetId]?.let { asset ->
+            SettingRow(asset.name,stringResource(dueLabel(reminder.kind))+" · "+reminder.date,Icons.Outlined.NotificationsActive,onClick=onOpen?.let{open->{open(asset)}})
+        } }
+        if(due.size>3)Text(stringResource(R.string.due_more,due.size-3),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
