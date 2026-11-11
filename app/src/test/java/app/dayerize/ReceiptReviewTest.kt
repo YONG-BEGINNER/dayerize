@@ -35,7 +35,7 @@ class ReceiptReviewTest {
             val root=android.view.inspector.WindowInspector.getGlobalWindowViews().last{it.isShown && it.width>0}
             val bitmap=android.graphics.Bitmap.createBitmap(root.width,root.height,android.graphics.Bitmap.Config.ARGB_8888)
             root.draw(android.graphics.Canvas(bitmap))
-            val f=java.io.File("build/test-screenshots/18-receipt-review.png")
+            val f=java.io.File("build/test-screenshots/18-receipt-review.png");f.parentFile!!.mkdirs()
             f.outputStream().use{bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG,100,it)};bitmap.recycle()
         }
         compose.onNodeWithTag("receipt-amount").performTextReplacement("99.00")

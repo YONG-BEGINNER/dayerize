@@ -78,7 +78,8 @@ class QuickActionsTest {
             ui.waitUntil(15000){vm.fxRates().any{it.from=="USD" && it.rate.compareTo(BigDecimal("4"))==0}}
             ui.runOnUiThread{ui.activity.setContent{DayerizeTheme(true){CollectionScreen(vm.state.collectAsState().value.copy(assets=assets),vm,today,{},{})}}}
             // USD 100 held one day at 4 MYR is 400 a day; the EUR item has no rate and stays at 100.
-            ui.onAllNodes(hasText("400.00",substring=true)).assertCountEquals(1)
+            ui.onNode(hasText("Lens") and hasText("400.00",substring=true)).assertExists()
+            ui.onNode(hasText("Tripod") and hasText("400.00",substring=true)).assertDoesNotExist()
             ui.onNodeWithText("Tripod").assertExists()
         } finally {
             runBlocking{vm.store.preference("rates",previous ?: "[]")}
