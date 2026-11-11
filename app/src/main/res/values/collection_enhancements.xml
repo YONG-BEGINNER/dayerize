@@ -1,0 +1,6 @@
+<resources>
+    <string name="clear_search_filters">Clear search and filters</string>
+    <string name="reset_search_filters">Reset search and filters</string>
+    <string name="remove_active_filter">Remove %1$s filter</string>
+    <string name="filter_search_label">Search</string>
+</resources>

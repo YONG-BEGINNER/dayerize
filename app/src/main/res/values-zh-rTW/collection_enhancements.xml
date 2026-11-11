@@ -1,0 +1,6 @@
+<resources>
+    <string name="clear_search_filters">清除搜尋和篩選</string>
+    <string name="reset_search_filters">重設搜尋和篩選</string>
+    <string name="remove_active_filter">移除%1$s篩選</string>
+    <string name="filter_search_label">搜尋</string>
+</resources>

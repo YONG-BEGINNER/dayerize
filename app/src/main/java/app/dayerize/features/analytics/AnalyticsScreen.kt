@@ -1,5 +1,11 @@
 package app.dayerize.features.analytics
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.KeyboardArrowLeft
+import androidx.compose.material.icons.automirrored.outlined.KeyboardArrowRight
+import androidx.compose.ui.platform.LocalConfiguration
+import java.time.format.DateTimeFormatter
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -18,27 +24,30 @@ import java.time.*
 @Composable fun AnalyticsScreen(state:AppState,vm:AppViewModel,today:LocalDate) {
     val owned=state.assets.filterNot { it.wishlist }
     val summary=runCatching { summarize(owned,state.config["currency"] ?: "MYR",vm.fxRates(),today) }.getOrNull()
-    val flow=mutableMapOf<String,Long>()
-    owned.forEach { a->
-        if(YearMonth.from(LocalDate.parse(a.purchaseDate))==YearMonth.from(today)) flow[a.purchase.currency]=Math.subtractExact(flow[a.purchase.currency] ?: 0,a.purchase.minor)
-        a.sale?.let { if(YearMonth.from(LocalDate.parse(it.date))==YearMonth.from(today))flow[it.proceeds.currency]=Math.addExact(flow[it.proceeds.currency] ?: 0,it.proceeds.minor) }
-    }
+    val currentMonth=YearMonth.from(today)
+    val earliestMonth=earliestCashFlowMonth(owned,currentMonth)
+    var selectedMonthText by rememberSaveable { mutableStateOf(currentMonth.toString()) }
+    val selectedMonth=YearMonth.parse(selectedMonthText).coerceIn(earliestMonth,currentMonth)
+    val flow=try { monthlyCashFlow(owned,selectedMonth) } catch (_:ArithmeticException) { null }
+    val locale=LocalConfiguration.current.locales[0]
     val groups=owned.filter { it.sale==null }.groupBy { it.category }.mapValues { (_,assets)->runCatching{summarize(assets,state.config["currency"]?:"MYR",vm.fxRates(),today)}.getOrNull() }
     val shades=listOf(Lime,Color(0xFFB7C0C5),Color(0xFF788B98),Color(0xFF596066))
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=150.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=24.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
         ScreenHeading(stringResource(R.string.analytics))
+        Text(stringResource(R.string.analytics_current_scope),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)
         Panel(Modifier.fillMaxWidth()) {
-            Label(R.string.estimated_value);Text(summary?.let { displayMoney(it.total) } ?: "—",fontSize=28.sp,fontWeight=FontWeight.Bold)
+            Label(R.string.estimated_value);Text(summary?.let { displayMoney(it.total) } ?: "—",fontSize=24.sp,fontWeight=FontWeight.Bold)
             Text((state.config["currency"]?:"MYR")+" · "+stringResource(R.string.rates),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
             if(summary?.missing?.isNotEmpty()==true)Text(stringResource(R.string.incomplete_total)+": "+summary.missing.joinToString(),fontSize=12.sp)
         }
         Panel(Modifier.fillMaxWidth()) {
             Label(R.string.category_distribution)
-            Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(20.dp)) {
-                Canvas(Modifier.size(115.dp).padding(8.dp)) {
+            if(owned.isEmpty()) Text(stringResource(R.string.empty),style=MaterialTheme.typography.bodyMedium,color=MaterialTheme.colorScheme.onSurfaceVariant)
+            else Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
+                Canvas(Modifier.size(88.dp).padding(8.dp)) {
                     val total=groups.values.sumOf { it?.total?.minor?.toDouble() ?: 0.0 }
-                    if(total==0.0)drawArc(Color.Gray,0f,360f,false,style=Stroke(22.dp.toPx()))
-                    else {var start=-90f;groups.values.forEachIndexed { i,s->val sweep=((s?.total?.minor ?: 0)/total*360).toFloat();drawArc(shades[i%shades.size],start,sweep,false,style=Stroke(22.dp.toPx()));start+=sweep}}
+                    if(total==0.0)drawArc(Color.Gray,0f,360f,false,style=Stroke(14.dp.toPx()))
+                    else {var start=-90f;groups.values.forEachIndexed { i,s->val sweep=((s?.total?.minor ?: 0)/total*360).toFloat();drawArc(shades[i%shades.size],start,sweep,false,style=Stroke(14.dp.toPx()));start+=sweep}}
                 }
                 Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(10.dp)) {
                     if(groups.isEmpty())Text("—")
@@ -49,9 +58,7 @@ import java.time.*
                 }
             }
         }
-        Panel(Modifier.fillMaxWidth()) { Label(R.string.status_distribution);Status.entries.forEach { status->
-            SettingRow(stringResource(statusLabel(status)),owned.count { it.status==status }.toString())
-        } }
+        Panel(Modifier.fillMaxWidth()) { Label(R.string.status_distribution);StatusCounts(owned) }
         Panel(Modifier.fillMaxWidth()) {
             Label(R.string.usage_insights)
             SettingRow(stringResource(R.string.no_usage_recorded),owned.count{it.uses.isEmpty() && it.status==Status.ACTIVE}.toString())
@@ -59,9 +66,26 @@ import java.time.*
             Label(R.string.most_used)
             owned.filter{it.uses.isNotEmpty()}.sortedByDescending{it.uses.sumOf{u->u.count.toLong()}}.take(3).forEach{SettingRow(it.name,it.uses.sumOf{u->u.count.toLong()}.toString())}
         }
-        Panel(Modifier.fillMaxWidth()) { Label(R.string.monthly_flow);if(flow.isEmpty())Text("—");flow.forEach { (code,minor)->Amount(Money(minor,code)) } }
+        Panel(Modifier.fillMaxWidth()) {
+            Label(R.string.cash_flow_selected_month)
+            Row(Modifier.fillMaxWidth(),verticalAlignment=Alignment.CenterVertically) {
+                IconButton(onClick={selectedMonthText=selectedMonth.minusMonths(1).toString()},enabled=selectedMonth>earliestMonth) {
+                    Icon(Icons.AutoMirrored.Outlined.KeyboardArrowLeft,stringResource(R.string.cash_flow_previous_month))
+                }
+                Text(selectedMonth.format(DateTimeFormatter.ofPattern("LLLL yyyy",locale)),Modifier.weight(1f),textAlign=androidx.compose.ui.text.style.TextAlign.Center)
+                IconButton(onClick={selectedMonthText=selectedMonth.plusMonths(1).toString()},enabled=selectedMonth<currentMonth) {
+                    Icon(Icons.AutoMirrored.Outlined.KeyboardArrowRight,stringResource(R.string.cash_flow_next_month))
+                }
+            }
+            TextButton(onClick={selectedMonthText=currentMonth.toString()},enabled=selectedMonth!=currentMonth) {Text(stringResource(R.string.cash_flow_this_month))}
+            if(flow==null)Text(stringResource(R.string.cash_flow_unavailable))
+            else {
+                if(flow.isEmpty())Text(stringResource(R.string.cash_flow_empty))
+                flow.forEach { (code,minor)->Amount(Money(minor,code)) }
+            }
+        }
         Panel(Modifier.fillMaxWidth()) { Label(R.string.currency_subtotals);summary?.subtotals?.forEach { (code,minor)->Amount(Money(minor,code)) };if(summary?.subtotals.isNullOrEmpty())Text("—") }
         Text(stringResource(R.string.rate_note),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
-        Text(stringResource(R.string.no_history),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
+        Text(stringResource(R.string.cash_flow_history_scope),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }

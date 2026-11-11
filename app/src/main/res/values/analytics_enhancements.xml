@@ -1,0 +1,10 @@
+<resources>
+    <string name="analytics_current_scope">Ownership summaries show current values. Month selection applies only to cash flow.</string>
+    <string name="cash_flow_selected_month">Monthly cash flow: sales minus purchases</string>
+    <string name="cash_flow_previous_month">Previous month</string>
+    <string name="cash_flow_next_month">Next month</string>
+    <string name="cash_flow_this_month">This month</string>
+    <string name="cash_flow_empty">No purchases or sales this month.</string>
+    <string name="cash_flow_history_scope">Cash flow uses recorded purchases and sales; historical ownership values are not reconstructed.</string>
+    <string name="cash_flow_unavailable">Cash flow total is too large to display.</string>
+</resources>

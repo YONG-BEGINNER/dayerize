@@ -32,7 +32,10 @@ val LocalDisplayOptions=staticCompositionLocalOf { DisplayOptions() }
 @Composable fun DayerizeTheme(dark:Boolean,content:@Composable ()->Unit) {
     val colors=if(dark) darkColorScheme(primary=AlloyTokens.Amber,onPrimary=Color(0xFF171A1C),primaryContainer=Lime,onPrimaryContainer=Color.Black,secondary=Lime,onSecondary=Color.Black,background=AlloyTokens.Background,onBackground=Color(0xFFF5F5F5),surface=AlloyTokens.Surface,onSurface=Color(0xFFF5F5F5),surfaceVariant=Color(0xFF2D3337),onSurfaceVariant=Color(0xFFA6A6A6),outlineVariant=AlloyTokens.Outline,outline=Color(0xFF666666))
     else lightColorScheme(primary=Color(0xFF151515),onPrimary=Color.White,primaryContainer=Lime,onPrimaryContainer=Color.Black,secondary=Color(0xFF895000),background=Color(0xFFF4F4F2),surface=Color.White,surfaceVariant=Color(0xFFECECE8),onSurface=Color(0xFF151515),onBackground=Color(0xFF151515),onSurfaceVariant=Color(0xFF64645F),outlineVariant=Color(0xFFE2E2DD))
-    MaterialTheme(colorScheme=colors,typography=Typography(bodyLarge=androidx.compose.ui.text.TextStyle(fontSize=15.sp,lineHeight=23.sp),bodyMedium=androidx.compose.ui.text.TextStyle(fontSize=14.sp,lineHeight=21.sp),labelLarge=androidx.compose.ui.text.TextStyle(fontSize=13.sp,fontWeight=FontWeight.Medium,letterSpacing=0.1.sp)),content=content)
+    MaterialTheme(colorScheme=colors,shapes=Shapes(
+        extraSmall=RoundedCornerShape(8.dp),small=AlloyControlShape,
+        medium=AlloyPanelShape,large=RoundedCornerShape(20.dp),extraLarge=RoundedCornerShape(24.dp)
+    ),typography=Typography(bodyLarge=androidx.compose.ui.text.TextStyle(fontSize=15.sp,lineHeight=23.sp),bodyMedium=androidx.compose.ui.text.TextStyle(fontSize=14.sp,lineHeight=21.sp),labelLarge=androidx.compose.ui.text.TextStyle(fontSize=13.sp,fontWeight=FontWeight.Medium,letterSpacing=0.1.sp)),content=content)
 }
 @Composable fun Panel(modifier:Modifier=Modifier,content:@Composable ColumnScope.()->Unit) {
     Surface(modifier,shape=AlloyPanelShape,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant),color=MaterialTheme.colorScheme.surface) {
@@ -66,13 +69,13 @@ fun statusLabel(status:Status)=when(status){Status.ACTIVE->R.string.active;Statu
     }
 }
 @Composable fun ScreenHeading(title:String,action:(@Composable ()->Unit)?=null) {
-    Row(Modifier.fillMaxWidth().padding(top=12.dp,bottom=4.dp),verticalAlignment=Alignment.CenterVertically) {
-        Text(title,Modifier.weight(1f),fontSize=22.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.6).sp)
+    Row(Modifier.fillMaxWidth().padding(top=8.dp,bottom=2.dp),verticalAlignment=Alignment.CenterVertically) {
+        Text(title,Modifier.weight(1f),fontSize=20.sp,fontWeight=FontWeight.Bold,letterSpacing=(-0.6).sp)
         action?.invoke()
     }
 }
 @Composable fun SettingRow(label:String,value:String="",icon:ImageVector?=null,onClick:(()->Unit)?=null,trailing:(@Composable ()->Unit)?=null) {
-    Row(Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).then(if(onClick!=null)Modifier.clickable(onClick=onClick) else Modifier).heightIn(min=48.dp).padding(vertical=8.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(10.dp)) {
+    Row(Modifier.fillMaxWidth().clip(AlloyControlShape).then(if(onClick!=null)Modifier.clickable(onClick=onClick) else Modifier).heightIn(min=48.dp).padding(vertical=8.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(10.dp)) {
         if(icon!=null)Box(Modifier.size(32.dp).clip(RoundedCornerShape(10.dp)).background(MaterialTheme.colorScheme.surfaceVariant),contentAlignment=Alignment.Center){Icon(icon,null,Modifier.size(18.dp),tint=MaterialTheme.colorScheme.onSurfaceVariant)}
         Text(label,Modifier.weight(1f),fontSize=14.sp)
         if(value.isNotBlank())Text(value,Modifier.widthIn(max=150.dp),color=MaterialTheme.colorScheme.onSurfaceVariant,fontSize=13.sp,maxLines=1,overflow=TextOverflow.Ellipsis)
@@ -80,8 +83,8 @@ fun statusLabel(status:Status)=when(status){Status.ACTIVE->R.string.active;Statu
     }
 }
 @Composable fun SelectPill(text:String,selected:Boolean,onClick:()->Unit) {
-    Surface(onClick=onClick,shape=RoundedCornerShape(12.dp),color=if(selected)MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant,contentColor=if(selected)MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant) {
-        Box(Modifier.heightIn(min=48.dp).padding(horizontal=14.dp,vertical=10.dp),contentAlignment=Alignment.Center) { Text(text,fontSize=13.sp,fontWeight=if(selected)FontWeight.Bold else FontWeight.Normal) }
+    Surface(onClick=onClick,shape=AlloyControlShape,color=if(selected)MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surfaceVariant,contentColor=if(selected)MaterialTheme.colorScheme.onPrimary else MaterialTheme.colorScheme.onSurfaceVariant) {
+        Box(Modifier.heightIn(min=48.dp).padding(horizontal=10.dp,vertical=6.dp),contentAlignment=Alignment.Center) { Text(text,fontSize=13.sp,fontWeight=if(selected)FontWeight.Bold else FontWeight.Normal) }
     }
 }
 @OptIn(ExperimentalMaterial3Api::class)
@@ -106,3 +109,16 @@ fun statusLabel(status:Status)=when(status){Status.ACTIVE->R.string.active;Statu
     }
 }
 val currencies:List<String> = Currency.getAvailableCurrencies().filter { it.defaultFractionDigits in 0..3 }.map { it.currencyCode }.sorted()
+
+/** All four ownership states, wrapping labels at larger accessibility font scales. */
+@Composable fun StatusCounts(assets:List<Asset>) {
+    Status.entries.chunked(2).forEach { pair ->
+        Row(Modifier.fillMaxWidth(),horizontalArrangement=Arrangement.spacedBy(12.dp)) {
+            pair.forEach { status ->
+                Text(stringResource(statusLabel(status))+" "+assets.count{it.status==status},
+                    Modifier.weight(1f),style=MaterialTheme.typography.bodySmall,
+                    color=MaterialTheme.colorScheme.onSurfaceVariant)
+            }
+        }
+    }
+}
