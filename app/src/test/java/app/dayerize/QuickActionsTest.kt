@@ -53,7 +53,7 @@ class QuickActionsTest {
         try {
             runBlocking{vm.store.save(asset)}
             ui.waitUntil(15000){vm.state.value.assets.any{it.id==id}}
-            ui.runOnUiThread{ui.activity.setContent{DayerizeTheme(true){CollectionScreen(vm.state.collectAsState().value,vm,today,{},{})}}}
+            ui.runOnUiThread{ui.activity.setContent{DayerizeTheme(true){val live=vm.state.collectAsState().value;CollectionScreen(live.copy(assets=live.assets.filter{it.id==id}),vm,today,{},{})}}}
             ui.onNodeWithText("Quick camera").performTouchInput{longClick()}
             ui.onNodeWithText("Duplicate item").assertDoesNotExist()
             ui.onNodeWithText("Show in widget").performClick()
