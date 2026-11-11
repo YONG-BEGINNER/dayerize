@@ -26,7 +26,7 @@ class RedesignRenderTest {
             bitmap=Bitmap.createBitmap(root.width,root.height,Bitmap.Config.ARGB_8888)
             root.draw(android.graphics.Canvas(bitmap))
         }
-        val f=File("/workspace/dayerize/docs/redesign/screenshots/$name.png");f.parentFile!!.mkdirs()
+        val f=File("build/test-screenshots/$name.png");f.parentFile!!.mkdirs()
         f.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG,100,it) }
         assertTrue(bitmap.width>300 && bitmap.height>500)
     }

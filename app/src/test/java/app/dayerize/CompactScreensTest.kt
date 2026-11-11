@@ -71,7 +71,7 @@ class CompactScreensTest {
             val view=ui.activity.window.decorView
             val bitmap=android.graphics.Bitmap.createBitmap(view.width,view.height,android.graphics.Bitmap.Config.ARGB_8888)
             view.draw(android.graphics.Canvas(bitmap))
-            val file=java.io.File("/workspace/setup/compact-previews/$name.png")
+            val file=java.io.File("build/test-screenshots/$name.png")
             file.parentFile!!.mkdirs()
             file.outputStream().use{bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG,100,it)}
         }
