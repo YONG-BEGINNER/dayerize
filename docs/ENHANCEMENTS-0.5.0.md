@@ -19,3 +19,6 @@
 
 ## Delivery
 Version 0.5.0 / code 11. Source only; no APK has been built or published for this version. Physical-device testing and on-device frame-rate measurement remain outstanding.
+
+## Verification
+102 host tests passed (44 core, 1 imaging, 57 app), no failures, errors or skips. This includes five new tests: latest-rate lookup, the due-soon panel, quick actions, and reporting-currency card costs. Lint: 0 errors, 44 warnings. Fluency changes were verified for unchanged behaviour by the existing tests; frame rates were not measured.
