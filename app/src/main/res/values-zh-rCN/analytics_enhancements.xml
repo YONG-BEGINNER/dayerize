@@ -1,0 +1,10 @@
+<resources>
+    <string name="analytics_current_scope">持有概览显示当前数值。月份选择仅适用于现金流。</string>
+    <string name="cash_flow_selected_month">每月现金流：卖出收入减买入支出</string>
+    <string name="cash_flow_previous_month">上个月</string>
+    <string name="cash_flow_next_month">下个月</string>
+    <string name="cash_flow_this_month">本月</string>
+    <string name="cash_flow_empty">本月没有买入或卖出记录。</string>
+    <string name="cash_flow_history_scope">现金流依据已记录的买入和卖出计算，不重建历史持有价值。</string>
+    <string name="cash_flow_unavailable">现金流总额过大，无法显示。</string>
+</resources>

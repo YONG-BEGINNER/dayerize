@@ -1,0 +1,6 @@
+<resources>
+    <string name="clear_search_filters">Kosongkan carian dan penapis</string>
+    <string name="reset_search_filters">Tetapkan semula carian dan penapis</string>
+    <string name="remove_active_filter">Buang penapis %1$s</string>
+    <string name="filter_search_label">Carian</string>
+</resources>

@@ -23,7 +23,7 @@ class CollectionFilterTest {
         )
         ui.runOnUiThread{ui.activity.setContent{DayerizeTheme(true){CollectionScreen(AppState(assets,mapOf("currency" to "MYR"),true),vm,vm.today(),{},{})}}}
         ui.onNodeWithContentDescription("Filter").performClick()
-        ui.onNodeWithText("Category").performClick()
+        ui.onAllNodesWithText("Category").onLast().performClick()
         ui.onAllNodesWithText("All").onLast().performClick()
         ui.onNodeWithText("Apply").performScrollTo().performClick()
         ui.onNodeWithText("First camera").assertExists()
@@ -53,7 +53,7 @@ class CollectionFilterTest {
         )
         ui.runOnUiThread{ui.activity.setContent{DayerizeTheme(true){CollectionScreen(AppState(assets,mapOf("currency" to "MYR"),true),vm,vm.today(),{},{})}}}
         ui.onNodeWithContentDescription(context.getString(R.string.filter)).performClick()
-        ui.onNodeWithText(context.getString(R.string.category)).performClick()
+        ui.onAllNodesWithText(context.getString(R.string.category)).onLast().performClick()
         ui.onAllNodesWithText(category).onLast().performClick()
         ui.onNodeWithText(context.getString(R.string.apply)).performScrollTo().performClick()
         ui.onNodeWithText("Selected item").assertExists()

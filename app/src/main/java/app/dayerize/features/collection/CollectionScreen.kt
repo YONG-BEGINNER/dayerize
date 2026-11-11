@@ -1,5 +1,7 @@
 package app.dayerize.features.collection
 
+import androidx.compose.animation.*
+import androidx.compose.animation.core.tween
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.foundation.*
@@ -28,13 +30,17 @@ import java.math.RoundingMode
 @OptIn(ExperimentalFoundationApi::class,ExperimentalMaterial3Api::class)
 @Composable fun CollectionScreen(state:AppState,vm:AppViewModel,today:LocalDate,onAdd:()->Unit,onOpen:(Asset)->Unit,wishes:Boolean=false,onPurchase:(Asset)->Unit=onOpen) {
     var comparing by remember{mutableStateOf(false)}
-    var search by rememberSaveable(wishes) { mutableStateOf("") };var showSearch by rememberSaveable(wishes) { mutableStateOf(false) };var list by rememberSaveable { mutableStateOf(false) }
-    var status by remember { mutableStateOf<Status?>(null) };var category by rememberSaveable(wishes) { mutableStateOf<String?>(null) }
+    var search by rememberSaveable(wishes) { mutableStateOf("") };var showSearch by rememberSaveable(wishes) { mutableStateOf(false) };var list by rememberSaveable(wishes) { mutableStateOf(state.config[if(wishes)"wishlistList" else "collectionList"]=="true") }
+    var status by rememberSaveable(wishes) { mutableStateOf<Status?>(null) };var category by rememberSaveable(wishes) { mutableStateOf<String?>(null) }
     var location by rememberSaveable(wishes){mutableStateOf<String?>(null)}
     var collection by rememberSaveable(wishes){mutableStateOf<String?>(null)}
     var tag by rememberSaveable(wishes){mutableStateOf<String?>(null)}
-    var sort by remember{mutableStateOf(CollectionSort.PURCHASE_DATE)}
-    var ascending by remember{mutableStateOf(false)}
+    val preferencePrefix=if(wishes)"wishlist" else "collection"
+    var sort by rememberSaveable(wishes){mutableStateOf(runCatching{CollectionSort.valueOf(state.config[preferencePrefix+"Sort"] ?: "PURCHASE_DATE")}.getOrDefault(CollectionSort.PURCHASE_DATE))}
+    var ascending by rememberSaveable(wishes){mutableStateOf(state.config[preferencePrefix+"Ascending"]=="true")}
+    val clearFilters:()->Unit={search="";status=null;category=null;location=null;collection=null;tag=null}
+    val hasFilters=search.isNotBlank() || status!=null || category!=null || location!=null || collection!=null || tag!=null
+    val motionEnabled=LocalMotionEnabled.current
     val largeText=LocalDensity.current.fontScale>1.3f
     var filters by remember { mutableStateOf(false) };var menu by remember { mutableStateOf<Asset?>(null) }
     val allSource=state.assets.filter { it.wishlist==wishes }
@@ -52,10 +58,14 @@ import java.math.RoundingMode
             total+=cost*rate
         };total
     }.getOrNull() }
-    LazyVerticalGrid(columns=GridCells.Fixed(if(list || wishes || largeText)1 else 2),contentPadding=PaddingValues(start=16.dp,end=16.dp,top=4.dp,bottom=150.dp),horizontalArrangement=Arrangement.spacedBy(LocalLayoutDensity.current.gap.dp),verticalArrangement=Arrangement.spacedBy(LocalLayoutDensity.current.gap.dp)) {
-        item(span={GridItemSpan(maxLineSpan)}) { ScreenHeading(if(wishes)stringResource(R.string.wishlist) else "Dayerize") { IconButton(onClick={showSearch=!showSearch}){Icon(Icons.Outlined.Search,stringResource(R.string.search))}; FilledIconButton(onClick=onAdd,shape=RoundedCornerShape(12.dp)){Icon(Icons.Outlined.Add,stringResource(R.string.add_asset))} } }
+    LazyVerticalGrid(columns=GridCells.Fixed(if(list || wishes || largeText)1 else 2),contentPadding=PaddingValues(start=16.dp,end=16.dp,top=4.dp,bottom=24.dp),horizontalArrangement=Arrangement.spacedBy(LocalLayoutDensity.current.gap.dp),verticalArrangement=Arrangement.spacedBy(LocalLayoutDensity.current.gap.dp)) {
+        item(span={GridItemSpan(maxLineSpan)}) { Column {
+            ScreenHeading(if(wishes)stringResource(R.string.wishlist) else "Dayerize") { IconButton(onClick={showSearch=!showSearch}){Icon(Icons.Outlined.Search,stringResource(R.string.search))}; FilledIconButton(onClick=onAdd,shape=AlloyControlShape){Icon(Icons.Outlined.Add,stringResource(R.string.add_asset))} }
+            AnimatedVisibility(showSearch,enter=if(motionEnabled)fadeIn(tween(MotionDurationMillis))+expandVertically(tween(MotionDurationMillis)) else EnterTransition.None,exit=if(motionEnabled)fadeOut(tween(MotionDurationMillis))+shrinkVertically(tween(MotionDurationMillis)) else ExitTransition.None) {
+                OutlinedTextField(search,{search=it},placeholder={Text(stringResource(R.string.search))},modifier=Modifier.fillMaxWidth().padding(top=8.dp),singleLine=true,shape=RoundedCornerShape(24.dp),leadingIcon={Icon(Icons.Outlined.Search,null)})
+            }
+        } }
         if(wishes && source.size>=2)item(span={GridItemSpan(maxLineSpan)}){OutlinedButton(onClick={comparing=true}){Text(stringResource(R.string.compare_wishes))}}
-        if(showSearch)item(span={GridItemSpan(maxLineSpan)}) { OutlinedTextField(search,{search=it},placeholder={Text(stringResource(R.string.search))},modifier=Modifier.fillMaxWidth(),singleLine=true,shape=RoundedCornerShape(24.dp),leadingIcon={Icon(Icons.Outlined.Search,null)}) }
         if(showSearch && (interpreted.category!=null || interpreted.from!=null || interpreted.below!=null || interpreted.status!=null))item(span={GridItemSpan(maxLineSpan)}) {
             Text(listOfNotNull(interpreted.category,interpreted.from?.let{"$it – ${interpreted.to}"},interpreted.below?.let{"< $code $it"},interpreted.status?.let{stringResource(statusLabel(it))}).joinToString(" · "),style=MaterialTheme.typography.bodySmall)
         }
@@ -65,44 +75,63 @@ import java.math.RoundingMode
                 Text(summary?.let{displayMoney(it.total)} ?: "—",fontSize=24.sp,fontWeight=FontWeight.Bold)
                 if(!wishes){Label(R.string.daily_total);Text(formatCost(daily,code),fontSize=24.sp,fontWeight=FontWeight.Bold)}
             } else Row(Modifier.fillMaxWidth().padding(vertical=4.dp),horizontalArrangement=Arrangement.spacedBy(12.dp)) {
-                Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(6.dp)) { Label(if(wishes)R.string.budget else R.string.estimated_value);Text(summary?.let { displayMoney(it.total) } ?: "—",fontSize=22.sp,fontWeight=FontWeight.Bold) }
-                if(!wishes)Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(6.dp)) { Label(R.string.daily_total);Text(formatCost(daily,code),fontSize=22.sp,fontWeight=FontWeight.Bold) }
+                Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(4.dp)) { Label(if(wishes)R.string.budget else R.string.estimated_value);Text(summary?.let { displayMoney(it.total) } ?: "—",fontSize=20.sp,fontWeight=FontWeight.Bold) }
+                if(!wishes)Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(4.dp)) { Label(R.string.daily_total);Text(formatCost(daily,code),fontSize=20.sp,fontWeight=FontWeight.Bold) }
             }
             if(summary?.missing?.isNotEmpty()==true)Text(stringResource(R.string.incomplete_total)+" · "+summary.missing.joinToString(),fontSize=11.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)
             if(!wishes) {
                 HorizontalDivider(color=MaterialTheme.colorScheme.outlineVariant)
-                Row(horizontalArrangement=Arrangement.spacedBy(10.dp)) { listOf(Status.ACTIVE,Status.RETIRED,Status.SOLD).forEach { s->
-                    val n=scoped.count { it.status==s }
-                    Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(4.dp)) {
-                        Text(stringResource(statusLabel(s))+" $n",fontSize=11.sp,color=MaterialTheme.colorScheme.onSurfaceVariant,maxLines=1)
-                    }
-                } }
+                StatusCounts(scoped)
             }
         } }
         if(!wishes) {
-            item(span={GridItemSpan(maxLineSpan)}) { Row(Modifier.horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(22.dp)) {
-                (listOf<String?>(null)+source.map { it.category }.distinct()).forEach { c->Column(Modifier.clickable { category=c }.heightIn(min=48.dp).padding(vertical=9.dp),horizontalAlignment=Alignment.CenterHorizontally) {
-                    Text(c ?: stringResource(R.string.all),fontWeight=FontWeight.Bold,color=if(category==c)MaterialTheme.colorScheme.onSurface else MaterialTheme.colorScheme.onSurfaceVariant,fontSize=16.sp)
-                    Box(Modifier.width(28.dp).height(4.dp).clip(RoundedCornerShape(4.dp)).background(if(category==c)Lime else MaterialTheme.colorScheme.background))
-                } }
-            } }
-            item(span={GridItemSpan(maxLineSpan)}) { Row(verticalAlignment=Alignment.CenterVertically) {
-                Row(Modifier.weight(1f).horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+            item(span={GridItemSpan(maxLineSpan)}) {
+                Column {
+                    val allCategoriesLabel=stringResource(R.string.all_categories)
+                    if(largeText) ValueChoice(category,listOf<String?>(null)+source.map{it.category}.distinct(),R.string.category,{it ?: allCategoriesLabel}){category=it}
+                    Row(verticalAlignment=Alignment.CenterVertically) {
+                    if(largeText) Spacer(Modifier.weight(1f)) else Box(Modifier.weight(1f)) {
+                        val allCategories=stringResource(R.string.all_categories)
+                        ValueChoice(category,listOf<String?>(null)+source.map{it.category}.distinct(),R.string.category,{it ?: allCategories}){category=it}
+                    }
+                    IconButton(onClick={filters=true}){Icon(Icons.Outlined.FilterAlt,stringResource(R.string.filter))}
+                    IconButton(onClick={list=!list;vm.setting(preferencePrefix+"List",list.toString())}){Icon(if(list)Icons.Outlined.GridView else Icons.AutoMirrored.Outlined.ViewList,stringResource(R.string.layout))}
+                    }
+                }
+            }
+            item(span={GridItemSpan(maxLineSpan)}) {
+                Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(4.dp)) {
                     (listOf<Status?>(null)+Status.entries).forEach { s->SelectPill(stringResource(s?.let(::statusLabel) ?: R.string.all),status==s){status=s} }
                 }
-                IconButton(onClick={filters=true}){Icon(Icons.Outlined.FilterAlt,stringResource(R.string.filter))}
-                IconButton(onClick={list=!list}){Icon(if(list)Icons.Outlined.GridView else Icons.AutoMirrored.Outlined.ViewList,stringResource(R.string.layout))}
-            } }
+            }
+        }
+        if(hasFilters)item(span={GridItemSpan(maxLineSpan)}) {
+            Column {
+                Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(6.dp)) {
+                    @Composable fun ActiveFilter(label:String,onRemove:()->Unit) {
+                        InputChip(selected=true,onClick=onRemove,label={Text(label)},trailingIcon={Icon(Icons.Outlined.Close,stringResource(R.string.remove_active_filter,label))},shape=AlloyControlShape)
+                    }
+                    if(search.isNotBlank())ActiveFilter(stringResource(R.string.filter_search_label)+": "+search){search=""}
+                    category?.let{ActiveFilter(stringResource(R.string.category)+": "+it){category=null}}
+                    if(!wishes)status?.let{ActiveFilter(stringResource(statusLabel(it))){status=null}}
+                    location?.let{ActiveFilter(stringResource(R.string.location_label)+": "+it){location=null}}
+                    collection?.let{ActiveFilter(stringResource(R.string.collection_filter)+": "+it){collection=null}}
+                    tag?.let{ActiveFilter(stringResource(R.string.tag_title)+": "+it){tag=null}}
+                }
+                TextButton(onClick=clearFilters){Text(stringResource(R.string.clear_search_filters))}
+            }
         }
         if(sort==CollectionSort.DAILY_COST && items.any{CollectionQuery.dailyCost(it,today,code,vm.fxRates())==null})item(span={GridItemSpan(maxLineSpan)}){Text(stringResource(R.string.sort_unavailable),style=MaterialTheme.typography.bodySmall,color=MaterialTheme.colorScheme.onSurfaceVariant)}
-        if(items.isEmpty()) item(span={GridItemSpan(maxLineSpan)}) { Column(Modifier.fillMaxWidth().padding(vertical=48.dp),horizontalAlignment=Alignment.CenterHorizontally) {
-            AssetArt(Asset("box","preview","",Money(0,code),today.toString(),icon="package:3d"),Modifier.size(84.dp))
-            Text(stringResource(if(source.isEmpty())if(wishes)R.string.empty_wish else R.string.empty else R.string.no_results),Modifier.padding(top=16.dp),fontWeight=FontWeight.Bold)
-            TextButton(onClick=onAdd){Text(stringResource(R.string.empty_hint),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)}
+        if(items.isEmpty()) item(span={GridItemSpan(maxLineSpan)}) { Column(Modifier.fillMaxWidth().padding(vertical=24.dp),horizontalAlignment=Alignment.CenterHorizontally) {
+            AssetArt(Asset("box","preview","",Money(0,code),today.toString(),icon="package:3d"),Modifier.size(60.dp))
+            Text(stringResource(if(allSource.isEmpty())if(wishes)R.string.empty_wish else R.string.empty else R.string.no_results),Modifier.padding(top=8.dp),fontWeight=FontWeight.Bold)
+            if(allSource.isNotEmpty() && hasFilters) TextButton(onClick=clearFilters){Text(stringResource(R.string.reset_search_filters))}
+            else TextButton(onClick=onAdd){Text(stringResource(R.string.empty_hint),fontSize=12.sp,color=MaterialTheme.colorScheme.onSurfaceVariant)}
         } }
         items(items,key={it.id}) { a ->
+            val itemMotion=Modifier.animateItem(fadeInSpec=if(motionEnabled)tween(MotionDurationMillis) else null,placementSpec=if(motionEnabled)tween(MotionDurationMillis) else null,fadeOutSpec=if(motionEnabled)tween(MotionDurationMillis) else null)
             val cost=runCatching { CostCalculator.calculate(a,today) }.getOrNull()
-            if(wishes)Panel(Modifier.fillMaxWidth()) {
+            if(wishes)Panel(itemMotion.fillMaxWidth()) {
                 Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
                     AssetArt(a,Modifier.size(96.dp).clickable{onOpen(a)})
                     Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(4.dp)) {
@@ -111,7 +140,7 @@ import java.math.RoundingMode
                         OutlinedButton(onClick={onPurchase(a)}){Text(stringResource(R.string.purchase_wish),fontSize=12.sp)}
                     }
                 }
-            } else if(list || largeText)Surface(shape=AlloyPanelShape,color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
+            } else if(list || largeText)Surface(modifier=itemMotion,shape=AlloyPanelShape,color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
                 Row(Modifier.fillMaxWidth().combinedClickable(onClick={onOpen(a)},onLongClick={menu=a}).padding(LocalLayoutDensity.current.panelPadding.dp),verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(14.dp)) {
                     AssetArt(a,Modifier.size(64.dp))
                     Column(Modifier.weight(1f),verticalArrangement=Arrangement.spacedBy(5.dp)) {
@@ -122,7 +151,7 @@ import java.math.RoundingMode
                     Icon(Icons.Outlined.ChevronRight,null,Modifier.size(18.dp),tint=MaterialTheme.colorScheme.onSurfaceVariant)
                 }
             } else
-            Surface(shape=AlloyPanelShape,color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
+            Surface(modifier=itemMotion,shape=AlloyPanelShape,color=MaterialTheme.colorScheme.surface,border=BorderStroke(0.7.dp,MaterialTheme.colorScheme.outlineVariant)) {
                 Column(Modifier.combinedClickable(onClick={onOpen(a)},onLongClick={menu=a}).padding(LocalLayoutDensity.current.panelPadding.dp),verticalArrangement=Arrangement.spacedBy(6.dp)) {
                     Box(Modifier.fillMaxWidth().height(LocalLayoutDensity.current.artworkHeight.dp)) {
                         AssetArt(a,Modifier.fillMaxSize().padding(top=22.dp).align(Alignment.BottomCenter))
@@ -165,7 +194,7 @@ import java.math.RoundingMode
                 SettingRow(stringResource(R.string.ascending),trailing={Switch(draftAscending,{draftAscending=it})})
                 Row(horizontalArrangement=Arrangement.spacedBy(12.dp)){
                     OutlinedButton(onClick={draftLocation=null;draftCollection=null;draftTag=null;draftCategory=null;draftStatus=null;draftSort=CollectionSort.PURCHASE_DATE;draftAscending=false},modifier=Modifier.weight(1f)){Text(stringResource(R.string.reset))}
-                    Button(onClick={location=draftLocation;collection=draftCollection;tag=draftTag;category=draftCategory;status=draftStatus;sort=draftSort;ascending=draftAscending;filters=false},modifier=Modifier.weight(1f)){Text(stringResource(R.string.apply))}
+                    Button(onClick={location=draftLocation;collection=draftCollection;tag=draftTag;category=draftCategory;status=draftStatus;sort=draftSort;ascending=draftAscending;vm.setting(preferencePrefix+"Sort",sort.name);vm.setting(preferencePrefix+"Ascending",ascending.toString());filters=false},modifier=Modifier.weight(1f)){Text(stringResource(R.string.apply))}
                 }
             }
         }

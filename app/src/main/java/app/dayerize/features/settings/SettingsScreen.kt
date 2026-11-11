@@ -27,7 +27,7 @@ import java.math.BigDecimal
     }
     var profile by remember{mutableStateOf(false)}
     var rates by remember { mutableStateOf(false) };var categories by remember { mutableStateOf(false) };var licenses by remember { mutableStateOf(false) };var tagDialog by remember { mutableStateOf(false) }
-    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=150.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
+    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(start=16.dp,end=16.dp,bottom=24.dp),verticalArrangement=Arrangement.spacedBy(8.dp)) {
         ScreenHeading(stringResource(R.string.settings))
         Panel(Modifier.fillMaxWidth()) {
             Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(12.dp)) {
@@ -39,7 +39,12 @@ import java.math.BigDecimal
         Label(R.string.numbers_units)
         Panel(Modifier.fillMaxWidth()) {
             Choice(state.config["currency"] ?: "MYR",currencies,R.string.reporting_currency){vm.setting("currency",it)}
-            Choice(state.config["decimals"] ?: "2",listOf("0","1","2","3"),R.string.decimals){vm.setting("decimals",it)}
+            Label(R.string.decimals)
+            Row(Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+                listOf("0","1","2","3").forEach { value ->
+                    FilterChip(shape=AlloyControlShape,selected=(state.config["decimals"] ?: "2")==value,onClick={vm.setting("decimals",value)},label={Text(value)},colors=FilterChipDefaults.filterChipColors(selectedContainerColor=MaterialTheme.colorScheme.primary,selectedLabelColor=MaterialTheme.colorScheme.onPrimary),modifier=Modifier.sizeIn(minWidth=48.dp,minHeight=48.dp))
+                }
+            }
             SettingRow(stringResource(R.string.grouping),icon=Icons.Outlined.Numbers,trailing={Switch(state.config["grouping"]!="false",{vm.setting("grouping",it.toString())})})
             SettingRow(stringResource(R.string.rates),icon=Icons.Outlined.CurrencyExchange,onClick={rates=true})
         }
