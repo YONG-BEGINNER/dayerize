@@ -18,7 +18,10 @@
 - Delete from the quick-action sheet uses a confirmation dialog rather than an undo snackbar.
 
 ## Delivery
-Version 0.5.0 / code 11. Source only; no APK has been built or published for this version. Physical-device testing and on-device frame-rate measurement remain outstanding.
+Version 0.5.0 / code 11, ARM64, Android 8+. Debug build signed with a fresh debug key, so it cannot upgrade an installation signed with a different key; uninstall the older build first (export a backup beforehand). Physical-device testing and on-device frame-rate measurement remain outstanding.
+
+APK: `downloads/Dayerize-0.5.0-arm64-debug.apk`
+SHA-256: `d4425fa85194d03a4ddad9069652cfe38926609ee8e2dfc4e6c72b616db5d5a3`
 
 ## Verification
 102 host tests passed (44 core, 1 imaging, 57 app), no failures, errors or skips. This includes five new tests: latest-rate lookup, the due-soon panel, quick actions, and reporting-currency card costs. Lint: 0 errors, 44 warnings. Fluency changes were verified for unchanged behaviour by the existing tests; frame rates were not measured.
